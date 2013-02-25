@@ -33,7 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D34ACC1416DA547C00607AD7 /* Transmission-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Transmission-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D34ACC1416DA547C00607AD7 /* Transmission.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transmission.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D34ACC1716DA547C00607AD7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D34ACC1916DA547C00607AD7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D34ACC1B16DA547C00607AD7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -72,6 +72,7 @@
 		D34ACC5916DA566000607AD7 /* BPTransmissionClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPTransmissionClient.m; sourceTree = "<group>"; };
 		D34ACC5B16DA5F8E00607AD7 /* BPTorrentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPTorrentTableViewController.h; sourceTree = "<group>"; };
 		D34ACC5C16DA5F8E00607AD7 /* BPTorrentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPTorrentTableViewController.m; sourceTree = "<group>"; };
+		D38A466316DAC54E0012671E /* transmission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = transmission.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +105,7 @@
 		D34ACC1516DA547C00607AD7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D34ACC1416DA547C00607AD7 /* Transmission-iOS.app */,
+				D34ACC1416DA547C00607AD7 /* Transmission.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -154,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				D34ACC3516DA560400607AD7 /* AFNetworking */,
+				D38A466216DAC54E0012671E /* libtransmission */,
 			);
 			name = 3rdParty;
 			sourceTree = "<group>";
@@ -185,6 +187,15 @@
 			path = 3rdParty/AFNetworking/AFNetworking;
 			sourceTree = "<group>";
 		};
+		D38A466216DAC54E0012671E /* libtransmission */ = {
+			isa = PBXGroup;
+			children = (
+				D38A466316DAC54E0012671E /* transmission.h */,
+			);
+			name = libtransmission;
+			path = 3rdParty/libtransmission;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -202,7 +213,7 @@
 			);
 			name = Transmission;
 			productName = "Transmission-iOS";
-			productReference = D34ACC1416DA547C00607AD7 /* Transmission-iOS.app */;
+			productReference = D34ACC1416DA547C00607AD7 /* Transmission.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -378,6 +389,7 @@
 				D34ACC3316DA547C00607AD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
