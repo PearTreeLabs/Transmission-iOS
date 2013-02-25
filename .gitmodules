@@ -1,3 +1,6 @@
 [submodule "3rdParty/AFNetworking"]
 	path = 3rdParty/AFNetworking
 	url = git@github.com:AFNetworking/AFNetworking.git
+[submodule "3rdParty/SSKeychain"]
+	path = 3rdParty/SSKeychain
+	url = git@github.com:soffes/sskeychain.git
