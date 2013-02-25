@@ -6,11 +6,16 @@ A [Transmission](http://www.transmissionbt.com) client for iOS.
 
 ## Usage
 
-Build and run the project using Xcode.
+- Load submodules
 
-## Known Issues
+        git submodule --init --recursive update
 
+- Build and run the project using Xcode.
 
+## Dependencies
+
+- AFNetworking
+- SSKeychain
 
 ## License
 
