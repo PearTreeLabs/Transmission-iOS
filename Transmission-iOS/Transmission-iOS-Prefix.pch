@@ -13,6 +13,7 @@
     #import <Foundation/Foundation.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 #import <MobileCoreServices/MobileCoreServices.h>
+#import "BPFoundation.h"
 #endif
 
 #ifdef DEBUG

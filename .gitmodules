@@ -4,3 +4,6 @@
 [submodule "3rdParty/SSKeychain"]
 	path = 3rdParty/SSKeychain
 	url = git@github.com:soffes/sskeychain.git
+[submodule "3rdParty/BPFoundation"]
+	path = 3rdParty/BPFoundation
+	url = git@github.com:brianpartridge/BPFoundation.git
