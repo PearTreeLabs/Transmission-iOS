@@ -28,6 +28,10 @@ static NSString * const kBPTransmissionSessionIdHeader = @"X-Transmission-Sessio
     return [self defaultValueForHeader:kBPTransmissionSessionIdHeader];
 }
 
+- (BOOL)isConnected {
+    return (self.sessionId != nil);
+}
+
 + (instancetype)clientForHost:(NSString *)hostAddress port:(NSInteger)port {
     NSString *scheme = @"http";
     NSString *path = @"/transmission/rpc";
@@ -36,6 +40,8 @@ static NSString * const kBPTransmissionSessionIdHeader = @"X-Transmission-Sessio
     return client;
 }
 
+#pragma mark - Connection
+
 - (NSOperation *)connect:(BPPlainBlock)completionBlock error:(BPErrorBlock)errorBlock {
     return [self retrieveSessionId:completionBlock error:errorBlock];
 }
@@ -43,6 +49,8 @@ static NSString * const kBPTransmissionSessionIdHeader = @"X-Transmission-Sessio
 - (void)disconnect {
     self.sessionId = nil;
 }
+
+#pragma mark - Auth
 
 - (NSOperation *)retrieveSessionId:(BPPlainBlock)completionBlock error:(BPErrorBlock)errorBlock {
     NSMutableURLRequest *request = [self requestWithMethod:@"POST"
@@ -62,6 +70,8 @@ static NSString * const kBPTransmissionSessionIdHeader = @"X-Transmission-Sessio
     [self enqueueHTTPRequestOperation:op];
     return op;
 }
+
+#pragma mark - Retrieval
 
 - (NSOperation *)retrieveTorrents:(NSDictionary *)options completion:(BPTorrentsBlock)completionBlock error:(BPErrorBlock)errorBlock {
     NSMutableURLRequest *request = [self requestWithMethod:@"POST"
@@ -84,7 +94,54 @@ static NSString * const kBPTransmissionSessionIdHeader = @"X-Transmission-Sessio
     }];
     [self enqueueHTTPRequestOperation:op];
     return op;
-    return nil;
+}
+
+#pragma mark - Start / Stop
+
+- (NSOperation *)startTorrent:(NSString *)torrentId completion:(BPPlainBlock)completionBlock error:(BPErrorBlock)errorBlock {
+    NSMutableURLRequest *request = [self requestWithMethod:@"POST"
+                                                      path:nil
+                                                parameters:nil];
+    NSDictionary *params = @{
+                             @"method" : @"tr_torrentStart",
+                             @"arguments" : @{ @"ids" : @[ torrentId ] }
+                             };
+    request.HTTPBody = [NSJSONSerialization dataWithJSONObject:params options:0 error:nil];
+    AFJSONRequestOperation *op = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        DLog(@"JSON = %@", JSON);
+        if (completionBlock != nil) {
+            completionBlock();
+        }
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        if (errorBlock != nil) {
+            errorBlock(error);
+        }
+    }];
+    [self enqueueHTTPRequestOperation:op];
+    return op;
+}
+
+- (NSOperation *)stopTorrent:(NSString *)torrentId completion:(BPPlainBlock)completionBlock error:(BPErrorBlock)errorBlock {
+    NSMutableURLRequest *request = [self requestWithMethod:@"POST"
+                                                      path:nil
+                                                parameters:nil];
+    NSDictionary *params = @{
+                             @"method" : @"tr_torrentStop",
+                             @"arguments" : @{ @"ids" : @[ torrentId ] }
+                             };
+    request.HTTPBody = [NSJSONSerialization dataWithJSONObject:params options:0 error:nil];
+    AFJSONRequestOperation *op = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        DLog(@"JSON = %@", JSON);
+        if (completionBlock != nil) {
+            completionBlock();
+        }
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        if (errorBlock != nil) {
+            errorBlock(error);
+        }
+    }];
+    [self enqueueHTTPRequestOperation:op];
+    return op;
 }
 
 @end
