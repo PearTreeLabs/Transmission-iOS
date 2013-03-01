@@ -20,6 +20,14 @@ static NSString * const kBPTransmissionSessionIdHeader = @"X-Transmission-Sessio
 
 @implementation BPTransmissionClient
 
++ (void)load {
+    NSInteger sessionNeededStatusCode = 409;
+    [AFHTTPRequestOperation addAcceptableStatusCodes:[NSIndexSet indexSetWithIndex:sessionNeededStatusCode]];
+    [AFJSONRequestOperation addAcceptableStatusCodes:[NSIndexSet indexSetWithIndex:sessionNeededStatusCode]];
+}
+
+#pragma mark - Properties
+
 - (void)setSessionId:(NSString *)sessionId {
     [self setDefaultHeader:kBPTransmissionSessionIdHeader value:sessionId];
 }
@@ -42,21 +50,15 @@ static NSString * const kBPTransmissionSessionIdHeader = @"X-Transmission-Sessio
 
 #pragma mark - Connection
 
-- (NSOperation *)connect:(BPPlainBlock)completionBlock error:(BPErrorBlock)errorBlock {
-    return [self retrieveSessionId:completionBlock error:errorBlock];
-}
-
-- (void)disconnect {
-    self.sessionId = nil;
-}
-
-#pragma mark - Auth
-
-- (NSOperation *)retrieveSessionId:(BPPlainBlock)completionBlock error:(BPErrorBlock)errorBlock {
+- (NSOperation *)connectAsUser:(NSString *)username password:(NSString *)password completion:(BPPlainBlock)completionBlock error:(BPErrorBlock)errorBlock {
+    if (username != nil &&
+        password != nil) {
+        [self setAuthorizationHeaderWithUsername:username password:password];
+    }
     NSMutableURLRequest *request = [self requestWithMethod:@"POST"
                                                       path:nil
                                                 parameters:nil];
-    [AFHTTPRequestOperation addAcceptableStatusCodes:[NSIndexSet indexSetWithIndex:409]];
+
     AFHTTPRequestOperation *op = [self HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.sessionId = [operation.response.allHeaderFields objectForKey:kBPTransmissionSessionIdHeader];
         if (completionBlock != nil) {
@@ -69,6 +71,10 @@ static NSString * const kBPTransmissionSessionIdHeader = @"X-Transmission-Sessio
     }];
     [self enqueueHTTPRequestOperation:op];
     return op;
+}
+
+- (void)disconnect {
+    self.sessionId = nil;
 }
 
 #pragma mark - Retrieval

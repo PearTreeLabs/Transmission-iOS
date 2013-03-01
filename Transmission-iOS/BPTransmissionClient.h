@@ -19,7 +19,7 @@ typedef void(^BPErrorBlock)(NSError *error);
 
 + (instancetype)clientForHost:(NSString *)hostAddress port:(NSInteger)port;
 
-- (NSOperation *)connect:(BPPlainBlock)completionBlock error:(BPErrorBlock)errorBlock;
+- (NSOperation *)connectAsUser:(NSString *)username password:(NSString *)password completion:(BPPlainBlock)completionBlock error:(BPErrorBlock)errorBlock;
 - (void)disconnect;
 
 - (NSOperation *)retrieveTorrents:(NSDictionary *)options completion:(BPTorrentsBlock)completionBlock error:(BPErrorBlock)errorBlock;

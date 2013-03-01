@@ -18,13 +18,16 @@
 
 @implementation BPTorrentTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+- (id)initWithTransmissionClient:(BPTransmissionClient *)client {
+	self = [super initWithStyle:UITableViewStylePlain];
+	if (!self) {
+        return nil;
+	}
+
+	_client = client;
+    _torrents = @[];
+
+	return self;
 }
 
 - (void)viewDidLoad
@@ -36,8 +39,8 @@
     UIBarButtonItem *refresh = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshTapped:)];
     self.navigationItem.rightBarButtonItem = refresh;
 
-    self.torrents = @[];
-    self.client = [BPTransmissionClient clientForHost:@"" port:0];
+    UIBarButtonItem *settings = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStyleBordered target:self action:@selector(settingsTapped:)];
+    self.navigationItem.leftBarButtonItem = settings;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -62,18 +65,13 @@
     [self refreshTorrents];
 }
 
+- (void)settingsTapped:(id)sender {
+
+}
+
 #pragma mark - Data Mgmt
 
 - (void)refreshTorrents {
-    if (!self.client.isConnected) {
-        [self.client connect:^{
-            [self refreshTorrents];
-        } error:^(NSError *error) {
-            DLog(@"connection error: %@", error);
-        }];
-        return;
-    }
-
     [self.client retrieveTorrents:nil completion:^(NSArray *torrents) {
         DLog(@"torrents: %@", torrents);
         torrents = [torrents sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *lhs, NSDictionary *rhs) {

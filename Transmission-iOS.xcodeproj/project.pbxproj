@@ -30,7 +30,28 @@
 		D34ACC5716DA561D00607AD7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34ACC5616DA561D00607AD7 /* SystemConfiguration.framework */; };
 		D34ACC5A16DA566000607AD7 /* BPTransmissionClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D34ACC5916DA566000607AD7 /* BPTransmissionClient.m */; };
 		D34ACC5D16DA5F8E00607AD7 /* BPTorrentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34ACC5C16DA5F8E00607AD7 /* BPTorrentTableViewController.m */; };
+		D34C0A5E16E050C500AAFB93 /* BPConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C0A5C16E050C500AAFB93 /* BPConnectionViewController.m */; };
+		D34C0A5F16E050C500AAFB93 /* BPConnectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D34C0A5D16E050C500AAFB93 /* BPConnectionViewController.xib */; };
+		D34C0A6116E061FB00AAFB93 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34C0A6016E061FB00AAFB93 /* QuartzCore.framework */; };
+		D3BFB95416DB1F690052FFA4 /* libBPFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BFB94D16DB1F3C0052FFA4 /* libBPFoundation.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D3BFB94C16DB1F3C0052FFA4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3BFB94816DB1F3C0052FFA4 /* BPFoundation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D3966E71165D70E100B6D54E;
+			remoteInfo = BPFoundation;
+		};
+		D3BFB95216DB1F650052FFA4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3BFB94816DB1F3C0052FFA4 /* BPFoundation.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D3966E70165D70E100B6D54E;
+			remoteInfo = BPFoundation;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		D34ACC1416DA547C00607AD7 /* Transmission.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transmission.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,7 +93,12 @@
 		D34ACC5916DA566000607AD7 /* BPTransmissionClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPTransmissionClient.m; sourceTree = "<group>"; };
 		D34ACC5B16DA5F8E00607AD7 /* BPTorrentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPTorrentTableViewController.h; sourceTree = "<group>"; };
 		D34ACC5C16DA5F8E00607AD7 /* BPTorrentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPTorrentTableViewController.m; sourceTree = "<group>"; };
+		D34C0A5B16E050C500AAFB93 /* BPConnectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPConnectionViewController.h; sourceTree = "<group>"; };
+		D34C0A5C16E050C500AAFB93 /* BPConnectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPConnectionViewController.m; sourceTree = "<group>"; };
+		D34C0A5D16E050C500AAFB93 /* BPConnectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BPConnectionViewController.xib; sourceTree = "<group>"; };
+		D34C0A6016E061FB00AAFB93 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D38A466316DAC54E0012671E /* transmission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = transmission.h; sourceTree = "<group>"; };
+		D3BFB94816DB1F3C0052FFA4 /* BPFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BPFoundation.xcodeproj; path = 3rdParty/BPFoundation/BPFoundation.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +106,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D34C0A6116E061FB00AAFB93 /* QuartzCore.framework in Frameworks */,
+				D3BFB95416DB1F690052FFA4 /* libBPFoundation.a in Frameworks */,
 				D34ACC5716DA561D00607AD7 /* SystemConfiguration.framework in Frameworks */,
 				D34ACC5516DA561800607AD7 /* Security.framework in Frameworks */,
 				D34ACC5316DA561300607AD7 /* MobileCoreServices.framework in Frameworks */,
@@ -113,6 +141,7 @@
 		D34ACC1616DA547C00607AD7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D34C0A6016E061FB00AAFB93 /* QuartzCore.framework */,
 				D34ACC5616DA561D00607AD7 /* SystemConfiguration.framework */,
 				D34ACC5416DA561800607AD7 /* Security.framework */,
 				D34ACC5216DA561300607AD7 /* MobileCoreServices.framework */,
@@ -126,13 +155,12 @@
 		D34ACC1D16DA547C00607AD7 /* Transmission-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				D38D328716E0760300E5496D /* Clients */,
+				D34C0A5A16E050A200AAFB93 /* Controllers */,
+				D38D328616E075F000E5496D /* Views */,
 				D34ACC2616DA547C00607AD7 /* BPAppDelegate.h */,
 				D34ACC2716DA547C00607AD7 /* BPAppDelegate.m */,
 				D34ACC1E16DA547C00607AD7 /* Supporting Files */,
-				D34ACC5816DA566000607AD7 /* BPTransmissionClient.h */,
-				D34ACC5916DA566000607AD7 /* BPTransmissionClient.m */,
-				D34ACC5B16DA5F8E00607AD7 /* BPTorrentTableViewController.h */,
-				D34ACC5C16DA5F8E00607AD7 /* BPTorrentTableViewController.m */,
 			);
 			path = "Transmission-iOS";
 			sourceTree = "<group>";
@@ -155,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				D34ACC3516DA560400607AD7 /* AFNetworking */,
+				D3BFB94816DB1F3C0052FFA4 /* BPFoundation.xcodeproj */,
 				D38A466216DAC54E0012671E /* libtransmission */,
 			);
 			name = 3rdParty;
@@ -187,6 +216,17 @@
 			path = 3rdParty/AFNetworking/AFNetworking;
 			sourceTree = "<group>";
 		};
+		D34C0A5A16E050A200AAFB93 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D34C0A5B16E050C500AAFB93 /* BPConnectionViewController.h */,
+				D34C0A5C16E050C500AAFB93 /* BPConnectionViewController.m */,
+				D34ACC5B16DA5F8E00607AD7 /* BPTorrentTableViewController.h */,
+				D34ACC5C16DA5F8E00607AD7 /* BPTorrentTableViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		D38A466216DAC54E0012671E /* libtransmission */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +234,31 @@
 			);
 			name = libtransmission;
 			path = 3rdParty/libtransmission;
+			sourceTree = "<group>";
+		};
+		D38D328616E075F000E5496D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D34C0A5D16E050C500AAFB93 /* BPConnectionViewController.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		D38D328716E0760300E5496D /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				D34ACC5816DA566000607AD7 /* BPTransmissionClient.h */,
+				D34ACC5916DA566000607AD7 /* BPTransmissionClient.m */,
+			);
+			name = Clients;
+			sourceTree = "<group>";
+		};
+		D3BFB94916DB1F3C0052FFA4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D3BFB94D16DB1F3C0052FFA4 /* libBPFoundation.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +275,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				D3BFB95316DB1F650052FFA4 /* PBXTargetDependency */,
 			);
 			name = Transmission;
 			productName = "Transmission-iOS";
@@ -236,12 +302,28 @@
 			mainGroup = D34ACC0B16DA547B00607AD7;
 			productRefGroup = D34ACC1516DA547C00607AD7 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D3BFB94916DB1F3C0052FFA4 /* Products */;
+					ProjectRef = D3BFB94816DB1F3C0052FFA4 /* BPFoundation.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D34ACC1316DA547B00607AD7 /* Transmission */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D3BFB94D16DB1F3C0052FFA4 /* libBPFoundation.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libBPFoundation.a;
+			remoteRef = D3BFB94C16DB1F3C0052FFA4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D34ACC1216DA547B00607AD7 /* Resources */ = {
@@ -252,6 +334,7 @@
 				D34ACC2A16DA547C00607AD7 /* Default.png in Resources */,
 				D34ACC2C16DA547C00607AD7 /* Default@2x.png in Resources */,
 				D34ACC2E16DA547C00607AD7 /* Default-568h@2x.png in Resources */,
+				D34C0A5F16E050C500AAFB93 /* BPConnectionViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,10 +358,19 @@
 				D34ACC5116DA560400607AD7 /* UIImageView+AFNetworking.m in Sources */,
 				D34ACC5A16DA566000607AD7 /* BPTransmissionClient.m in Sources */,
 				D34ACC5D16DA5F8E00607AD7 /* BPTorrentTableViewController.m in Sources */,
+				D34C0A5E16E050C500AAFB93 /* BPConnectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D3BFB95316DB1F650052FFA4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BPFoundation;
+			targetProxy = D3BFB95216DB1F650052FFA4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D34ACC2016DA547C00607AD7 /* InfoPlist.strings */ = {
@@ -355,6 +447,7 @@
 				GCC_PREFIX_HEADER = "Transmission-iOS/Transmission-iOS-Prefix.pch";
 				INFOPLIST_FILE = "Transmission-iOS/Transmission-iOS-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = 3rdParty/BPFoundation/BPFoundation;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -366,6 +459,7 @@
 				GCC_PREFIX_HEADER = "Transmission-iOS/Transmission-iOS-Prefix.pch";
 				INFOPLIST_FILE = "Transmission-iOS/Transmission-iOS-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = 3rdParty/BPFoundation/BPFoundation;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

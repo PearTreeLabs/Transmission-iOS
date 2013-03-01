@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BPTransmissionClient.h"
 
 @interface BPTorrentTableViewController : UITableViewController
+
+- (id)initWithTransmissionClient:(BPTransmissionClient *)client;
 
 @end

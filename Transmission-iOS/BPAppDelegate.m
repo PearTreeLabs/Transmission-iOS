@@ -7,7 +7,7 @@
 //
 
 #import "BPAppDelegate.h"
-#import "BPTorrentTableViewController.h"
+#import "BPConnectionViewController.h"
 
 @implementation BPAppDelegate
 
@@ -17,10 +17,9 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
 
-    BPTorrentTableViewController *vc = [[BPTorrentTableViewController alloc] initWithStyle:UITableViewStylePlain];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    self.window.rootViewController = nav;
-    
+    BPConnectionViewController *vc = [[BPConnectionViewController alloc] initWithNibName:NSStringFromClass([BPConnectionViewController class]) bundle:nil];
+    self.window.rootViewController = vc;
+
     [self.window makeKeyAndVisible];
     return YES;
 }

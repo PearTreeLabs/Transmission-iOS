@@ -15,7 +15,7 @@ A [Transmission](http://www.transmissionbt.com) client for iOS.
 ## Dependencies
 
 - AFNetworking
-- SSKeychain
+- BPFoundation
 
 ## License
 
