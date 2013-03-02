@@ -73,11 +73,8 @@
 
 - (void)refreshTorrents {
     [self.client retrieveTorrents:nil completion:^(NSArray *torrents) {
-        DLog(@"torrents: %@", torrents);
-        torrents = [torrents sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *lhs, NSDictionary *rhs) {
-            return [[lhs objectForKey:@"name"] compare:[rhs objectForKey:@"name"]];
-        }];
-        self.torrents = torrents;
+        NSSortDescriptor *nameDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+        self.torrents = [torrents sortedArrayUsingDescriptors:@[ nameDescriptor ]];
         [self.tableView reloadData];
     } error:^(NSError *error) {
         DLog(@"retrieval error: %@", error);
@@ -95,37 +92,36 @@
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *torrent = [self.torrents objectAtIndex:indexPath.row];
-    cell.textLabel.text = [torrent objectForKey:@"name"];
+    Torrent *torrent = [self.torrents objectAtIndex:indexPath.row];
+    cell.textLabel.text = torrent.name;
     cell.textLabel.font = [UIFont systemFontOfSize:14];
 
-    NSString *subtitle = nil;
-    tr_torrent_activity status = ((NSNumber *)[torrent objectForKey:@"status"]).intValue;
-    switch (status) {
-        case TR_STATUS_STOPPED:
-            subtitle = @"stopped";
-            break;
-        case TR_STATUS_CHECK:
-            subtitle = @"checking";
-            break;
-        case TR_STATUS_CHECK_WAIT:
-            subtitle = @"check pending";
-            break;
-        case TR_STATUS_DOWNLOAD:
-            subtitle = @"downloading";
-            break;
-        case TR_STATUS_DOWNLOAD_WAIT:
-            subtitle = @"download pending";
-            break;
-        case TR_STATUS_SEED:
-            subtitle = @"seeding";
-            break;
-        case TR_STATUS_SEED_WAIT:
-            subtitle = @"seeding pending";
-            break;
-        default:
-            break;
+    NSString *state = nil;
+    CGFloat uploadRate = -1;
+    CGFloat downloadRate = -1;
+    if (torrent.isSeeding) {
+        state = @"seeding";
+        uploadRate = torrent.uploadRate;
+    } else if (torrent.isChecking) {
+        state = @"checking";
+    } else if (torrent.isFinishedSeeding) {
+        state = @"done";
+    } else if (torrent.isActive) {
+        state = @"active";
+        uploadRate = torrent.uploadRate;
+        downloadRate = torrent.downloadRate;
+    } else {
+        state = @"inactive";
     }
+
+    NSMutableString *subtitle = [NSMutableString stringWithString:state];
+    if (uploadRate != -1) {
+        [subtitle appendFormat:@" ▲ %.0f KB/s", uploadRate];
+    }
+    if (downloadRate != -1) {
+        [subtitle appendFormat:@" ▼ %.0f KB/s", downloadRate];
+    }
+
     cell.detailTextLabel.text = subtitle;
 }
 

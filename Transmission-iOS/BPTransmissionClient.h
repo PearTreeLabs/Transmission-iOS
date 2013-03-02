@@ -8,6 +8,7 @@
 
 #import "AFHTTPClient.h"
 #import "transmission.h"
+#import "Torrent.h"
 
 typedef void(^BPPlainBlock)(void);
 typedef void(^BPTorrentsBlock)(NSArray *torrents);

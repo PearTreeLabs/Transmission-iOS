@@ -85,11 +85,16 @@ static NSString * const kBPTransmissionSessionIdHeader = @"X-Transmission-Sessio
                                                 parameters:nil];
     NSDictionary *params = @{
                              @"method" : @"torrent-get",
-                             @"arguments" : @{ @"fields" : @[ @"id", @"name", @"status" ] }
+                             @"arguments" : @{ @"fields" : @[ @"id", @"name", @"status", @"totalSize", @"uploadRatio", @"leftUntilDone", @"percentDone", @"recheckProgress", @"desiredAvailable", @"isFinished", @"error", @"errorString", @"rateDownload", @"rateUpload" ] }
                              };
     request.HTTPBody = [NSJSONSerialization dataWithJSONObject:params options:0 error:nil];
     AFJSONRequestOperation *op = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        NSArray *torrents = [[JSON objectForKey:@"arguments"] objectForKey:@"torrents"];
+        NSArray *dicts = [[JSON objectForKey:@"arguments"] objectForKey:@"torrents"];
+        NSMutableArray *torrents = [NSMutableArray arrayWithCapacity:dicts.count];
+        for (NSDictionary *dict in dicts) {
+            Torrent *torrent = [[Torrent alloc] initWithTorrentDictionary:dict];
+            [torrents addObject:torrent];
+        }
         if (completionBlock != nil) {
             completionBlock(torrents);
         }
