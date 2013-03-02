@@ -33,6 +33,7 @@
 		D34C0A5E16E050C500AAFB93 /* BPConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C0A5C16E050C500AAFB93 /* BPConnectionViewController.m */; };
 		D34C0A5F16E050C500AAFB93 /* BPConnectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D34C0A5D16E050C500AAFB93 /* BPConnectionViewController.xib */; };
 		D34C0A6116E061FB00AAFB93 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34C0A6016E061FB00AAFB93 /* QuartzCore.framework */; };
+		D38698B516E2A01300EDCC43 /* Torrent.m in Sources */ = {isa = PBXBuildFile; fileRef = D38698B416E2A01300EDCC43 /* Torrent.m */; };
 		D3BFB95416DB1F690052FFA4 /* libBPFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BFB94D16DB1F3C0052FFA4 /* libBPFoundation.a */; };
 /* End PBXBuildFile section */
 
@@ -97,7 +98,9 @@
 		D34C0A5C16E050C500AAFB93 /* BPConnectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPConnectionViewController.m; sourceTree = "<group>"; };
 		D34C0A5D16E050C500AAFB93 /* BPConnectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BPConnectionViewController.xib; sourceTree = "<group>"; };
 		D34C0A6016E061FB00AAFB93 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		D38A466316DAC54E0012671E /* transmission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = transmission.h; sourceTree = "<group>"; };
+		D38698B116E2A01300EDCC43 /* transmission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = transmission.h; sourceTree = "<group>"; };
+		D38698B316E2A01300EDCC43 /* Torrent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Torrent.h; sourceTree = "<group>"; };
+		D38698B416E2A01300EDCC43 /* Torrent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Torrent.m; sourceTree = "<group>"; };
 		D3BFB94816DB1F3C0052FFA4 /* BPFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BPFoundation.xcodeproj; path = 3rdParty/BPFoundation/BPFoundation.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -184,7 +187,7 @@
 			children = (
 				D34ACC3516DA560400607AD7 /* AFNetworking */,
 				D3BFB94816DB1F3C0052FFA4 /* BPFoundation.xcodeproj */,
-				D38A466216DAC54E0012671E /* libtransmission */,
+				D38698AF16E2A01300EDCC43 /* transmission */,
 			);
 			name = 3rdParty;
 			sourceTree = "<group>";
@@ -227,13 +230,62 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		D38A466216DAC54E0012671E /* libtransmission */ = {
+		D386989616E2958700EDCC43 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D38A466316DAC54E0012671E /* transmission.h */,
+				D386989716E2958700EDCC43 /* Icon */,
+				D38698A316E2958700EDCC43 /* Images */,
 			);
-			name = libtransmission;
-			path = 3rdParty/libtransmission;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D386989716E2958700EDCC43 /* Icon */ = {
+			isa = PBXGroup;
+			children = (
+				D386989916E2958700EDCC43 /* Icon-72.png */,
+				D386989A16E2958700EDCC43 /* Icon-72@2x.png */,
+				D386989B16E2958700EDCC43 /* Icon-Small-50.png */,
+				D386989C16E2958700EDCC43 /* Icon-Small-50@2x.png */,
+				D386989D16E2958700EDCC43 /* Icon-Small.png */,
+				D386989E16E2958700EDCC43 /* Icon-Small@2x.png */,
+				D386989F16E2958700EDCC43 /* Icon.png */,
+				D38698A016E2958700EDCC43 /* Icon@2x.png */,
+			);
+			path = Icon;
+			sourceTree = "<group>";
+		};
+		D38698A316E2958700EDCC43 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		D38698AF16E2A01300EDCC43 /* transmission */ = {
+			isa = PBXGroup;
+			children = (
+				D38698B016E2A01300EDCC43 /* libtransmission */,
+				D38698B216E2A01300EDCC43 /* macosx */,
+			);
+			name = transmission;
+			path = 3rdParty/transmission;
+			sourceTree = "<group>";
+		};
+		D38698B016E2A01300EDCC43 /* libtransmission */ = {
+			isa = PBXGroup;
+			children = (
+				D38698B116E2A01300EDCC43 /* transmission.h */,
+			);
+			path = libtransmission;
+			sourceTree = "<group>";
+		};
+		D38698B216E2A01300EDCC43 /* macosx */ = {
+			isa = PBXGroup;
+			children = (
+				D38698B316E2A01300EDCC43 /* Torrent.h */,
+				D38698B416E2A01300EDCC43 /* Torrent.m */,
+			);
+			path = macosx;
 			sourceTree = "<group>";
 		};
 		D38D328616E075F000E5496D /* Views */ = {
@@ -359,6 +411,7 @@
 				D34ACC5A16DA566000607AD7 /* BPTransmissionClient.m in Sources */,
 				D34ACC5D16DA5F8E00607AD7 /* BPTorrentTableViewController.m in Sources */,
 				D34C0A5E16E050C500AAFB93 /* BPConnectionViewController.m in Sources */,
+				D38698B516E2A01300EDCC43 /* Torrent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
