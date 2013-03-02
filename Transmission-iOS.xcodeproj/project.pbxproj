@@ -44,6 +44,10 @@
 		D35955F916E4028600C91ACC /* BPTorrentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D35955F816E4028600C91ACC /* BPTorrentCell.xib */; };
 		D35955FC16E40D0C00C91ACC /* UIColor+Progress.m in Sources */ = {isa = PBXBuildFile; fileRef = D35955FB16E40D0C00C91ACC /* UIColor+Progress.m */; };
 		D35955FF16E40E3C00C91ACC /* BPProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D35955FE16E40E3C00C91ACC /* BPProgressView.m */; };
+		D360A83F16EBE1B9001B9AF0 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = D360A83416EBE1B9001B9AF0 /* Icon-72.png */; };
+		D360A84016EBE1B9001B9AF0 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D360A83516EBE1B9001B9AF0 /* Icon-72@2x.png */; };
+		D360A84516EBE1B9001B9AF0 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D360A83A16EBE1B9001B9AF0 /* Icon.png */; };
+		D360A84616EBE1B9001B9AF0 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D360A83B16EBE1B9001B9AF0 /* Icon@2x.png */; };
 		D38698B516E2A01300EDCC43 /* Torrent.m in Sources */ = {isa = PBXBuildFile; fileRef = D38698B416E2A01300EDCC43 /* Torrent.m */; };
 		D3BFB95416DB1F690052FFA4 /* libBPFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BFB94D16DB1F3C0052FFA4 /* libBPFoundation.a */; };
 		D3EC4B7B16E2C1DD006885F8 /* BPTorrentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EC4B7A16E2C1DD006885F8 /* BPTorrentCell.m */; };
@@ -123,6 +127,10 @@
 		D35955FB16E40D0C00C91ACC /* UIColor+Progress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Progress.m"; sourceTree = "<group>"; };
 		D35955FD16E40E3C00C91ACC /* BPProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPProgressView.h; sourceTree = "<group>"; };
 		D35955FE16E40E3C00C91ACC /* BPProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPProgressView.m; sourceTree = "<group>"; };
+		D360A83416EBE1B9001B9AF0 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		D360A83516EBE1B9001B9AF0 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
+		D360A83A16EBE1B9001B9AF0 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		D360A83B16EBE1B9001B9AF0 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		D38698B116E2A01300EDCC43 /* transmission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = transmission.h; sourceTree = "<group>"; };
 		D38698B316E2A01300EDCC43 /* Torrent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Torrent.h; sourceTree = "<group>"; };
 		D38698B416E2A01300EDCC43 /* Torrent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Torrent.m; sourceTree = "<group>"; };
@@ -208,6 +216,7 @@
 				D34ACC1E16DA547C00607AD7 /* Supporting Files */,
 				D35955FA16E40D0C00C91ACC /* UIColor+Progress.h */,
 				D35955FB16E40D0C00C91ACC /* UIColor+Progress.m */,
+				D360A83116EBE1B9001B9AF0 /* Resources */,
 			);
 			path = "Transmission-iOS";
 			sourceTree = "<group>";
@@ -272,6 +281,25 @@
 				D34ACC5C16DA5F8E00607AD7 /* BPTorrentTableViewController.m */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D360A83116EBE1B9001B9AF0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D360A83216EBE1B9001B9AF0 /* Icon */,
+			);
+			path = Resources;
+			sourceTree = SOURCE_ROOT;
+		};
+		D360A83216EBE1B9001B9AF0 /* Icon */ = {
+			isa = PBXGroup;
+			children = (
+				D360A83416EBE1B9001B9AF0 /* Icon-72.png */,
+				D360A83516EBE1B9001B9AF0 /* Icon-72@2x.png */,
+				D360A83A16EBE1B9001B9AF0 /* Icon.png */,
+				D360A83B16EBE1B9001B9AF0 /* Icon@2x.png */,
+			);
+			path = Icon;
 			sourceTree = "<group>";
 		};
 		D38698AF16E2A01300EDCC43 /* transmission */ = {
@@ -415,6 +443,10 @@
 				D312BEB416E4318C00BB5CB8 /* ResumeHover@2x.png in Resources */,
 				D312BEB516E4318C00BB5CB8 /* ResumeOn.png in Resources */,
 				D312BEB616E4318C00BB5CB8 /* ResumeOn@2x.png in Resources */,
+				D360A83F16EBE1B9001B9AF0 /* Icon-72.png in Resources */,
+				D360A84016EBE1B9001B9AF0 /* Icon-72@2x.png in Resources */,
+				D360A84516EBE1B9001B9AF0 /* Icon.png in Resources */,
+				D360A84616EBE1B9001B9AF0 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

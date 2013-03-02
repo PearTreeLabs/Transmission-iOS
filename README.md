@@ -23,7 +23,9 @@ MIT - See LICENSE.txt
 
 ## Thanks
 
-The transmission dev team for years of great work.
+The Transmission dev team for years of great work.
+
+[Entertica](http://www.entertica.com) for posting such a great [icon](http://entertica.tumblr.com/post/204376537/transmission-for-brurry) to their blog.
 
 ## Contact
 
