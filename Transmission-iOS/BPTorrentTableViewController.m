@@ -8,8 +8,9 @@
 
 #import "BPTorrentTableViewController.h"
 #import "BPTransmissionClient.h"
+#import "BPTorrentCell.h"
 
-@interface BPTorrentTableViewController ()
+@interface BPTorrentTableViewController () <BPTorrentCellDelegate>
 
 @property (nonatomic, strong) BPTransmissionClient *client;
 @property (nonatomic, strong) NSArray *torrents;
@@ -40,7 +41,10 @@
     self.navigationItem.rightBarButtonItem = refresh;
 
     UIBarButtonItem *settings = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStyleBordered target:self action:@selector(settingsTapped:)];
-    self.navigationItem.leftBarButtonItem = settings;
+//    self.navigationItem.leftBarButtonItem = settings;
+
+    UINib *nib = [UINib nibWithNibName:@"BPTorrentCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"TorrentCell"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -72,7 +76,7 @@
 #pragma mark - Data Mgmt
 
 - (void)refreshTorrents {
-    [self.client retrieveTorrents:nil completion:^(NSArray *torrents) {
+    [self.client retrieveTorrentsCompletion:^(NSArray *torrents) {
         NSSortDescriptor *nameDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
         self.torrents = [torrents sortedArrayUsingDescriptors:@[ nameDescriptor ]];
         [self.tableView reloadData];
@@ -91,49 +95,21 @@
     return self.torrents.count;
 }
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+- (void)configureCell:(BPTorrentCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     Torrent *torrent = [self.torrents objectAtIndex:indexPath.row];
-    cell.textLabel.text = torrent.name;
-    cell.textLabel.font = [UIFont systemFontOfSize:14];
-
-    NSString *state = nil;
-    CGFloat uploadRate = -1;
-    CGFloat downloadRate = -1;
-    if (torrent.isSeeding) {
-        state = @"seeding";
-        uploadRate = torrent.uploadRate;
-    } else if (torrent.isChecking) {
-        state = @"checking";
-    } else if (torrent.isFinishedSeeding) {
-        state = @"done";
-    } else if (torrent.isActive) {
-        state = @"active";
-        uploadRate = torrent.uploadRate;
-        downloadRate = torrent.downloadRate;
-    } else {
-        state = @"inactive";
-    }
-
-    NSMutableString *subtitle = [NSMutableString stringWithString:state];
-    if (uploadRate != -1) {
-        [subtitle appendFormat:@" ▲ %.0f KB/s", uploadRate];
-    }
-    if (downloadRate != -1) {
-        [subtitle appendFormat:@" ▼ %.0f KB/s", downloadRate];
-    }
-
-    cell.detailTextLabel.text = subtitle;
+    [cell updateForTorrent:torrent];
+    cell.delegate = self;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"TorrentCell";
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
 
-    [self configureCell:cell atIndexPath:indexPath];
+    [self configureCell:(BPTorrentCell *)cell atIndexPath:indexPath];
 
     return cell;
 }
@@ -147,13 +123,18 @@
         return;
     }
 
+    Torrent *torrent = [self.torrents objectAtIndex:indexPath.row];
     NSMutableArray *mutableTorrents = [self.torrents mutableCopy];
     [mutableTorrents removeObjectAtIndex:indexPath.row];
     self.torrents = [mutableTorrents copy];
 
     [self.tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
 
-    // TODO: actually remove the torrent from the server
+    [self.client removeTorrent:torrent.identifier completion:^{
+        DLog(@"removed: %@", torrent);
+    } error:^(NSError *error) {
+        [self displayError:error];
+    }];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -168,6 +149,70 @@
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UITableViewCellEditingStyleDelete;
+}
+
+#pragma mark - BPTorrentCelLDelegate
+
+- (void)torrentCellDidTapActionButton:(BPTorrentCell *)cell {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    Torrent *torrent = [self.torrents objectAtIndex:indexPath.row];
+    BPTorrentAction action = [torrent availableAction];
+    switch (action) {
+        case BPTorrentActionPause: {
+            [self.client stopTorrent:torrent.identifier completion:^{
+                DLog(@"paused: %@", torrent);
+                // TODO: this is a hack, refresh a single torrent after a delay so that the remote side can report the new state.
+                double delayInSeconds = 0.3;
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    [self.client retrieveTorrent:torrent.identifier completion:^(Torrent *newTorrent) {
+                        [self updateTorrent:torrent withTorrent:newTorrent];
+                    } error:^(NSError *error) {
+                        [self displayError:error];
+                    }];
+                });
+            } error:^(NSError *error) {
+                [self displayError:error];
+            }];
+        }   break;
+        case BPTorrentActionResume: {
+            [self.client startTorrent:torrent.identifier completion:^{
+                DLog(@"resumed: %@", torrent);
+                // TODO: this is a hack, refresh a single torrent after a delay so that the remote side can report the new state.
+                double delayInSeconds = 0.3;
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    [self.client retrieveTorrent:torrent.identifier completion:^(Torrent *newTorrent) {
+                        [self updateTorrent:torrent withTorrent:newTorrent];
+                    } error:^(NSError *error) {
+                        [self displayError:error];
+                    }];
+                });
+            } error:^(NSError *error) {
+                [self displayError:error];
+            }];
+        }   break;
+        default:
+            break;
+    }
+}
+
+- (void)updateTorrent:(Torrent *)oldTorrent withTorrent:(Torrent *)newTorrent {
+    NSMutableArray *mutableTorrents = [self.torrents mutableCopy];
+    NSInteger index = [mutableTorrents indexOfObject:oldTorrent];
+    [mutableTorrents replaceObjectAtIndex:index withObject:newTorrent];
+    self.torrents = [mutableTorrents copy];
+    [self.tableView reloadRowsAtIndexPaths:@[ [NSIndexPath indexPathForRow:index inSection:0] ]
+                          withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (void)displayError:(NSError *)error {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                    message:error.localizedDescription
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Dismiss"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 @end

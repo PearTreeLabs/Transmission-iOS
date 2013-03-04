@@ -33,8 +33,20 @@
 		D34C0A5E16E050C500AAFB93 /* BPConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C0A5C16E050C500AAFB93 /* BPConnectionViewController.m */; };
 		D34C0A5F16E050C500AAFB93 /* BPConnectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D34C0A5D16E050C500AAFB93 /* BPConnectionViewController.xib */; };
 		D34C0A6116E061FB00AAFB93 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34C0A6016E061FB00AAFB93 /* QuartzCore.framework */; };
+		D35955F916E4028600C91ACC /* BPTorrentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D35955F816E4028600C91ACC /* BPTorrentCell.xib */; };
+		D35955FC16E40D0C00C91ACC /* UIColor+Progress.m in Sources */ = {isa = PBXBuildFile; fileRef = D35955FB16E40D0C00C91ACC /* UIColor+Progress.m */; };
+		D35955FF16E40E3C00C91ACC /* BPProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D35955FE16E40E3C00C91ACC /* BPProgressView.m */; };
+		D359560416E4194300C91ACC /* PauseHover.png in Resources */ = {isa = PBXBuildFile; fileRef = D359560016E4194300C91ACC /* PauseHover.png */; };
+		D359560516E4194300C91ACC /* PauseHover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D359560116E4194300C91ACC /* PauseHover@2x.png */; };
+		D359560616E4194300C91ACC /* ResumeHover.png in Resources */ = {isa = PBXBuildFile; fileRef = D359560216E4194300C91ACC /* ResumeHover.png */; };
+		D359560716E4194300C91ACC /* ResumeHover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D359560316E4194300C91ACC /* ResumeHover@2x.png */; };
+		D359560A16E419DE00C91ACC /* ResumeOn.png in Resources */ = {isa = PBXBuildFile; fileRef = D359560816E419DE00C91ACC /* ResumeOn.png */; };
+		D359560B16E419DE00C91ACC /* ResumeOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D359560916E419DE00C91ACC /* ResumeOn@2x.png */; };
+		D359560E16E419F000C91ACC /* PauseOn.png in Resources */ = {isa = PBXBuildFile; fileRef = D359560C16E419F000C91ACC /* PauseOn.png */; };
+		D359560F16E419F000C91ACC /* PauseOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D359560D16E419F000C91ACC /* PauseOn@2x.png */; };
 		D38698B516E2A01300EDCC43 /* Torrent.m in Sources */ = {isa = PBXBuildFile; fileRef = D38698B416E2A01300EDCC43 /* Torrent.m */; };
 		D3BFB95416DB1F690052FFA4 /* libBPFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BFB94D16DB1F3C0052FFA4 /* libBPFoundation.a */; };
+		D3EC4B7B16E2C1DD006885F8 /* BPTorrentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EC4B7A16E2C1DD006885F8 /* BPTorrentCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,10 +110,25 @@
 		D34C0A5C16E050C500AAFB93 /* BPConnectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPConnectionViewController.m; sourceTree = "<group>"; };
 		D34C0A5D16E050C500AAFB93 /* BPConnectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BPConnectionViewController.xib; sourceTree = "<group>"; };
 		D34C0A6016E061FB00AAFB93 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D35955F816E4028600C91ACC /* BPTorrentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BPTorrentCell.xib; sourceTree = "<group>"; };
+		D35955FA16E40D0C00C91ACC /* UIColor+Progress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Progress.h"; sourceTree = "<group>"; };
+		D35955FB16E40D0C00C91ACC /* UIColor+Progress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Progress.m"; sourceTree = "<group>"; };
+		D35955FD16E40E3C00C91ACC /* BPProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPProgressView.h; sourceTree = "<group>"; };
+		D35955FE16E40E3C00C91ACC /* BPProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPProgressView.m; sourceTree = "<group>"; };
+		D359560016E4194300C91ACC /* PauseHover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PauseHover.png; sourceTree = "<group>"; };
+		D359560116E4194300C91ACC /* PauseHover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseHover@2x.png"; sourceTree = "<group>"; };
+		D359560216E4194300C91ACC /* ResumeHover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ResumeHover.png; sourceTree = "<group>"; };
+		D359560316E4194300C91ACC /* ResumeHover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ResumeHover@2x.png"; sourceTree = "<group>"; };
+		D359560816E419DE00C91ACC /* ResumeOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ResumeOn.png; sourceTree = "<group>"; };
+		D359560916E419DE00C91ACC /* ResumeOn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ResumeOn@2x.png"; sourceTree = "<group>"; };
+		D359560C16E419F000C91ACC /* PauseOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PauseOn.png; sourceTree = "<group>"; };
+		D359560D16E419F000C91ACC /* PauseOn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseOn@2x.png"; sourceTree = "<group>"; };
 		D38698B116E2A01300EDCC43 /* transmission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = transmission.h; sourceTree = "<group>"; };
 		D38698B316E2A01300EDCC43 /* Torrent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Torrent.h; sourceTree = "<group>"; };
 		D38698B416E2A01300EDCC43 /* Torrent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Torrent.m; sourceTree = "<group>"; };
 		D3BFB94816DB1F3C0052FFA4 /* BPFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BPFoundation.xcodeproj; path = 3rdParty/BPFoundation/BPFoundation.xcodeproj; sourceTree = "<group>"; };
+		D3EC4B7916E2C1DD006885F8 /* BPTorrentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPTorrentCell.h; sourceTree = "<group>"; };
+		D3EC4B7A16E2C1DD006885F8 /* BPTorrentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPTorrentCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +191,8 @@
 				D34ACC2616DA547C00607AD7 /* BPAppDelegate.h */,
 				D34ACC2716DA547C00607AD7 /* BPAppDelegate.m */,
 				D34ACC1E16DA547C00607AD7 /* Supporting Files */,
+				D35955FA16E40D0C00C91ACC /* UIColor+Progress.h */,
+				D35955FB16E40D0C00C91ACC /* UIColor+Progress.m */,
 			);
 			path = "Transmission-iOS";
 			sourceTree = "<group>";
@@ -257,6 +286,14 @@
 		D38698A316E2958700EDCC43 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D359560C16E419F000C91ACC /* PauseOn.png */,
+				D359560D16E419F000C91ACC /* PauseOn@2x.png */,
+				D359560816E419DE00C91ACC /* ResumeOn.png */,
+				D359560916E419DE00C91ACC /* ResumeOn@2x.png */,
+				D359560016E4194300C91ACC /* PauseHover.png */,
+				D359560116E4194300C91ACC /* PauseHover@2x.png */,
+				D359560216E4194300C91ACC /* ResumeHover.png */,
+				D359560316E4194300C91ACC /* ResumeHover@2x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -292,6 +329,11 @@
 			isa = PBXGroup;
 			children = (
 				D34C0A5D16E050C500AAFB93 /* BPConnectionViewController.xib */,
+				D3EC4B7916E2C1DD006885F8 /* BPTorrentCell.h */,
+				D3EC4B7A16E2C1DD006885F8 /* BPTorrentCell.m */,
+				D35955F816E4028600C91ACC /* BPTorrentCell.xib */,
+				D35955FD16E40E3C00C91ACC /* BPProgressView.h */,
+				D35955FE16E40E3C00C91ACC /* BPProgressView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -387,6 +429,15 @@
 				D34ACC2C16DA547C00607AD7 /* Default@2x.png in Resources */,
 				D34ACC2E16DA547C00607AD7 /* Default-568h@2x.png in Resources */,
 				D34C0A5F16E050C500AAFB93 /* BPConnectionViewController.xib in Resources */,
+				D35955F916E4028600C91ACC /* BPTorrentCell.xib in Resources */,
+				D359560416E4194300C91ACC /* PauseHover.png in Resources */,
+				D359560516E4194300C91ACC /* PauseHover@2x.png in Resources */,
+				D359560616E4194300C91ACC /* ResumeHover.png in Resources */,
+				D359560716E4194300C91ACC /* ResumeHover@2x.png in Resources */,
+				D359560A16E419DE00C91ACC /* ResumeOn.png in Resources */,
+				D359560B16E419DE00C91ACC /* ResumeOn@2x.png in Resources */,
+				D359560E16E419F000C91ACC /* PauseOn.png in Resources */,
+				D359560F16E419F000C91ACC /* PauseOn@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +463,9 @@
 				D34ACC5D16DA5F8E00607AD7 /* BPTorrentTableViewController.m in Sources */,
 				D34C0A5E16E050C500AAFB93 /* BPConnectionViewController.m in Sources */,
 				D38698B516E2A01300EDCC43 /* Torrent.m in Sources */,
+				D3EC4B7B16E2C1DD006885F8 /* BPTorrentCell.m in Sources */,
+				D35955FC16E40D0C00C91ACC /* UIColor+Progress.m in Sources */,
+				D35955FF16E40E3C00C91ACC /* BPProgressView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +553,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Transmission-iOS/Transmission-iOS-Prefix.pch";
 				INFOPLIST_FILE = "Transmission-iOS/Transmission-iOS-Info.plist";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = 3rdParty/BPFoundation/BPFoundation;
 				WRAPPER_EXTENSION = app;
@@ -511,6 +569,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Transmission-iOS/Transmission-iOS-Prefix.pch";
 				INFOPLIST_FILE = "Transmission-iOS/Transmission-iOS-Info.plist";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = 3rdParty/BPFoundation/BPFoundation;
 				WRAPPER_EXTENSION = app;
