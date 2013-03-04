@@ -11,8 +11,11 @@
 #import "Torrent.h"
 
 typedef void(^BPPlainBlock)(void);
+typedef void(^BPTorrentBlock)(Torrent *torrent);
 typedef void(^BPTorrentsBlock)(NSArray *torrents);
 typedef void(^BPErrorBlock)(NSError *error);
+
+extern NSString * const kBPTransmissionClientErrorDomain;
 
 @interface BPTransmissionClient : AFHTTPClient
 
@@ -23,9 +26,11 @@ typedef void(^BPErrorBlock)(NSError *error);
 - (NSOperation *)connectAsUser:(NSString *)username password:(NSString *)password completion:(BPPlainBlock)completionBlock error:(BPErrorBlock)errorBlock;
 - (void)disconnect;
 
-- (NSOperation *)retrieveTorrents:(NSDictionary *)options completion:(BPTorrentsBlock)completionBlock error:(BPErrorBlock)errorBlock;
+- (NSOperation *)retrieveTorrent:(NSString *)identifier completion:(BPTorrentBlock)completionBlock error:(BPErrorBlock)errorBlock;
+- (NSOperation *)retrieveTorrentsCompletion:(BPTorrentsBlock)completionBlock error:(BPErrorBlock)errorBlock;
 
 - (NSOperation *)startTorrent:(NSString *)torrentId completion:(BPPlainBlock)completionBlock error:(BPErrorBlock)errorBlock;
 - (NSOperation *)stopTorrent:(NSString *)torrentId completion:(BPPlainBlock)completionBlock error:(BPErrorBlock)errorBlock;
+- (NSOperation *)removeTorrent:(NSString *)torrentId completion:(BPPlainBlock)completionBlock error:(BPErrorBlock)errorBlock;
 
 @end

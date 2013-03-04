@@ -10,7 +10,20 @@
 #import "AFHTTPRequestOperation.h"
 #import "AFJSONRequestOperation.h"
 
+NSString * const kBPTransmissionClientErrorDomain = @"BPTransmissionClientErrorDomain";
 static NSString * const kBPTransmissionSessionIdHeader = @"X-Transmission-Session-Id";
+
+#define handleErrorInResult(JSON) \
+NSString *status = [JSON objectForKey:@"result"]; \
+if (![status isEqualToString:@"success"]) { \
+    if (errorBlock != nil) { \
+        NSError *error = [NSError errorWithDomain:kBPTransmissionClientErrorDomain \
+                                             code:0 \
+                                         userInfo:@{ NSLocalizedDescriptionKey : status }]; \
+        errorBlock(error); \
+    } \
+    return; \
+}
 
 @interface BPTransmissionClient ()
 
@@ -79,16 +92,47 @@ static NSString * const kBPTransmissionSessionIdHeader = @"X-Transmission-Sessio
 
 #pragma mark - Retrieval
 
-- (NSOperation *)retrieveTorrents:(NSDictionary *)options completion:(BPTorrentsBlock)completionBlock error:(BPErrorBlock)errorBlock {
+- (NSOperation *)retrieveTorrent:(NSString *)torrentId completion:(BPTorrentBlock)completionBlock error:(BPErrorBlock)errorBlock {
     NSMutableURLRequest *request = [self requestWithMethod:@"POST"
                                                       path:nil
                                                 parameters:nil];
     NSDictionary *params = @{
                              @"method" : @"torrent-get",
-                             @"arguments" : @{ @"fields" : @[ @"id", @"name", @"status", @"totalSize", @"uploadRatio", @"leftUntilDone", @"percentDone", @"recheckProgress", @"desiredAvailable", @"isFinished", @"error", @"errorString", @"rateDownload", @"rateUpload" ] }
+                             @"arguments" : @{ @"ids" : @[ torrentId ],
+                                               @"fields" : @[ @"id", @"name", @"status", @"totalSize", @"uploadRatio", @"leftUntilDone", @"percentDone", @"recheckProgress", @"desiredAvailable", @"isFinished", @"error", @"errorString", @"rateDownload", @"rateUpload", @"magenetLink" ] }
                              };
     request.HTTPBody = [NSJSONSerialization dataWithJSONObject:params options:0 error:nil];
     AFJSONRequestOperation *op = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        handleErrorInResult(JSON);
+
+        NSArray *dicts = [[JSON objectForKey:@"arguments"] objectForKey:@"torrents"];
+        NSDictionary *dict = [dicts.reverseObjectEnumerator.allObjects lastObject];
+        Torrent *torrent = [[Torrent alloc] initWithTorrentDictionary:dict];
+
+        if (completionBlock != nil) {
+            completionBlock(torrent);
+        }
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        if (errorBlock != nil) {
+            errorBlock(error);
+        }
+    }];
+    [self enqueueHTTPRequestOperation:op];
+    return op;
+}
+
+- (NSOperation *)retrieveTorrentsCompletion:(BPTorrentsBlock)completionBlock error:(BPErrorBlock)errorBlock {
+    NSMutableURLRequest *request = [self requestWithMethod:@"POST"
+                                                      path:nil
+                                                parameters:nil];
+    NSDictionary *params = @{
+                             @"method" : @"torrent-get",
+                             @"arguments" : @{ @"fields" : @[ @"id", @"name", @"status", @"totalSize", @"uploadRatio", @"leftUntilDone", @"percentDone", @"recheckProgress", @"desiredAvailable", @"isFinished", @"error", @"errorString", @"rateDownload", @"rateUpload", @"magenetLink" ] }
+                             };
+    request.HTTPBody = [NSJSONSerialization dataWithJSONObject:params options:0 error:nil];
+    AFJSONRequestOperation *op = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        handleErrorInResult(JSON);
+
         NSArray *dicts = [[JSON objectForKey:@"arguments"] objectForKey:@"torrents"];
         NSMutableArray *torrents = [NSMutableArray arrayWithCapacity:dicts.count];
         for (NSDictionary *dict in dicts) {
@@ -107,19 +151,20 @@ static NSString * const kBPTransmissionSessionIdHeader = @"X-Transmission-Sessio
     return op;
 }
 
-#pragma mark - Start / Stop
+#pragma mark - Start / Stop / Remove
 
 - (NSOperation *)startTorrent:(NSString *)torrentId completion:(BPPlainBlock)completionBlock error:(BPErrorBlock)errorBlock {
     NSMutableURLRequest *request = [self requestWithMethod:@"POST"
                                                       path:nil
                                                 parameters:nil];
     NSDictionary *params = @{
-                             @"method" : @"tr_torrentStart",
+                             @"method" : @"torrent-start",
                              @"arguments" : @{ @"ids" : @[ torrentId ] }
                              };
     request.HTTPBody = [NSJSONSerialization dataWithJSONObject:params options:0 error:nil];
     AFJSONRequestOperation *op = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        DLog(@"JSON = %@", JSON);
+        handleErrorInResult(JSON);
+        
         if (completionBlock != nil) {
             completionBlock();
         }
@@ -137,12 +182,37 @@ static NSString * const kBPTransmissionSessionIdHeader = @"X-Transmission-Sessio
                                                       path:nil
                                                 parameters:nil];
     NSDictionary *params = @{
-                             @"method" : @"tr_torrentStop",
+                             @"method" : @"torrent-stop",
                              @"arguments" : @{ @"ids" : @[ torrentId ] }
                              };
     request.HTTPBody = [NSJSONSerialization dataWithJSONObject:params options:0 error:nil];
     AFJSONRequestOperation *op = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        DLog(@"JSON = %@", JSON);
+        handleErrorInResult(JSON);
+        
+        if (completionBlock != nil) {
+            completionBlock();
+        }
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        if (errorBlock != nil) {
+            errorBlock(error);
+        }
+    }];
+    [self enqueueHTTPRequestOperation:op];
+    return op;
+}
+
+- (NSOperation *)removeTorrent:(NSString *)torrentId completion:(BPPlainBlock)completionBlock error:(BPErrorBlock)errorBlock {
+    NSMutableURLRequest *request = [self requestWithMethod:@"POST"
+                                                      path:nil
+                                                parameters:nil];
+    NSDictionary *params = @{
+                             @"method" : @"torrent-remove",
+                             @"arguments" : @{ @"ids" : @[ torrentId ] }
+                             };
+    request.HTTPBody = [NSJSONSerialization dataWithJSONObject:params options:0 error:nil];
+    AFJSONRequestOperation *op = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        handleErrorInResult(JSON);
+
         if (completionBlock != nil) {
             completionBlock();
         }
