@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D312BEAF16E4318C00BB5CB8 /* PauseHover.png in Resources */ = {isa = PBXBuildFile; fileRef = D312BEA716E4318C00BB5CB8 /* PauseHover.png */; };
+		D312BEB016E4318C00BB5CB8 /* PauseHover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D312BEA816E4318C00BB5CB8 /* PauseHover@2x.png */; };
+		D312BEB116E4318C00BB5CB8 /* PauseOn.png in Resources */ = {isa = PBXBuildFile; fileRef = D312BEA916E4318C00BB5CB8 /* PauseOn.png */; };
+		D312BEB216E4318C00BB5CB8 /* PauseOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D312BEAA16E4318C00BB5CB8 /* PauseOn@2x.png */; };
+		D312BEB316E4318C00BB5CB8 /* ResumeHover.png in Resources */ = {isa = PBXBuildFile; fileRef = D312BEAB16E4318C00BB5CB8 /* ResumeHover.png */; };
+		D312BEB416E4318C00BB5CB8 /* ResumeHover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D312BEAC16E4318C00BB5CB8 /* ResumeHover@2x.png */; };
+		D312BEB516E4318C00BB5CB8 /* ResumeOn.png in Resources */ = {isa = PBXBuildFile; fileRef = D312BEAD16E4318C00BB5CB8 /* ResumeOn.png */; };
+		D312BEB616E4318C00BB5CB8 /* ResumeOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D312BEAE16E4318C00BB5CB8 /* ResumeOn@2x.png */; };
 		D34ACC1816DA547C00607AD7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34ACC1716DA547C00607AD7 /* UIKit.framework */; };
 		D34ACC1A16DA547C00607AD7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34ACC1916DA547C00607AD7 /* Foundation.framework */; };
 		D34ACC1C16DA547C00607AD7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34ACC1B16DA547C00607AD7 /* CoreGraphics.framework */; };
@@ -36,14 +44,6 @@
 		D35955F916E4028600C91ACC /* BPTorrentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D35955F816E4028600C91ACC /* BPTorrentCell.xib */; };
 		D35955FC16E40D0C00C91ACC /* UIColor+Progress.m in Sources */ = {isa = PBXBuildFile; fileRef = D35955FB16E40D0C00C91ACC /* UIColor+Progress.m */; };
 		D35955FF16E40E3C00C91ACC /* BPProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D35955FE16E40E3C00C91ACC /* BPProgressView.m */; };
-		D359560416E4194300C91ACC /* PauseHover.png in Resources */ = {isa = PBXBuildFile; fileRef = D359560016E4194300C91ACC /* PauseHover.png */; };
-		D359560516E4194300C91ACC /* PauseHover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D359560116E4194300C91ACC /* PauseHover@2x.png */; };
-		D359560616E4194300C91ACC /* ResumeHover.png in Resources */ = {isa = PBXBuildFile; fileRef = D359560216E4194300C91ACC /* ResumeHover.png */; };
-		D359560716E4194300C91ACC /* ResumeHover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D359560316E4194300C91ACC /* ResumeHover@2x.png */; };
-		D359560A16E419DE00C91ACC /* ResumeOn.png in Resources */ = {isa = PBXBuildFile; fileRef = D359560816E419DE00C91ACC /* ResumeOn.png */; };
-		D359560B16E419DE00C91ACC /* ResumeOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D359560916E419DE00C91ACC /* ResumeOn@2x.png */; };
-		D359560E16E419F000C91ACC /* PauseOn.png in Resources */ = {isa = PBXBuildFile; fileRef = D359560C16E419F000C91ACC /* PauseOn.png */; };
-		D359560F16E419F000C91ACC /* PauseOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D359560D16E419F000C91ACC /* PauseOn@2x.png */; };
 		D38698B516E2A01300EDCC43 /* Torrent.m in Sources */ = {isa = PBXBuildFile; fileRef = D38698B416E2A01300EDCC43 /* Torrent.m */; };
 		D3BFB95416DB1F690052FFA4 /* libBPFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BFB94D16DB1F3C0052FFA4 /* libBPFoundation.a */; };
 		D3EC4B7B16E2C1DD006885F8 /* BPTorrentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EC4B7A16E2C1DD006885F8 /* BPTorrentCell.m */; };
@@ -67,6 +67,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D312BEA716E4318C00BB5CB8 /* PauseHover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PauseHover.png; sourceTree = "<group>"; };
+		D312BEA816E4318C00BB5CB8 /* PauseHover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseHover@2x.png"; sourceTree = "<group>"; };
+		D312BEA916E4318C00BB5CB8 /* PauseOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PauseOn.png; sourceTree = "<group>"; };
+		D312BEAA16E4318C00BB5CB8 /* PauseOn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseOn@2x.png"; sourceTree = "<group>"; };
+		D312BEAB16E4318C00BB5CB8 /* ResumeHover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ResumeHover.png; sourceTree = "<group>"; };
+		D312BEAC16E4318C00BB5CB8 /* ResumeHover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ResumeHover@2x.png"; sourceTree = "<group>"; };
+		D312BEAD16E4318C00BB5CB8 /* ResumeOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ResumeOn.png; sourceTree = "<group>"; };
+		D312BEAE16E4318C00BB5CB8 /* ResumeOn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ResumeOn@2x.png"; sourceTree = "<group>"; };
 		D34ACC1416DA547C00607AD7 /* Transmission.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transmission.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D34ACC1716DA547C00607AD7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D34ACC1916DA547C00607AD7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -115,14 +123,6 @@
 		D35955FB16E40D0C00C91ACC /* UIColor+Progress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Progress.m"; sourceTree = "<group>"; };
 		D35955FD16E40E3C00C91ACC /* BPProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPProgressView.h; sourceTree = "<group>"; };
 		D35955FE16E40E3C00C91ACC /* BPProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPProgressView.m; sourceTree = "<group>"; };
-		D359560016E4194300C91ACC /* PauseHover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PauseHover.png; sourceTree = "<group>"; };
-		D359560116E4194300C91ACC /* PauseHover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseHover@2x.png"; sourceTree = "<group>"; };
-		D359560216E4194300C91ACC /* ResumeHover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ResumeHover.png; sourceTree = "<group>"; };
-		D359560316E4194300C91ACC /* ResumeHover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ResumeHover@2x.png"; sourceTree = "<group>"; };
-		D359560816E419DE00C91ACC /* ResumeOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ResumeOn.png; sourceTree = "<group>"; };
-		D359560916E419DE00C91ACC /* ResumeOn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ResumeOn@2x.png"; sourceTree = "<group>"; };
-		D359560C16E419F000C91ACC /* PauseOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PauseOn.png; sourceTree = "<group>"; };
-		D359560D16E419F000C91ACC /* PauseOn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseOn@2x.png"; sourceTree = "<group>"; };
 		D38698B116E2A01300EDCC43 /* transmission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = transmission.h; sourceTree = "<group>"; };
 		D38698B316E2A01300EDCC43 /* Torrent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Torrent.h; sourceTree = "<group>"; };
 		D38698B416E2A01300EDCC43 /* Torrent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Torrent.m; sourceTree = "<group>"; };
@@ -150,6 +150,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D312BEA616E4318C00BB5CB8 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				D312BEA716E4318C00BB5CB8 /* PauseHover.png */,
+				D312BEA816E4318C00BB5CB8 /* PauseHover@2x.png */,
+				D312BEA916E4318C00BB5CB8 /* PauseOn.png */,
+				D312BEAA16E4318C00BB5CB8 /* PauseOn@2x.png */,
+				D312BEAB16E4318C00BB5CB8 /* ResumeHover.png */,
+				D312BEAC16E4318C00BB5CB8 /* ResumeHover@2x.png */,
+				D312BEAD16E4318C00BB5CB8 /* ResumeOn.png */,
+				D312BEAE16E4318C00BB5CB8 /* ResumeOn@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		D34ACC0B16DA547B00607AD7 = {
 			isa = PBXGroup;
 			children = (
@@ -259,45 +274,6 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		D386989616E2958700EDCC43 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				D386989716E2958700EDCC43 /* Icon */,
-				D38698A316E2958700EDCC43 /* Images */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		D386989716E2958700EDCC43 /* Icon */ = {
-			isa = PBXGroup;
-			children = (
-				D386989916E2958700EDCC43 /* Icon-72.png */,
-				D386989A16E2958700EDCC43 /* Icon-72@2x.png */,
-				D386989B16E2958700EDCC43 /* Icon-Small-50.png */,
-				D386989C16E2958700EDCC43 /* Icon-Small-50@2x.png */,
-				D386989D16E2958700EDCC43 /* Icon-Small.png */,
-				D386989E16E2958700EDCC43 /* Icon-Small@2x.png */,
-				D386989F16E2958700EDCC43 /* Icon.png */,
-				D38698A016E2958700EDCC43 /* Icon@2x.png */,
-			);
-			path = Icon;
-			sourceTree = "<group>";
-		};
-		D38698A316E2958700EDCC43 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				D359560C16E419F000C91ACC /* PauseOn.png */,
-				D359560D16E419F000C91ACC /* PauseOn@2x.png */,
-				D359560816E419DE00C91ACC /* ResumeOn.png */,
-				D359560916E419DE00C91ACC /* ResumeOn@2x.png */,
-				D359560016E4194300C91ACC /* PauseHover.png */,
-				D359560116E4194300C91ACC /* PauseHover@2x.png */,
-				D359560216E4194300C91ACC /* ResumeHover.png */,
-				D359560316E4194300C91ACC /* ResumeHover@2x.png */,
-			);
-			path = Images;
-			sourceTree = "<group>";
-		};
 		D38698AF16E2A01300EDCC43 /* transmission */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +295,7 @@
 		D38698B216E2A01300EDCC43 /* macosx */ = {
 			isa = PBXGroup;
 			children = (
+				D312BEA616E4318C00BB5CB8 /* Images */,
 				D38698B316E2A01300EDCC43 /* Torrent.h */,
 				D38698B416E2A01300EDCC43 /* Torrent.m */,
 			);
@@ -430,14 +407,14 @@
 				D34ACC2E16DA547C00607AD7 /* Default-568h@2x.png in Resources */,
 				D34C0A5F16E050C500AAFB93 /* BPConnectionViewController.xib in Resources */,
 				D35955F916E4028600C91ACC /* BPTorrentCell.xib in Resources */,
-				D359560416E4194300C91ACC /* PauseHover.png in Resources */,
-				D359560516E4194300C91ACC /* PauseHover@2x.png in Resources */,
-				D359560616E4194300C91ACC /* ResumeHover.png in Resources */,
-				D359560716E4194300C91ACC /* ResumeHover@2x.png in Resources */,
-				D359560A16E419DE00C91ACC /* ResumeOn.png in Resources */,
-				D359560B16E419DE00C91ACC /* ResumeOn@2x.png in Resources */,
-				D359560E16E419F000C91ACC /* PauseOn.png in Resources */,
-				D359560F16E419F000C91ACC /* PauseOn@2x.png in Resources */,
+				D312BEAF16E4318C00BB5CB8 /* PauseHover.png in Resources */,
+				D312BEB016E4318C00BB5CB8 /* PauseHover@2x.png in Resources */,
+				D312BEB116E4318C00BB5CB8 /* PauseOn.png in Resources */,
+				D312BEB216E4318C00BB5CB8 /* PauseOn@2x.png in Resources */,
+				D312BEB316E4318C00BB5CB8 /* ResumeHover.png in Resources */,
+				D312BEB416E4318C00BB5CB8 /* ResumeHover@2x.png in Resources */,
+				D312BEB516E4318C00BB5CB8 /* ResumeOn.png in Resources */,
+				D312BEB616E4318C00BB5CB8 /* ResumeOn@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
