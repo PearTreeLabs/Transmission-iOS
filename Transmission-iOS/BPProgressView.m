@@ -21,7 +21,7 @@
 }
 
 - (void)setProgress:(CGFloat)progress {
-    _progress = MIN(1.0, MAX(0, progress));
+    _progress = MIN(1.0, MAX(0.0, progress));
     [self setNeedsDisplay];
 }
 

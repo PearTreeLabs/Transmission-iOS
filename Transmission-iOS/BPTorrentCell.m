@@ -28,7 +28,7 @@
 - (void)updateForTorrent:(Torrent *)torrent {
     self.nameLabel.text = [torrent name];
 
-    self.progressView.progress = [torrent progressDone] * 100.0;
+    self.progressView.progress = [torrent progressDone];
     self.progressView.progressColor = [self progressBarColorForTorrent:torrent];
 
     NSString *controlImageBaseName = [self controlImageBaseNameForAction:[torrent availableAction]];
