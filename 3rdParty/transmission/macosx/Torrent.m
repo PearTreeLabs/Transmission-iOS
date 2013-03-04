@@ -396,13 +396,11 @@
 //    tr_torrentVerify(fHandle, NULL, NULL);
 //    [self update];
 //}
-//
-//- (BOOL) isMagnet
-//{
-//    return !tr_torrentHasMetadata(fHandle);
-//    return NO;
-//}
-//
+
+- (BOOL) isMagnet {
+    return ([self.torrentDict objectForKey:@"magenetLink"] != nil);
+}
+
 //- (NSString *) magnetLink
 //{
 //    return [NSString stringWithUTF8String: tr_torrentGetMagnetLink(fHandle)];
@@ -918,11 +916,11 @@
     return activity == TR_STATUS_CHECK_WAIT;
 }
 
-//- (BOOL) allDownloaded
-//{
-//    return [self sizeLeft] == 0 && ![self isMagnet];
-//}
-//
+- (BOOL) allDownloaded
+{
+    return [self sizeLeft] == 0 && ![self isMagnet];
+}
+
 //- (BOOL) isComplete
 //{
 //    return [self progress] >= 1.0;
@@ -2022,5 +2020,27 @@
 //        fTimeMachineExcludeInitialized = YES;
 //    }
 //}
+
+@end
+
+@implementation Torrent (Transmission_iOS)
+
+- (BPTorrentAction)availableAction {
+    BPTorrentAction result = BPTorrentActionNone;
+    if ([self isActive]) {
+        result = BPTorrentActionPause;
+    } else {
+        if ([self waitingToStart]) {
+            result = BPTorrentActionPause;
+        } else {
+            result = BPTorrentActionResume;
+        }
+    }
+    return result;
+}
+
+- (NSString *)identifier {
+    return [self.torrentDict objectForKey:@"id"];
+}
 
 @end

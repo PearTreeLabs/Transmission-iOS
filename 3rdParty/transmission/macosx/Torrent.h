@@ -70,7 +70,7 @@
 
 //- (void) resetCache;
 
-//- (BOOL) isMagnet;
+- (BOOL) isMagnet;
 //- (NSString *) magnetLink;
 
 - (CGFloat) ratio;
@@ -147,7 +147,7 @@
 - (BOOL) isSeeding;
 - (BOOL) isChecking;
 - (BOOL) isCheckingWaiting;
-//- (BOOL) allDownloaded;
+- (BOOL) allDownloaded;
 //- (BOOL) isComplete;
 - (BOOL) isFinishedSeeding;
 - (BOOL) isError;
@@ -224,5 +224,19 @@
 //- (NSString *) trackerSortKey;
 
 //- (tr_torrent *) torrentStruct;
+
+@end
+
+typedef NS_ENUM(NSInteger, BPTorrentAction) {
+    BPTorrentActionPause,
+    BPTorrentActionResume,
+    BPTorrentActionNone
+};
+
+@interface Torrent (Transmission_iOS)
+
+- (BPTorrentAction)availableAction;
+
+- (NSString *)identifier;
 
 @end
