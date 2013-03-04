@@ -8,7 +8,7 @@ A [Transmission](http://www.transmissionbt.com) client for iOS.
 
 - Load submodules
 
-        git submodule --init --recursive update
+        git submodule update --init --recursive
 
 - Build and run the project using Xcode.
 
