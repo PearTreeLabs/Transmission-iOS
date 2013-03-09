@@ -37,6 +37,8 @@
 
     self.title = @"Torrents";
 
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
     UIBarButtonItem *refresh = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshTapped:)];
     self.navigationItem.rightBarButtonItem = refresh;
 

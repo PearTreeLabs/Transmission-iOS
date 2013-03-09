@@ -15,6 +15,7 @@
 @interface BPTorrentCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *statsLabel;
 @property (strong, nonatomic) IBOutlet UIButton *actionButton;
 @property (strong, nonatomic) IBOutlet BPProgressView *progressView;
 @property (nonatomic, weak) id<BPTorrentCellDelegate> delegate;
