@@ -35,7 +35,7 @@
 {
     [super viewDidLoad];
 
-    self.title = @"Torrents";
+    self.title = [self.client.baseURL.host stringByReplacingOccurrencesOfString:@".local." withString:@""];
 
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
