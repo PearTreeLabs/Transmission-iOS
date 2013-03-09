@@ -28,14 +28,20 @@
 - (void)updateForTorrent:(Torrent *)torrent {
     self.nameLabel.text = [torrent name];
 
-    NSMutableString *stats = [NSMutableString stringWithFormat:@"Ratio: %.2f", torrent.ratio];
-    if (torrent.uploadRate > 0) {
-        [stats appendFormat:@"  ▲ %.2f KB/s", torrent.uploadRate];
+    if (![NSString bp_isNilOrEmpty:torrent.errorMessage]) {
+        self.subtitleLabel.text = torrent.errorMessage;
+        self.subtitleLabel.textColor = [UIColor redColor];
+    } else {
+        NSMutableString *stats = [NSMutableString stringWithFormat:@"Ratio: %.2f", torrent.ratio];
+        if (torrent.uploadRate > 0) {
+            [stats appendFormat:@"  ▲ %.2f KB/s", torrent.uploadRate];
+        }
+        if (torrent.downloadRate > 0) {
+            [stats appendFormat:@"  ▼ %.2f KB/s", torrent.downloadRate];
+        }
+        self.subtitleLabel.text = stats;
+        self.subtitleLabel.textColor = [UIColor lightGrayColor];
     }
-    if (torrent.downloadRate > 0) {
-        [stats appendFormat:@"  ▼ %.2f KB/s", torrent.downloadRate];
-    }
-    self.statsLabel.text = stats;
 
     self.progressView.progress = [torrent progressDone];
     self.progressView.progressColor = [self progressBarColorForTorrent:torrent];
