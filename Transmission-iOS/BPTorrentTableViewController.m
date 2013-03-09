@@ -132,7 +132,7 @@
 
     [self.tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
 
-    [self.client removeTorrent:torrent.identifier completion:^{
+    [self.client removeTorrent:torrent.identifier deleteData:NO completion:^{
         DLog(@"removed: %@", torrent);
     } error:^(NSError *error) {
         [self displayError:error];
