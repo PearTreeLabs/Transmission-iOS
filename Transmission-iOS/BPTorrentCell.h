@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Torrent.h"
+#import "BPTorrent.h"
 #import "BPProgressView.h"
 
 @protocol BPTorrentCellDelegate;
@@ -22,7 +22,7 @@
 
 - (IBAction)actionTapped:(id)sender;
 
-- (void)updateForTorrent:(Torrent *)torrent;
+- (void)updateForTorrent:(BPTorrent *)torrent;
 
 @end
 

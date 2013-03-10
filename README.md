@@ -4,18 +4,29 @@
 
 A [Transmission](http://www.transmissionbt.com) client for iOS.
 
+Designed for a single purpose: quick management of torrents on your home network.  No network configuration is required, it will automatically connect to the first available Transmission instance.
+
 ## Usage
 
+### Building
 - Load submodules
 
         git submodule update --init --recursive
 
 - Build and run the project using Xcode.
 
+### Running
+- To enable remote access to your Transmission desktop client:
+  - Transmission > Preferences > Remote
+  - Enable Remote Access: YES
+  - Display the web interface with Bonjour: YES
+  - Require authentication: Optiona
+
 ## Dependencies
 
 - AFNetworking
 - BPFoundation
+- MagicalRecord
 
 ## License
 

@@ -7,53 +7,40 @@
 //
 
 #import "BPTorrentTableViewController.h"
-#import "BPTransmissionClient.h"
+#import "BPTransmissionEngine.h"
 #import "BPTorrentCell.h"
 
-@interface BPTorrentTableViewController () <BPTorrentCellDelegate>
+@interface BPTorrentTableViewController () <BPTorrentCellDelegate, NSFetchedResultsControllerDelegate>
 
-@property (nonatomic, strong) BPTransmissionClient *client;
-@property (nonatomic, strong) NSArray *torrents;
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResults;
 
 @end
 
 @implementation BPTorrentTableViewController
 
-- (id)initWithTransmissionClient:(BPTransmissionClient *)client {
-	self = [super initWithStyle:UITableViewStylePlain];
-	if (!self) {
-        return nil;
-	}
-
-	_client = client;
-    _torrents = @[];
-
-	return self;
-}
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = [self.client.baseURL.host stringByReplacingOccurrencesOfString:@".local." withString:@""];
+    self.title = [[BPTransmissionEngine sharedEngine].client.baseURL.host stringByReplacingOccurrencesOfString:@".local." withString:@""];
 
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
-    UIBarButtonItem *refresh = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshTapped:)];
-    self.navigationItem.rightBarButtonItem = refresh;
-
-    UIBarButtonItem *settings = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStyleBordered target:self action:@selector(settingsTapped:)];
+//    UIBarButtonItem *settings = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStyleBordered target:self action:@selector(settingsTapped:)];
 //    self.navigationItem.leftBarButtonItem = settings;
 
     UINib *nib = [UINib nibWithNibName:@"BPTorrentCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"TorrentCell"];
+
+
+    self.fetchedResults = [BPTorrent MR_fetchAllGroupedBy:nil
+                                            withPredicate:[NSPredicate predicateWithFormat:@"%K == %@", BPTorrentAttributes.isPendingDeletion, @NO]
+                                                 sortedBy:BPTorrentAttributes.name
+                                                ascending:YES
+                                                 delegate:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [self refreshTorrents];
-    });
+    [[BPTransmissionEngine sharedEngine] startUpdates];
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,27 +51,8 @@
 
 #pragma mark - User Interaction
 
-- (void)refreshTapped:(id)sender {
-    self.torrents = @[];
-    [self.tableView reloadData];
-    
-    [self refreshTorrents];
-}
-
 - (void)settingsTapped:(id)sender {
 
-}
-
-#pragma mark - Data Mgmt
-
-- (void)refreshTorrents {
-    [self.client retrieveTorrentsCompletion:^(NSArray *torrents) {
-        NSSortDescriptor *nameDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-        self.torrents = [torrents sortedArrayUsingDescriptors:@[ nameDescriptor ]];
-        [self.tableView reloadData];
-    } error:^(NSError *error) {
-        DLog(@"retrieval error: %@", error);
-    }];
 }
 
 #pragma mark - UITableViewDatasource
@@ -94,11 +62,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.torrents.count;
+    return self.fetchedResults.fetchedObjects.count;
 }
 
 - (void)configureCell:(BPTorrentCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    Torrent *torrent = [self.torrents objectAtIndex:indexPath.row];
+    BPTorrent *torrent = [self.fetchedResults objectAtIndexPath:indexPath];
     [cell updateForTorrent:torrent];
     cell.delegate = self;
 }
@@ -125,14 +93,8 @@
         return;
     }
 
-    Torrent *torrent = [self.torrents objectAtIndex:indexPath.row];
-    NSMutableArray *mutableTorrents = [self.torrents mutableCopy];
-    [mutableTorrents removeObjectAtIndex:indexPath.row];
-    self.torrents = [mutableTorrents copy];
-
-    [self.tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
-
-    [self.client removeTorrent:torrent.identifier deleteData:NO completion:^{
+    BPTorrent *torrent = [self.fetchedResults objectAtIndexPath:indexPath];
+    [[BPTransmissionEngine sharedEngine] removeTorrent:torrent deleteData:NO completion:^{
         DLog(@"removed: %@", torrent);
     } error:^(NSError *error) {
         [self displayError:error];
@@ -157,39 +119,19 @@
 
 - (void)torrentCellDidTapActionButton:(BPTorrentCell *)cell {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    Torrent *torrent = [self.torrents objectAtIndex:indexPath.row];
+    BPTorrent *torrent = [self.fetchedResults objectAtIndexPath:indexPath];
     BPTorrentAction action = [torrent availableAction];
     switch (action) {
         case BPTorrentActionPause: {
-            [self.client stopTorrent:torrent.identifier completion:^{
+            [[BPTransmissionEngine sharedEngine] pauseTorrent:torrent completion:^{
                 DLog(@"paused: %@", torrent);
-                // TODO: this is a hack, refresh a single torrent after a delay so that the remote side can report the new state.
-                double delayInSeconds = 0.3;
-                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                    [self.client retrieveTorrent:torrent.identifier completion:^(Torrent *newTorrent) {
-                        [self updateTorrent:torrent withTorrent:newTorrent];
-                    } error:^(NSError *error) {
-                        [self displayError:error];
-                    }];
-                });
             } error:^(NSError *error) {
                 [self displayError:error];
             }];
         }   break;
         case BPTorrentActionResume: {
-            [self.client startTorrent:torrent.identifier completion:^{
+            [[BPTransmissionEngine sharedEngine] resumeTorrent:torrent completion:^{
                 DLog(@"resumed: %@", torrent);
-                // TODO: this is a hack, refresh a single torrent after a delay so that the remote side can report the new state.
-                double delayInSeconds = 0.3;
-                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                    [self.client retrieveTorrent:torrent.identifier completion:^(Torrent *newTorrent) {
-                        [self updateTorrent:torrent withTorrent:newTorrent];
-                    } error:^(NSError *error) {
-                        [self displayError:error];
-                    }];
-                });
             } error:^(NSError *error) {
                 [self displayError:error];
             }];
@@ -197,15 +139,6 @@
         default:
             break;
     }
-}
-
-- (void)updateTorrent:(Torrent *)oldTorrent withTorrent:(Torrent *)newTorrent {
-    NSMutableArray *mutableTorrents = [self.torrents mutableCopy];
-    NSInteger index = [mutableTorrents indexOfObject:oldTorrent];
-    [mutableTorrents replaceObjectAtIndex:index withObject:newTorrent];
-    self.torrents = [mutableTorrents copy];
-    [self.tableView reloadRowsAtIndexPaths:@[ [NSIndexPath indexPathForRow:index inSection:0] ]
-                          withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 - (void)displayError:(NSError *)error {
@@ -216,5 +149,64 @@
                                           otherButtonTitles:nil];
     [alert show];
 }
+
+#pragma mark - NSFetchedResultsControllerDelegate
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView beginUpdates];
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
+           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+
+    switch(type) {
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                          withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                          withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+    }
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath {
+
+    UITableView *tableView = self.tableView;
+
+    switch(type) {
+
+        case NSFetchedResultsChangeInsert:
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                             withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+
+        case NSFetchedResultsChangeDelete:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+
+        case NSFetchedResultsChangeUpdate:
+            // As suggested by oleb: http://oleb.net/blog/2013/02/nsfetchedresultscontroller-documentation-bug/
+            [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+
+        case NSFetchedResultsChangeMove:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationAutomatic];
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                             withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+    }
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView endUpdates];
+}
+
 
 @end

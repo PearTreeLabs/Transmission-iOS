@@ -25,7 +25,7 @@
     }
 }
 
-- (void)updateForTorrent:(Torrent *)torrent {
+- (void)updateForTorrent:(BPTorrent *)torrent {
     self.nameLabel.text = [torrent name];
 
     if (![NSString bp_isNilOrEmpty:torrent.errorMessage]) {
@@ -72,7 +72,7 @@
     return result;
 }
 
-- (UIColor *)progressBarColorForTorrent:(Torrent *)torrent {
+- (UIColor *)progressBarColorForTorrent:(BPTorrent *)torrent {
     UIColor *result = nil;
     if ([torrent isActive]) {
         if ([torrent isChecking]) {

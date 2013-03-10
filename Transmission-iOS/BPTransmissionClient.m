@@ -34,9 +34,9 @@ if (![status isEqualToString:@"success"]) { \
 @implementation BPTransmissionClient
 
 + (void)load {
-    NSInteger sessionNeededStatusCode = 409;
-    [AFHTTPRequestOperation addAcceptableStatusCodes:[NSIndexSet indexSetWithIndex:sessionNeededStatusCode]];
-    [AFJSONRequestOperation addAcceptableStatusCodes:[NSIndexSet indexSetWithIndex:sessionNeededStatusCode]];
+//    NSInteger sessionNeededStatusCode = 409;
+//    [AFHTTPRequestOperation addAcceptableStatusCodes:[NSIndexSet indexSetWithIndex:sessionNeededStatusCode]];
+//    [AFJSONRequestOperation addAcceptableStatusCodes:[NSIndexSet indexSetWithIndex:sessionNeededStatusCode]];
 }
 
 #pragma mark - Properties
@@ -78,6 +78,13 @@ if (![status isEqualToString:@"success"]) { \
             completionBlock();
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (operation.response.statusCode == 409) {
+            self.sessionId = [operation.response.allHeaderFields objectForKey:kBPTransmissionSessionIdHeader];
+            if (completionBlock != nil) {
+                completionBlock();
+            }
+            return;
+        }
         if (errorBlock != nil) {
             errorBlock(error);
         }
@@ -92,13 +99,13 @@ if (![status isEqualToString:@"success"]) { \
 
 #pragma mark - Retrieval
 
-- (NSOperation *)retrieveTorrent:(NSString *)torrentId completion:(BPTorrentBlock)completionBlock error:(BPErrorBlock)errorBlock {
+- (NSOperation *)retrieveTorrent:(NSInteger)torrentId completion:(BPTorrentBlock)completionBlock error:(BPErrorBlock)errorBlock {
     NSMutableURLRequest *request = [self requestWithMethod:@"POST"
                                                       path:nil
                                                 parameters:nil];
     NSDictionary *params = @{
                              @"method" : @"torrent-get",
-                             @"arguments" : @{ @"ids" : @[ torrentId ],
+                             @"arguments" : @{ @"ids" : @[ @(torrentId) ],
                                                @"fields" : @[ @"id", @"name", @"status", @"totalSize", @"uploadRatio", @"leftUntilDone", @"percentDone", @"recheckProgress", @"desiredAvailable", @"isFinished", @"error", @"errorString", @"rateDownload", @"rateUpload", @"magenetLink" ] }
                              };
     request.HTTPBody = [NSJSONSerialization dataWithJSONObject:params options:0 error:nil];
@@ -107,10 +114,9 @@ if (![status isEqualToString:@"success"]) { \
 
         NSArray *dicts = [[JSON objectForKey:@"arguments"] objectForKey:@"torrents"];
         NSDictionary *dict = [dicts.reverseObjectEnumerator.allObjects lastObject];
-        Torrent *torrent = [[Torrent alloc] initWithTorrentDictionary:dict];
 
         if (completionBlock != nil) {
-            completionBlock(torrent);
+            completionBlock(dict);
         }
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         if (errorBlock != nil) {
@@ -134,13 +140,8 @@ if (![status isEqualToString:@"success"]) { \
         handleErrorInResult(JSON);
 
         NSArray *dicts = [[JSON objectForKey:@"arguments"] objectForKey:@"torrents"];
-        NSMutableArray *torrents = [NSMutableArray arrayWithCapacity:dicts.count];
-        for (NSDictionary *dict in dicts) {
-            Torrent *torrent = [[Torrent alloc] initWithTorrentDictionary:dict];
-            [torrents addObject:torrent];
-        }
         if (completionBlock != nil) {
-            completionBlock(torrents);
+            completionBlock(dicts);
         }
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         if (errorBlock != nil) {
@@ -153,13 +154,13 @@ if (![status isEqualToString:@"success"]) { \
 
 #pragma mark - Start / Stop / Remove
 
-- (NSOperation *)startTorrent:(NSString *)torrentId completion:(BPPlainBlock)completionBlock error:(BPErrorBlock)errorBlock {
+- (NSOperation *)startTorrent:(NSInteger)torrentId completion:(BPPlainBlock)completionBlock error:(BPErrorBlock)errorBlock {
     NSMutableURLRequest *request = [self requestWithMethod:@"POST"
                                                       path:nil
                                                 parameters:nil];
     NSDictionary *params = @{
                              @"method" : @"torrent-start",
-                             @"arguments" : @{ @"ids" : @[ torrentId ] }
+                             @"arguments" : @{ @"ids" : @[ @(torrentId) ] }
                              };
     request.HTTPBody = [NSJSONSerialization dataWithJSONObject:params options:0 error:nil];
     AFJSONRequestOperation *op = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
@@ -177,13 +178,13 @@ if (![status isEqualToString:@"success"]) { \
     return op;
 }
 
-- (NSOperation *)stopTorrent:(NSString *)torrentId completion:(BPPlainBlock)completionBlock error:(BPErrorBlock)errorBlock {
+- (NSOperation *)stopTorrent:(NSInteger)torrentId completion:(BPPlainBlock)completionBlock error:(BPErrorBlock)errorBlock {
     NSMutableURLRequest *request = [self requestWithMethod:@"POST"
                                                       path:nil
                                                 parameters:nil];
     NSDictionary *params = @{
                              @"method" : @"torrent-stop",
-                             @"arguments" : @{ @"ids" : @[ torrentId ] }
+                             @"arguments" : @{ @"ids" : @[ @(torrentId) ] }
                              };
     request.HTTPBody = [NSJSONSerialization dataWithJSONObject:params options:0 error:nil];
     AFJSONRequestOperation *op = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
@@ -201,13 +202,13 @@ if (![status isEqualToString:@"success"]) { \
     return op;
 }
 
-- (NSOperation *)removeTorrent:(NSString *)torrentId deleteData:(BOOL)deleteData completion:(BPPlainBlock)completionBlock error:(BPErrorBlock)errorBlock {
+- (NSOperation *)removeTorrent:(NSInteger)torrentId deleteData:(BOOL)deleteData completion:(BPPlainBlock)completionBlock error:(BPErrorBlock)errorBlock {
     NSMutableURLRequest *request = [self requestWithMethod:@"POST"
                                                       path:nil
                                                 parameters:nil];
     NSMutableDictionary *params = [@{
                                    @"method" : @"torrent-remove",
-                                   @"arguments" : @{ @"ids" : @[ torrentId ] }
+                                   @"arguments" : @{ @"ids" : @[ @(torrentId) ] }
                                    } mutableCopy];
     if (deleteData) {
         [params setObject:@YES forKey:@"delete-local-data"];

@@ -4,3 +4,6 @@
 [submodule "3rdParty/BPFoundation"]
 	path = 3rdParty/BPFoundation
 	url = git@github.com:brianpartridge/BPFoundation.git
+[submodule "3rdParty/MagicalRecord"]
+	path = 3rdParty/MagicalRecord
+	url = https://github.com/magicalpanda/MagicalRecord.git

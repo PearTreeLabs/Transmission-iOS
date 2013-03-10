@@ -8,7 +8,7 @@
 
 #import "BPConnectionViewController.h"
 #import "BPBonjourBrowser.h"
-#import "BPTransmissionClient.h"
+#import "BPTransmissionEngine.h"
 #import "BPTorrentTableViewController.h"
 
 #define RESOLVE_TIMEOUT 10
@@ -79,7 +79,9 @@ extern NSString *AFNetworkingOperationFailingURLResponseErrorKey;
     __weak BPTransmissionClient *weakClient = client;
     [client connectAsUser:username password:password completion:^{
         DLog(@"connected");
-        BPTorrentTableViewController *vc = [[BPTorrentTableViewController alloc] initWithTransmissionClient:weakClient];
+        BPTransmissionEngine *engine = [BPTransmissionEngine sharedEngine];
+        engine.client = weakClient;
+        BPTorrentTableViewController *vc = [[BPTorrentTableViewController alloc] initWithStyle:UITableViewStylePlain];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
         [self presentViewController:nav animated:YES completion:nil];
     } error:^(NSError *error) {
