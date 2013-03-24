@@ -9,6 +9,7 @@
 #import "BPTransmissionClient.h"
 #import "AFHTTPRequestOperation.h"
 #import "AFJSONRequestOperation.h"
+#import "NSData+Base64.h"
 
 NSString * const kBPTransmissionClientErrorDomain = @"BPTransmissionClientErrorDomain";
 static NSString * const kBPTransmissionSessionIdHeader = @"X-Transmission-Session-Id";
@@ -46,7 +47,11 @@ if (![status isEqualToString:@"success"]) { \
 }
 
 - (NSString *)sessionId {
+    [self willChangeValueForKey:@"sessionId"];
+    [self willChangeValueForKey:@"connected"];
     return [self defaultValueForHeader:kBPTransmissionSessionIdHeader];
+    [self didChangeValueForKey:@"sessionId"];
+    [self didChangeValueForKey:@"connected"];
 }
 
 - (BOOL)isConnected {
@@ -210,10 +215,60 @@ if (![status isEqualToString:@"success"]) { \
                                    @"method" : @"torrent-remove",
                                    @"arguments" : @{ @"ids" : @[ @(torrentId) ] }
                                    } mutableCopy];
-    if (deleteData) {
+    if ([NSUserDefaults standardUserDefaults].bp_deleteBackingFilesWhenRemovingTorrents) {
         [params setObject:@YES forKey:@"delete-local-data"];
     }
     
+    request.HTTPBody = [NSJSONSerialization dataWithJSONObject:params options:0 error:nil];
+    AFJSONRequestOperation *op = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        handleErrorInResult(JSON);
+
+        if (completionBlock != nil) {
+            completionBlock();
+        }
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        if (errorBlock != nil) {
+            errorBlock(error);
+        }
+    }];
+    [self enqueueHTTPRequestOperation:op];
+    return op;
+}
+
+#pragma mark - Add 
+
+- (NSOperation *)addTorrentFromURL:(NSURL *)url completion:(BPPlainBlock)completionBlock error:(BPErrorBlock)errorBlock {
+    NSMutableURLRequest *request = [self requestWithMethod:@"POST"
+                                                      path:nil
+                                                parameters:nil];
+    NSDictionary *args = nil;
+    BOOL pause = [NSUserDefaults standardUserDefaults].bp_pauseAddedTransfers;
+    if (url.isFileURL) {
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        NSString *encodedData = [data base64EncodedString];
+        args = @{ @"metainfo" : encodedData,
+                  @"paused" : @(pause)
+                  };
+    } else if ([url.scheme isEqualToString:@"magnet"]) {
+        args = @{ @"filename" : url.absoluteString,
+                  @"paused" : @(pause)
+                  };
+    } else {
+        if (errorBlock != nil) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSError *error = [NSError errorWithDomain:kBPTransmissionClientErrorDomain
+                                                     code:0
+                                                 userInfo:@{ NSLocalizedDescriptionKey : NSLocalizedString(@"Unsupported URL", nil) }];
+                errorBlock(error);
+            });
+        }
+        return nil;
+    }
+    NSDictionary *params = @{
+                             @"method" : @"torrent-add",
+                             @"arguments" : args
+                             };
+
     request.HTTPBody = [NSJSONSerialization dataWithJSONObject:params options:0 error:nil];
     AFJSONRequestOperation *op = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         handleErrorInResult(JSON);

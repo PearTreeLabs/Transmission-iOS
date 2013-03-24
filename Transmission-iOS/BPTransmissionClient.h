@@ -32,4 +32,6 @@ extern NSString * const kBPTransmissionClientErrorDomain;
 - (NSOperation *)stopTorrent:(NSInteger)torrentId completion:(BPPlainBlock)completionBlock error:(BPErrorBlock)errorBlock;
 - (NSOperation *)removeTorrent:(NSInteger)torrentId deleteData:(BOOL)deleteData completion:(BPPlainBlock)completionBlock error:(BPErrorBlock)errorBlock;
 
+- (NSOperation *)addTorrentFromURL:(NSURL *)url completion:(BPPlainBlock)completionBlock error:(BPErrorBlock)errorBlock;
+
 @end

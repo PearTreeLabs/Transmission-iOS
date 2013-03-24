@@ -8,11 +8,14 @@
 
 #import "BPAppDelegate.h"
 #import "BPConnectionViewController.h"
+#import "BPTransmissionEngine.h"
 
 @implementation BPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[NSUserDefaults standardUserDefaults] bp_registerDefaults];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
@@ -21,6 +24,11 @@
     self.window.rootViewController = vc;
 
     [self.window makeKeyAndVisible];
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    [[BPTransmissionEngine sharedEngine] enqueueTransferForURL:url];
     return YES;
 }
 

@@ -7,3 +7,9 @@
 [submodule "3rdParty/MagicalRecord"]
 	path = 3rdParty/MagicalRecord
 	url = https://github.com/magicalpanda/MagicalRecord.git
+[submodule "3rdParty/NSData-Base64"]
+	path = 3rdParty/NSData-Base64
+	url = https://github.com/l4u/NSData-Base64.git
+[submodule "3rdParty/SVProgressHUD"]
+	path = 3rdParty/SVProgressHUD
+	url = https://github.com/samvermette/SVProgressHUD.git

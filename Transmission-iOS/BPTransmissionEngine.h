@@ -24,5 +24,6 @@
 - (void)pauseTorrent:(BPTorrent *)torrent completion:(BPPlainBlock)completionBlock error:(BPErrorBlock)errorBlock;
 - (void)removeTorrent:(BPTorrent *)torrent deleteData:(BOOL)deleteData completion:(BPPlainBlock)completionBlock error:(BPErrorBlock)errorBlock;
 
+- (void)enqueueTransferForURL:(NSURL *)url;
 
 @end

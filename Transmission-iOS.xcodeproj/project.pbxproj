@@ -93,6 +93,10 @@
 		D36134B116ED352500AE6B6C /* _BPTorrent.m in Sources */ = {isa = PBXBuildFile; fileRef = D36134B016ED352500AE6B6C /* _BPTorrent.m */; };
 		D36134B416ED353200AE6B6C /* BPTorrent.m in Sources */ = {isa = PBXBuildFile; fileRef = D36134B316ED353200AE6B6C /* BPTorrent.m */; };
 		D36134B716ED36AB00AE6B6C /* BPTransmissionEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = D36134B616ED36AB00AE6B6C /* BPTransmissionEngine.m */; };
+		D3A49AD916FEA47E00633296 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A49AD716FEA47E00633296 /* NSData+Base64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D3A49B0A16FEA82F00633296 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D3A49B0716FEA82F00633296 /* SVProgressHUD.bundle */; };
+		D3A49B0B16FEA82F00633296 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A49B0916FEA82F00633296 /* SVProgressHUD.m */; };
+		D3A49B0F16FEAC0D00633296 /* NSUserDefaults+Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A49B0E16FEAC0D00633296 /* NSUserDefaults+Settings.m */; };
 		D3BFB95416DB1F690052FFA4 /* libBPFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BFB94D16DB1F3C0052FFA4 /* libBPFoundation.a */; };
 		D3EC4B7B16E2C1DD006885F8 /* BPTorrentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EC4B7A16E2C1DD006885F8 /* BPTorrentCell.m */; };
 /* End PBXBuildFile section */
@@ -245,6 +249,13 @@
 		D36134B516ED36AB00AE6B6C /* BPTransmissionEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPTransmissionEngine.h; sourceTree = "<group>"; };
 		D36134B616ED36AB00AE6B6C /* BPTransmissionEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPTransmissionEngine.m; sourceTree = "<group>"; };
 		D38698B116E2A01300EDCC43 /* transmission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = transmission.h; sourceTree = "<group>"; };
+		D3A49AD616FEA47E00633296 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		D3A49AD716FEA47E00633296 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		D3A49B0716FEA82F00633296 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		D3A49B0816FEA82F00633296 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		D3A49B0916FEA82F00633296 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		D3A49B0D16FEAC0D00633296 /* NSUserDefaults+Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+Settings.h"; sourceTree = "<group>"; };
+		D3A49B0E16FEAC0D00633296 /* NSUserDefaults+Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+Settings.m"; sourceTree = "<group>"; };
 		D3BFB94816DB1F3C0052FFA4 /* BPFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BPFoundation.xcodeproj; path = 3rdParty/BPFoundation/BPFoundation.xcodeproj; sourceTree = "<group>"; };
 		D3EC4B7916E2C1DD006885F8 /* BPTorrentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPTorrentCell.h; sourceTree = "<group>"; };
 		D3EC4B7A16E2C1DD006885F8 /* BPTorrentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPTorrentCell.m; sourceTree = "<group>"; };
@@ -321,6 +332,7 @@
 		D34ACC1D16DA547C00607AD7 /* Transmission-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				D3A49B0C16FEABFE00633296 /* Categories */,
 				D38D328716E0760300E5496D /* Clients */,
 				D34C0A5A16E050A200AAFB93 /* Controllers */,
 				D38D328616E075F000E5496D /* Views */,
@@ -355,6 +367,8 @@
 				D34ACC3516DA560400607AD7 /* AFNetworking */,
 				D3BFB94816DB1F3C0052FFA4 /* BPFoundation.xcodeproj */,
 				D360A84916EBEE0D001B9AF0 /* MagicalRecord */,
+				D3A49AD516FEA47E00633296 /* NSData-Base64 */,
+				D3A49B0616FEA82F00633296 /* SVProgressHUD */,
 				D38698AF16E2A01300EDCC43 /* transmission */,
 			);
 			name = 3rdParty;
@@ -589,6 +603,36 @@
 			name = Clients;
 			sourceTree = "<group>";
 		};
+		D3A49AD516FEA47E00633296 /* NSData-Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				D3A49AD616FEA47E00633296 /* NSData+Base64.h */,
+				D3A49AD716FEA47E00633296 /* NSData+Base64.m */,
+			);
+			name = "NSData-Base64";
+			path = "3rdParty/NSData-Base64";
+			sourceTree = "<group>";
+		};
+		D3A49B0616FEA82F00633296 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				D3A49B0716FEA82F00633296 /* SVProgressHUD.bundle */,
+				D3A49B0816FEA82F00633296 /* SVProgressHUD.h */,
+				D3A49B0916FEA82F00633296 /* SVProgressHUD.m */,
+			);
+			name = SVProgressHUD;
+			path = 3rdParty/SVProgressHUD/SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		D3A49B0C16FEABFE00633296 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				D3A49B0D16FEAC0D00633296 /* NSUserDefaults+Settings.h */,
+				D3A49B0E16FEAC0D00633296 /* NSUserDefaults+Settings.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		D3BFB94916DB1F3C0052FFA4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -686,6 +730,7 @@
 				D360A84016EBE1B9001B9AF0 /* Icon-72@2x.png in Resources */,
 				D360A84516EBE1B9001B9AF0 /* Icon.png in Resources */,
 				D360A84616EBE1B9001B9AF0 /* Icon@2x.png in Resources */,
+				D3A49B0A16FEA82F00633296 /* SVProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -759,6 +804,9 @@
 				D36134B116ED352500AE6B6C /* _BPTorrent.m in Sources */,
 				D36134B416ED353200AE6B6C /* BPTorrent.m in Sources */,
 				D36134B716ED36AB00AE6B6C /* BPTransmissionEngine.m in Sources */,
+				D3A49AD916FEA47E00633296 /* NSData+Base64.m in Sources */,
+				D3A49B0B16FEA82F00633296 /* SVProgressHUD.m in Sources */,
+				D3A49B0F16FEAC0D00633296 /* NSUserDefaults+Settings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,10 +7,14 @@
 //
 
 #import "BPTransmissionEngine.h"
+#import "SVProgressHUD.h"
+
+static void *kvoContext = &kvoContext;
 
 @interface BPTransmissionEngine ()
 
 @property (nonatomic, strong) NSTimer *updateTimer;
+@property (nonatomic, strong) NSMutableArray *queuedTransferURLs;
 
 @end
 
@@ -23,9 +27,12 @@
         return;
     }
 
+    [_client removeObserver:self forKeyPath:@"connected" context:kvoContext];
     _client = client;
+    [_client addObserver:self forKeyPath:@"connected" options:0 context:kvoContext];
 
     [BPTorrent MR_truncateAll];
+    [self processQueuedTransferURLs];
 }
 
 #pragma mark - Lifecycle
@@ -46,6 +53,7 @@
 	}
 
 	_updateInterval = 10.0;
+    _queuedTransferURLs = [NSMutableArray array];
 
     [MagicalRecord setupCoreDataStackWithInMemoryStore];
 
@@ -149,6 +157,51 @@
             errorBlock(error);
         }
     }];
+}
+
+#pragma mark - Add Torrents
+
+- (void)enqueueTransferForURL:(NSURL *)url {
+    [self.queuedTransferURLs addObject:url];
+    [self processQueuedTransferURLs];
+}
+
+- (void)processQueuedTransferURLs {
+    if (self.client == nil ||
+        !self.client.isConnected) {
+        return;
+    }
+    
+    NSArray *urlsToProcess = [self.queuedTransferURLs copy];
+    for (NSURL *url in urlsToProcess) {
+        [self.client addTorrentFromURL:url completion:^{
+            [SVProgressHUD showSuccessWithStatus:@"Added Torrent"];
+        } error:^(NSError *error) {
+            DLog(@"Error adding torrent: %@", error);
+            [SVProgressHUD showErrorWithStatus:error.localizedDescription];
+        }];
+
+        // Cleanup
+        [self.queuedTransferURLs removeObject:url];
+        if (url.isFileURL) {
+            NSError *error = nil;
+            if (![[NSFileManager defaultManager] removeItemAtURL:url error:&error]) {
+                DLog(@"Error removing torrent file: %@", error);
+            }
+        }
+    }
+}
+
+#pragma mark - KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if (context != kvoContext) {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+        return;
+    }
+    if ([keyPath isEqualToString:@"connected"]) {
+        [self processQueuedTransferURLs];
+    }
 }
 
 @end

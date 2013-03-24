@@ -16,6 +16,7 @@
 #import <CoreData/CoreData.h>
 #import "CoreData+MagicalRecord.h"
 #import "BPFoundation.h"
+#import "NSUserDefaults+Settings.h"
 #endif
 
 #ifdef DEBUG
