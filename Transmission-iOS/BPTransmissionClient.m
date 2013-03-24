@@ -10,6 +10,7 @@
 #import "AFHTTPRequestOperation.h"
 #import "AFJSONRequestOperation.h"
 #import "NSData+Base64.h"
+#import "AFNetworkActivityIndicatorManager.h"
 
 NSString * const kBPTransmissionClientErrorDomain = @"BPTransmissionClientErrorDomain";
 static NSString * const kBPTransmissionSessionIdHeader = @"X-Transmission-Session-Id";
@@ -59,6 +60,8 @@ if (![status isEqualToString:@"success"]) { \
 }
 
 + (instancetype)clientForHost:(NSString *)hostAddress port:(NSInteger)port {
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    
     NSString *scheme = @"http";
     NSString *path = @"/transmission/rpc";
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@:%d%@", scheme, hostAddress, port, path]];
