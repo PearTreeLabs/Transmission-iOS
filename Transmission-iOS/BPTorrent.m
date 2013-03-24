@@ -33,7 +33,7 @@
 
 - (CGFloat) ratio
 {
-    return  self.uploadRatioValue;
+    return MAX(0, self.uploadRatioValue);
 }
 
 - (BOOL) waitingToStart
