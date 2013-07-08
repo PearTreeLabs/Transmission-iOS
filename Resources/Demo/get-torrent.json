@@ -1,0 +1,55 @@
+{
+    "arguments": {
+        "torrents": [
+            {
+                "desiredAvailable": 314392576, 
+                "error": 0, 
+                "errorString": "", 
+                "id": 14, 
+                "isFinished": false, 
+                "leftUntilDone": 314392576, 
+                "name": "Blender_Foundation_-_Big_Buck_Bunny_720p", 
+                "percentDone": 0.6537, 
+                "rateDownload": 637000, 
+                "rateUpload": 0, 
+                "recheckProgress": 0, 
+                "status": 4, 
+                "totalSize": 332245013, 
+                "uploadRatio": 0.4237
+            }, 
+            {
+                "desiredAvailable": 0, 
+                "error": 0, 
+                "errorString": "", 
+                "id": 15, 
+                "isFinished": false, 
+                "leftUntilDone": 3236033, 
+                "name": "Larry Lessig - Code V2", 
+                "percentDone": 0.2532, 
+                "rateDownload": 0, 
+                "rateUpload": 0, 
+                "recheckProgress": 0, 
+                "status": 0, 
+                "totalSize": 4333761, 
+                "uploadRatio": 0.2345
+            }, 
+            {
+                "desiredAvailable": 713129984, 
+                "error": 0, 
+                "errorString": "", 
+                "id": 16, 
+                "isFinished": true, 
+                "leftUntilDone": 0, 
+                "name": "ubuntu-13.04-desktop-amd64.iso", 
+                "percentDone": 1.0, 
+                "rateDownload": 661000, 
+                "rateUpload": 361000, 
+                "recheckProgress": 0, 
+                "status": 6,
+                "totalSize": 823132160, 
+                "uploadRatio": 1.3
+            }
+        ]
+    }, 
+    "result": "success"
+}

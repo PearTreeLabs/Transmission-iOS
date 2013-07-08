@@ -16,3 +16,6 @@
 [submodule "3rdParty/AFHTTPRequestOperationLogger"]
 	path = 3rdParty/AFHTTPRequestOperationLogger
 	url = git@github.com:AFNetworking/AFHTTPRequestOperationLogger.git
+[submodule "3rdParty/PTLURLProtocol"]
+	path = 3rdParty/PTLURLProtocol
+	url = git@github.com:PearTreeLabs/PTLURLProtocol.git

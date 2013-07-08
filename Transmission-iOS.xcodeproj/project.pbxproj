@@ -102,6 +102,9 @@
 		D3A49B0B16FEA82F00633296 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A49B0916FEA82F00633296 /* SVProgressHUD.m */; };
 		D3A49B0F16FEAC0D00633296 /* NSUserDefaults+Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A49B0E16FEAC0D00633296 /* NSUserDefaults+Settings.m */; };
 		D3BFB95416DB1F690052FFA4 /* libBPFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BFB94D16DB1F3C0052FFA4 /* libBPFoundation.a */; };
+		D3D82967178A5FBA00AE904A /* get-torrent.json in Resources */ = {isa = PBXBuildFile; fileRef = D3D82966178A5FBA00AE904A /* get-torrent.json */; };
+		D3D82976178A5FDB00AE904A /* BPTransmissionTestProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D82975178A5FDB00AE904A /* BPTransmissionTestProtocol.m */; };
+		D3D8297A178A60DD00AE904A /* PTLURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D82979178A60DD00AE904A /* PTLURLProtocol.m */; };
 		D3EC4B7B16E2C1DD006885F8 /* BPTorrentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EC4B7A16E2C1DD006885F8 /* BPTorrentCell.m */; };
 /* End PBXBuildFile section */
 
@@ -266,6 +269,11 @@
 		D3A49B0D16FEAC0D00633296 /* NSUserDefaults+Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+Settings.h"; sourceTree = "<group>"; };
 		D3A49B0E16FEAC0D00633296 /* NSUserDefaults+Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+Settings.m"; sourceTree = "<group>"; };
 		D3BFB94816DB1F3C0052FFA4 /* BPFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BPFoundation.xcodeproj; path = 3rdParty/BPFoundation/BPFoundation.xcodeproj; sourceTree = "<group>"; };
+		D3D82966178A5FBA00AE904A /* get-torrent.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-torrent.json"; sourceTree = "<group>"; };
+		D3D82974178A5FDB00AE904A /* BPTransmissionTestProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPTransmissionTestProtocol.h; sourceTree = "<group>"; };
+		D3D82975178A5FDB00AE904A /* BPTransmissionTestProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPTransmissionTestProtocol.m; sourceTree = "<group>"; };
+		D3D82978178A60DD00AE904A /* PTLURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLURLProtocol.h; sourceTree = "<group>"; };
+		D3D82979178A60DD00AE904A /* PTLURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLURLProtocol.m; sourceTree = "<group>"; };
 		D3EC4B7916E2C1DD006885F8 /* BPTorrentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPTorrentCell.h; sourceTree = "<group>"; };
 		D3EC4B7A16E2C1DD006885F8 /* BPTorrentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPTorrentCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -341,6 +349,7 @@
 		D34ACC1D16DA547C00607AD7 /* Transmission-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				D3D82968178A5FC100AE904A /* Demo */,
 				D3A49B0C16FEABFE00633296 /* Categories */,
 				D38D328716E0760300E5496D /* Clients */,
 				D34C0A5A16E050A200AAFB93 /* Controllers */,
@@ -378,6 +387,7 @@
 				D3BFB94816DB1F3C0052FFA4 /* BPFoundation.xcodeproj */,
 				D360A84916EBEE0D001B9AF0 /* MagicalRecord */,
 				D3A49AD516FEA47E00633296 /* NSData-Base64 */,
+				D3D82977178A60DD00AE904A /* PTLURLProtocol */,
 				D3A49B0616FEA82F00633296 /* SVProgressHUD */,
 				D38698AF16E2A01300EDCC43 /* transmission */,
 			);
@@ -425,6 +435,7 @@
 		D360A83116EBE1B9001B9AF0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D3D82965178A5FBA00AE904A /* Demo */,
 				D360A83216EBE1B9001B9AF0 /* Icon */,
 			);
 			path = Resources;
@@ -664,6 +675,33 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		D3D82965178A5FBA00AE904A /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				D3D82966178A5FBA00AE904A /* get-torrent.json */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		D3D82968178A5FC100AE904A /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				D3D82974178A5FDB00AE904A /* BPTransmissionTestProtocol.h */,
+				D3D82975178A5FDB00AE904A /* BPTransmissionTestProtocol.m */,
+			);
+			name = Demo;
+			sourceTree = "<group>";
+		};
+		D3D82977178A60DD00AE904A /* PTLURLProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				D3D82978178A60DD00AE904A /* PTLURLProtocol.h */,
+				D3D82979178A60DD00AE904A /* PTLURLProtocol.m */,
+			);
+			name = PTLURLProtocol;
+			path = 3rdParty/PTLURLProtocol/PTLURLProtocol;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -757,6 +795,7 @@
 				D385475B178A2688006647C9 /* AFHTTPRequestOperationLogger.podspec in Resources */,
 				D385475C178A2688006647C9 /* LICENSE in Resources */,
 				D385475D178A2688006647C9 /* README.md in Resources */,
+				D3D82967178A5FBA00AE904A /* get-torrent.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -834,6 +873,8 @@
 				D3A49B0B16FEA82F00633296 /* SVProgressHUD.m in Sources */,
 				D3A49B0F16FEAC0D00633296 /* NSUserDefaults+Settings.m in Sources */,
 				D385475A178A2688006647C9 /* AFHTTPRequestOperationLogger.m in Sources */,
+				D3D82976178A5FDB00AE904A /* BPTransmissionTestProtocol.m in Sources */,
+				D3D8297A178A60DD00AE904A /* PTLURLProtocol.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
