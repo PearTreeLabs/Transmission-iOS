@@ -4,7 +4,9 @@
 
 A [Transmission](http://www.transmissionbt.com) client for iOS.
 
-Designed for a single purpose: quick management of torrents on your home network.  No network configuration is required, it will automatically connect to the first available Transmission instance.
+Designed for a single purpose: quick management of BitTorrent transfers within your home network.  No network configuration is required, it will automatically connect to the first available Transmission instance.
+
+![Transfer List](Screenshots/transfers.png)
 
 ## Usage
 
@@ -20,7 +22,7 @@ Designed for a single purpose: quick management of torrents on your home network
   - Transmission > Preferences > Remote
   - Enable Remote Access: YES
   - Display the web interface with Bonjour: YES
-  - Require authentication: Optiona
+  - Require authentication: Optional
 
 ## Dependencies
 
