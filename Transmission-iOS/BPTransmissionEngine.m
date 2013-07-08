@@ -28,7 +28,9 @@ static void *kvoContext = &kvoContext;
     }
 
     [_client removeObserver:self forKeyPath:@"connected" context:kvoContext];
+    [self willChangeValueForKey:@"client"];
     _client = client;
+    [self didChangeValueForKey:@"client"];
     [_client addObserver:self forKeyPath:@"connected" options:0 context:kvoContext];
 
     [BPTorrent MR_truncateAll];
@@ -85,6 +87,9 @@ static void *kvoContext = &kvoContext;
                                                                repeats:NO];
     } error:^(NSError *error) {
         DLog(@"Update error: %@", error);
+        if ([error.domain isEqualToString:NSURLErrorDomain]) {
+            weakSelf.client = nil;
+        }
     }];
 }
 

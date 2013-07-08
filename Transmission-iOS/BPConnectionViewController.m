@@ -15,6 +15,8 @@
 
 extern NSString *AFNetworkingOperationFailingURLResponseErrorKey;
 
+static void *kvoContext = &kvoContext;
+
 @interface BPConnectionViewController () <NSNetServiceDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) BPBonjourBrowser *browser;
@@ -43,16 +45,14 @@ extern NSString *AFNetworkingOperationFailingURLResponseErrorKey;
     self.retryButton.hidden = YES;
     
     self.browser = [[BPBonjourBrowser alloc] init];
+
+    [self identifyAvailableServices];
+
+    [[BPTransmissionEngine sharedEngine] addObserver:self forKeyPath:@"client" options:0 context:kvoContext];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-
-    double delayInSeconds = 2.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [self identifyAvailableServices];
-    });
+- (void)dealloc {
+    [[BPTransmissionEngine sharedEngine] removeObserver:self forKeyPath:@"client" context:kvoContext];
 }
 
 #pragma mark - Services
@@ -74,8 +74,16 @@ extern NSString *AFNetworkingOperationFailingURLResponseErrorKey;
     }];
 }
 
-- (void)connectToResolvedService:(NSNetService *)service username:(NSString *)username password:(NSString *)password {    
+- (void)connectToResolvedService:(NSNetService *)service username:(NSString *)username password:(NSString *)password {
+    __weak BPConnectionViewController *weakSelf = self;
     BPTransmissionClient *client = [BPTransmissionClient clientForHost:service.hostName port:service.port];
+    [client setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        if (status == AFNetworkReachabilityStatusNotReachable ||
+            status == AFNetworkReachabilityStatusUnknown) {
+            [BPTransmissionEngine sharedEngine].client = nil;
+        }
+    }];
+    
     __weak BPTransmissionClient *weakClient = client;
     [client connectAsUser:username password:password completion:^{
         DLog(@"connected");
@@ -111,6 +119,14 @@ extern NSString *AFNetworkingOperationFailingURLResponseErrorKey;
     }];
 }
 
+- (void)handleDisconnect {
+    self.currentService = nil;
+    [self setErrorStateWithText:NSLocalizedString(@"Transmission Lost", nil)];
+    [self dismissViewControllerAnimated:YES completion:^{
+        [self identifyAvailableServices];
+    }];
+}
+
 #pragma mark - UI State Management
 
 - (void)setRunningStateWithText:(NSString *)status {
@@ -139,9 +155,14 @@ extern NSString *AFNetworkingOperationFailingURLResponseErrorKey;
 }
 
 - (void)netServiceDidResolveAddress:(NSNetService *)service {
+    if (service.hostName == nil) {
+        // Resolved, but no hostname. Wait for another resolution status update.
+        return;
+    }
     DLog(@"resolved: %@", service);
     [self setSuccessStateWithText:NSLocalizedString(@"Transmission Received", nil)];
     [self connectToResolvedService:self.currentService username:nil password:nil];
+    self.currentService = nil;
 }
 
 - (void)netService:(NSNetService *)service didNotResolve:(NSDictionary *)errorDict {
@@ -152,8 +173,7 @@ extern NSString *AFNetworkingOperationFailingURLResponseErrorKey;
 
 - (void)netServiceDidStop:(NSNetService *)service {
     DLog(@"resolution did stop: %@", service);
-    self.currentService = nil;
-    [self setErrorStateWithText:NSLocalizedString(@"Transmission Lost", nil)];
+    [self handleDisconnect];
 }
 
 #pragma mark - User Interaction
@@ -174,6 +194,32 @@ extern NSString *AFNetworkingOperationFailingURLResponseErrorKey;
         [self connectToResolvedService:self.currentService username:username password:password];
     } else {
         [self setErrorStateWithText:NSLocalizedString(@"Connection Error", nil)];
+    }
+}
+
+#pragma mark - KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if (context != kvoContext) {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+        return;
+    }
+
+    // If possible, verify that there actually was a change
+    id old = [change objectForKey:NSKeyValueChangeOldKey];
+    id new = [change objectForKey:NSKeyValueChangeNewKey];
+    if (old != nil &&
+        new != nil &&
+        [old isEqual:new]) {
+        return;
+    }
+
+    // Handle observation
+    if (object == [BPTransmissionEngine sharedEngine] &&
+        [keyPath isEqualToString:@"client"]) {
+        if ([BPTransmissionEngine sharedEngine].client == nil) {
+            [self handleDisconnect];
+        }
     }
 }
 
