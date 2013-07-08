@@ -93,6 +93,10 @@
 		D36134B116ED352500AE6B6C /* _BPTorrent.m in Sources */ = {isa = PBXBuildFile; fileRef = D36134B016ED352500AE6B6C /* _BPTorrent.m */; };
 		D36134B416ED353200AE6B6C /* BPTorrent.m in Sources */ = {isa = PBXBuildFile; fileRef = D36134B316ED353200AE6B6C /* BPTorrent.m */; };
 		D36134B716ED36AB00AE6B6C /* BPTransmissionEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = D36134B616ED36AB00AE6B6C /* BPTransmissionEngine.m */; };
+		D385475A178A2688006647C9 /* AFHTTPRequestOperationLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = D3854756178A2688006647C9 /* AFHTTPRequestOperationLogger.m */; };
+		D385475B178A2688006647C9 /* AFHTTPRequestOperationLogger.podspec in Resources */ = {isa = PBXBuildFile; fileRef = D3854757178A2688006647C9 /* AFHTTPRequestOperationLogger.podspec */; };
+		D385475C178A2688006647C9 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D3854758178A2688006647C9 /* LICENSE */; };
+		D385475D178A2688006647C9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D3854759178A2688006647C9 /* README.md */; };
 		D3A49AD916FEA47E00633296 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A49AD716FEA47E00633296 /* NSData+Base64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D3A49B0A16FEA82F00633296 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D3A49B0716FEA82F00633296 /* SVProgressHUD.bundle */; };
 		D3A49B0B16FEA82F00633296 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A49B0916FEA82F00633296 /* SVProgressHUD.m */; };
@@ -248,6 +252,11 @@
 		D36134B316ED353200AE6B6C /* BPTorrent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPTorrent.m; sourceTree = "<group>"; };
 		D36134B516ED36AB00AE6B6C /* BPTransmissionEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPTransmissionEngine.h; sourceTree = "<group>"; };
 		D36134B616ED36AB00AE6B6C /* BPTransmissionEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPTransmissionEngine.m; sourceTree = "<group>"; };
+		D3854755178A2688006647C9 /* AFHTTPRequestOperationLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationLogger.h; sourceTree = "<group>"; };
+		D3854756178A2688006647C9 /* AFHTTPRequestOperationLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationLogger.m; sourceTree = "<group>"; };
+		D3854757178A2688006647C9 /* AFHTTPRequestOperationLogger.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AFHTTPRequestOperationLogger.podspec; sourceTree = "<group>"; };
+		D3854758178A2688006647C9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		D3854759178A2688006647C9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		D38698B116E2A01300EDCC43 /* transmission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = transmission.h; sourceTree = "<group>"; };
 		D3A49AD616FEA47E00633296 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		D3A49AD716FEA47E00633296 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
@@ -365,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				D34ACC3516DA560400607AD7 /* AFNetworking */,
+				D3854754178A2688006647C9 /* AFHTTPRequestOperationLogger */,
 				D3BFB94816DB1F3C0052FFA4 /* BPFoundation.xcodeproj */,
 				D360A84916EBEE0D001B9AF0 /* MagicalRecord */,
 				D3A49AD516FEA47E00633296 /* NSData-Base64 */,
@@ -553,6 +563,19 @@
 			name = Generated;
 			sourceTree = "<group>";
 		};
+		D3854754178A2688006647C9 /* AFHTTPRequestOperationLogger */ = {
+			isa = PBXGroup;
+			children = (
+				D3854755178A2688006647C9 /* AFHTTPRequestOperationLogger.h */,
+				D3854756178A2688006647C9 /* AFHTTPRequestOperationLogger.m */,
+				D3854757178A2688006647C9 /* AFHTTPRequestOperationLogger.podspec */,
+				D3854758178A2688006647C9 /* LICENSE */,
+				D3854759178A2688006647C9 /* README.md */,
+			);
+			name = AFHTTPRequestOperationLogger;
+			path = 3rdParty/AFHTTPRequestOperationLogger;
+			sourceTree = "<group>";
+		};
 		D38698AF16E2A01300EDCC43 /* transmission */ = {
 			isa = PBXGroup;
 			children = (
@@ -731,6 +754,9 @@
 				D360A84516EBE1B9001B9AF0 /* Icon.png in Resources */,
 				D360A84616EBE1B9001B9AF0 /* Icon@2x.png in Resources */,
 				D3A49B0A16FEA82F00633296 /* SVProgressHUD.bundle in Resources */,
+				D385475B178A2688006647C9 /* AFHTTPRequestOperationLogger.podspec in Resources */,
+				D385475C178A2688006647C9 /* LICENSE in Resources */,
+				D385475D178A2688006647C9 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -807,6 +833,7 @@
 				D3A49AD916FEA47E00633296 /* NSData+Base64.m in Sources */,
 				D3A49B0B16FEA82F00633296 /* SVProgressHUD.m in Sources */,
 				D3A49B0F16FEAC0D00633296 /* NSUserDefaults+Settings.m in Sources */,
+				D385475A178A2688006647C9 /* AFHTTPRequestOperationLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

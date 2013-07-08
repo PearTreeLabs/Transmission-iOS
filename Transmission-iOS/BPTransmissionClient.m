@@ -11,9 +11,10 @@
 #import "AFJSONRequestOperation.h"
 #import "NSData+Base64.h"
 #import "AFNetworkActivityIndicatorManager.h"
+#import "AFHTTPRequestOperationLogger.h"
 
 NSString * const kBPTransmissionClientErrorDomain = @"BPTransmissionClientErrorDomain";
-static NSString * const kBPTransmissionSessionIdHeader = @"X-Transmission-Session-Id";
+NSString * const kBPTransmissionSessionIdHeader = @"X-Transmission-Session-Id";
 
 #define handleErrorInResult(JSON) \
 NSString *status = [JSON objectForKey:@"result"]; \
@@ -61,6 +62,10 @@ if (![status isEqualToString:@"success"]) { \
 
 + (instancetype)clientForHost:(NSString *)hostAddress port:(NSInteger)port {
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+#ifdef DEBUG
+    [[AFHTTPRequestOperationLogger sharedLogger] startLogging];
+    [AFHTTPRequestOperationLogger sharedLogger].level = AFLoggerLevelDebug;
+#endif
     
     NSString *scheme = @"http";
     NSString *path = @"/transmission/rpc";

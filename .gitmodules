@@ -13,3 +13,6 @@
 [submodule "3rdParty/SVProgressHUD"]
 	path = 3rdParty/SVProgressHUD
 	url = https://github.com/samvermette/SVProgressHUD.git
+[submodule "3rdParty/AFHTTPRequestOperationLogger"]
+	path = 3rdParty/AFHTTPRequestOperationLogger
+	url = git@github.com:AFNetworking/AFHTTPRequestOperationLogger.git

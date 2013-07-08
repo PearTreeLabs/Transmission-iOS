@@ -15,6 +15,7 @@ typedef void(^BPTorrentsBlock)(NSArray *torrents);
 typedef void(^BPErrorBlock)(NSError *error);
 
 extern NSString * const kBPTransmissionClientErrorDomain;
+extern NSString * const kBPTransmissionSessionIdHeader;
 
 @interface BPTransmissionClient : AFHTTPClient
 
