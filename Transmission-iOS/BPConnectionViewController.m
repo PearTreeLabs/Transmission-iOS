@@ -69,10 +69,15 @@ static void *kvoContext = &kvoContext;
 #endif
 
     [[BPTransmissionEngine sharedEngine] addObserver:self forKeyPath:@"client" options:0 context:kvoContext];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:[UIApplication sharedApplication]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:[UIApplication sharedApplication]];
 }
 
 - (void)dealloc {
     [[BPTransmissionEngine sharedEngine] removeObserver:self forKeyPath:@"client" context:kvoContext];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:[UIApplication sharedApplication]];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:[UIApplication sharedApplication]];
 }
 
 #pragma mark - Services
@@ -143,9 +148,9 @@ static void *kvoContext = &kvoContext;
 - (void)handleDisconnect {
     self.currentService = nil;
     [self setErrorStateWithText:NSLocalizedString(@"Transmission Lost", nil)];
-    [self dismissViewControllerAnimated:YES completion:^{
-        [self identifyAvailableServices];
-    }];
+
+    BOOL animated = ([UIApplication sharedApplication].applicationState == UIApplicationStateActive);
+    [self dismissViewControllerAnimated:animated completion:nil];
 }
 
 #pragma mark - UI State Management
@@ -242,6 +247,20 @@ static void *kvoContext = &kvoContext;
             [self handleDisconnect];
         }
     }
+}
+
+#pragma mark - App Lifecycle
+
+- (void)didBecomeActive:(NSNotification *)note {
+    if (self.presentedViewController == nil) {
+        [self identifyAvailableServices];
+    }
+}
+
+- (void)didEnterBackground:(NSNotification *)note {
+    [[BPTransmissionEngine sharedEngine] stopUpdates];
+    [[BPTransmissionEngine sharedEngine].client disconnect];
+    [BPTransmissionEngine sharedEngine].client = nil;
 }
 
 @end
