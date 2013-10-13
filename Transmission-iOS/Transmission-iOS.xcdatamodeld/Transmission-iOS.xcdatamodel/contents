@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C60" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F37" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="BPTorrent" representedClassName="BPTorrent" syncable="YES">
         <attribute name="desiredAvailable" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="error" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -15,12 +15,13 @@
         <attribute name="rateDownload" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="rateUpload" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="recheckProgress" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="sortName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="totalSize" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="uploadRatio" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
     </entity>
     <fetchRequest name="AllVisibleTorrents" entity="BPTorrent" predicateString="isPendingDeletion == 0"/>
     <elements>
-        <element name="BPTorrent" positionX="160" positionY="192" width="128" height="300"/>
+        <element name="BPTorrent" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

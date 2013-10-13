@@ -19,6 +19,7 @@ extern const struct BPTorrentAttributes {
 	__unsafe_unretained NSString *rateDownload;
 	__unsafe_unretained NSString *rateUpload;
 	__unsafe_unretained NSString *recheckProgress;
+	__unsafe_unretained NSString *sortName;
 	__unsafe_unretained NSString *status;
 	__unsafe_unretained NSString *totalSize;
 	__unsafe_unretained NSString *uploadRatio;
@@ -29,6 +30,7 @@ extern const struct BPTorrentRelationships {
 
 extern const struct BPTorrentFetchedProperties {
 } BPTorrentFetchedProperties;
+
 
 
 
@@ -61,7 +63,9 @@ extern const struct BPTorrentFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSNumber* desiredAvailable;
+
 
 
 @property float desiredAvailableValue;
@@ -73,7 +77,9 @@ extern const struct BPTorrentFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSNumber* error;
+
 
 
 @property int32_t errorValue;
@@ -85,7 +91,9 @@ extern const struct BPTorrentFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSString* errorString;
+
 
 
 //- (BOOL)validateErrorString:(id*)value_ error:(NSError**)error_;
@@ -93,7 +101,9 @@ extern const struct BPTorrentFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSString* hashString;
+
 
 
 //- (BOOL)validateHashString:(id*)value_ error:(NSError**)error_;
@@ -101,7 +111,9 @@ extern const struct BPTorrentFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSNumber* id;
+
 
 
 @property int32_t idValue;
@@ -113,7 +125,9 @@ extern const struct BPTorrentFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSNumber* isFinished;
+
 
 
 @property BOOL isFinishedValue;
@@ -125,7 +139,9 @@ extern const struct BPTorrentFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSNumber* isPendingDeletion;
+
 
 
 @property BOOL isPendingDeletionValue;
@@ -137,7 +153,9 @@ extern const struct BPTorrentFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSNumber* leftUntilDone;
+
 
 
 @property int64_t leftUntilDoneValue;
@@ -149,7 +167,9 @@ extern const struct BPTorrentFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSNumber* magenetLink;
+
 
 
 @property int32_t magenetLinkValue;
@@ -161,7 +181,9 @@ extern const struct BPTorrentFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSString* name;
+
 
 
 //- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
@@ -169,7 +191,9 @@ extern const struct BPTorrentFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSNumber* percentDone;
+
 
 
 @property float percentDoneValue;
@@ -181,7 +205,9 @@ extern const struct BPTorrentFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSNumber* rateDownload;
+
 
 
 @property float rateDownloadValue;
@@ -193,7 +219,9 @@ extern const struct BPTorrentFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSNumber* rateUpload;
+
 
 
 @property float rateUploadValue;
@@ -205,7 +233,9 @@ extern const struct BPTorrentFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSNumber* recheckProgress;
+
 
 
 @property float recheckProgressValue;
@@ -217,7 +247,19 @@ extern const struct BPTorrentFetchedProperties {
 
 
 
+
+@property (nonatomic, strong) NSString* sortName;
+
+
+
+//- (BOOL)validateSortName:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, strong) NSNumber* status;
+
 
 
 @property int32_t statusValue;
@@ -229,7 +271,9 @@ extern const struct BPTorrentFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSNumber* totalSize;
+
 
 
 @property int64_t totalSizeValue;
@@ -241,7 +285,9 @@ extern const struct BPTorrentFetchedProperties {
 
 
 
+
 @property (nonatomic, strong) NSNumber* uploadRatio;
+
 
 
 @property float uploadRatioValue;
@@ -382,6 +428,12 @@ extern const struct BPTorrentFetchedProperties {
 
 - (float)primitiveRecheckProgressValue;
 - (void)setPrimitiveRecheckProgressValue:(float)value_;
+
+
+
+
+- (NSString*)primitiveSortName;
+- (void)setPrimitiveSortName:(NSString*)value;
 
 
 

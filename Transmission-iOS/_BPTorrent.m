@@ -18,6 +18,7 @@ const struct BPTorrentAttributes BPTorrentAttributes = {
 	.rateDownload = @"rateDownload",
 	.rateUpload = @"rateUpload",
 	.recheckProgress = @"recheckProgress",
+	.sortName = @"sortName",
 	.status = @"status",
 	.totalSize = @"totalSize",
 	.uploadRatio = @"uploadRatio",
@@ -52,64 +53,78 @@ const struct BPTorrentFetchedProperties BPTorrentFetchedProperties = {
 	return (BPTorrentID*)[super objectID];
 }
 
-+ (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
++ (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
 	if ([key isEqualToString:@"desiredAvailableValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"desiredAvailable"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"errorValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"error"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"idValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"id"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"isFinishedValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"isFinished"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"isPendingDeletionValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"isPendingDeletion"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"leftUntilDoneValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"leftUntilDone"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"magenetLinkValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"magenetLink"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"percentDoneValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"percentDone"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"rateDownloadValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"rateDownload"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"rateUploadValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"rateUpload"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"recheckProgressValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"recheckProgress"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"statusValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"status"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"totalSizeValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"totalSize"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 	if ([key isEqualToString:@"uploadRatioValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"uploadRatio"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
 	}
 
 	return keyPaths;
@@ -425,6 +440,13 @@ const struct BPTorrentFetchedProperties BPTorrentFetchedProperties = {
 
 
 
+@dynamic sortName;
+
+
+
+
+
+
 @dynamic status;
 
 
@@ -512,10 +534,10 @@ const struct BPTorrentFetchedProperties BPTorrentFetchedProperties = {
 	NSError *error = nil;
 	NSArray *result = [self fetchAllVisibleTorrents:moc_ error:&error];
 	if (error) {
-#if TARGET_OS_IPHONE
-		NSLog(@"error: %@", error);
-#else
+#ifdef NSAppKitVersionNumber10_0
 		[NSApp presentError:error];
+#else
+		NSLog(@"error: %@", error);
 #endif
 	}
 	return result;
@@ -523,15 +545,15 @@ const struct BPTorrentFetchedProperties BPTorrentFetchedProperties = {
 + (NSArray*)fetchAllVisibleTorrents:(NSManagedObjectContext*)moc_ error:(NSError**)error_ {
 	NSParameterAssert(moc_);
 	NSError *error = nil;
-	
+
 	NSManagedObjectModel *model = [[moc_ persistentStoreCoordinator] managedObjectModel];
 	
 	NSDictionary *substitutionVariables = [NSDictionary dictionary];
-										
+	
 	NSFetchRequest *fetchRequest = [model fetchRequestFromTemplateWithName:@"AllVisibleTorrents"
 													 substitutionVariables:substitutionVariables];
 	NSAssert(fetchRequest, @"Can't find fetch request named \"AllVisibleTorrents\".");
-	
+
 	NSArray *result = [moc_ executeFetchRequest:fetchRequest error:&error];
 	if (error_) *error_ = error;
 	return result;

@@ -11,6 +11,7 @@
 
 - (void)updateFromDictionary:(NSDictionary *)dict {
     [self setValuesForKeysWithDictionary:dict];
+    self.sortName = [self.name stringByFoldingWithOptions:NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch locale:nil];
 }
 
 - (BPTorrentAction)availableAction {

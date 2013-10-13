@@ -34,7 +34,7 @@
 
     self.fetchedResults = [BPTorrent MR_fetchAllGroupedBy:nil
                                             withPredicate:[NSPredicate predicateWithFormat:@"%K == %@", BPTorrentAttributes.isPendingDeletion, @NO]
-                                                 sortedBy:BPTorrentAttributes.name
+                                                 sortedBy:BPTorrentAttributes.sortName
                                                 ascending:YES
                                                  delegate:self];
 }
