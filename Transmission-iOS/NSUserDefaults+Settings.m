@@ -10,6 +10,7 @@
 
 static NSString * const kBPPauseAddedTransfers = @"BPPauseAddedTransfers";
 static NSString * const kBPDeleteBackingFilesWhenRemovingTorrents = @"BPDeleteBackingFilesWhenRemovingTorrents";
+static NSString * const kBPDemoMode = @"com.peartreelabs.transmission.demo";
 
 @implementation NSUserDefaults (Settings)
 
@@ -31,10 +32,20 @@ static NSString * const kBPDeleteBackingFilesWhenRemovingTorrents = @"BPDeleteBa
     [self synchronize];
 }
 
+- (BOOL)bp_demoMode {
+    return [self boolForKey:kBPDemoMode];
+}
+
+- (void)setBp_demoMode:(BOOL)bp_demoMode {
+    [self setBool:bp_demoMode forKey:kBPDemoMode];
+    [self synchronize];
+}
+
 - (void)bp_registerDefaults {
     NSDictionary *defaults = @{
                                kBPPauseAddedTransfers : @NO,
-                               kBPDeleteBackingFilesWhenRemovingTorrents : @NO
+                               kBPDeleteBackingFilesWhenRemovingTorrents : @NO,
+                               kBPDemoMode : @NO,
                                };
     [self registerDefaults:defaults];
 }

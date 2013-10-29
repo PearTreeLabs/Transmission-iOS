@@ -16,6 +16,8 @@
 // @default NO
 @property (nonatomic, assign) BOOL bp_deleteBackingFilesWhenRemovingTorrents;
 
+@property (nonatomic, assign) BOOL bp_demoMode;
+
 - (void)bp_registerDefaults;
 
 @end

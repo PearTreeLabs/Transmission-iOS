@@ -48,25 +48,25 @@ static void *kvoContext = &kvoContext;
     
     self.browser = [[BPBonjourBrowser alloc] init];
 
-#ifdef DEMO
-    [BPTransmissionTestProtocol registerProtocol];
+    if ([NSUserDefaults standardUserDefaults].bp_demoMode) {
+        [BPTransmissionTestProtocol registerProtocol];
 
-    Method originalMethod = class_getInstanceMethod([NSNetService class], @selector(hostName));
-    NSString *(^block)() = ^{
-        return @"demo.local";
-    };
-    IMP newImpl = imp_implementationWithBlock((id)block);
-    method_setImplementation(originalMethod, newImpl);
-    
-    NSNetService *service = [[NSNetService alloc] initWithDomain:kBPBonjourBrowserDomainLocal
-                                                            type:kBPBonjourBrowserServiceTypeHTTP
-                                                            name:@"Demo"
-                                                            port:666];
-    
-    [self connectToResolvedService:service username:@"demo" password:@"demo"];
-#else
-    [self identifyAvailableServices];
-#endif
+        Method originalMethod = class_getInstanceMethod([NSNetService class], @selector(hostName));
+        NSString *(^block)() = ^{
+            return @"demo.local";
+        };
+        IMP newImpl = imp_implementationWithBlock((id)block);
+        method_setImplementation(originalMethod, newImpl);
+
+        NSNetService *service = [[NSNetService alloc] initWithDomain:kBPBonjourBrowserDomainLocal
+                                                                type:kBPBonjourBrowserServiceTypeHTTP
+                                                                name:@"Demo"
+                                                                port:666];
+
+        [self connectToResolvedService:service username:@"demo" password:@"demo"];
+    } else {
+        [self identifyAvailableServices];
+    }
 
     [[BPTransmissionEngine sharedEngine] addObserver:self forKeyPath:@"client" options:0 context:kvoContext];
 
@@ -101,15 +101,15 @@ static void *kvoContext = &kvoContext;
 
 - (void)connectToResolvedService:(NSNetService *)service username:(NSString *)username password:(NSString *)password {
     BPTransmissionClient *client = [BPTransmissionClient clientForHost:service.hostName port:service.port];
-#ifndef DEMO
-    [client setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        if (status == AFNetworkReachabilityStatusNotReachable ||
-            status == AFNetworkReachabilityStatusUnknown) {
-            [BPTransmissionEngine sharedEngine].client = nil;
-        }
-    }];
-#endif
-    
+    if (![NSUserDefaults standardUserDefaults].bp_demoMode) {
+        [client setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+            if (status == AFNetworkReachabilityStatusNotReachable ||
+                status == AFNetworkReachabilityStatusUnknown) {
+                [BPTransmissionEngine sharedEngine].client = nil;
+            }
+        }];
+    }
+
     __weak BPTransmissionClient *weakClient = client;
     [client connectAsUser:username password:password completion:^{
         DLog(@"connected");
