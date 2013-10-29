@@ -117,6 +117,9 @@ static void *kvoContext = &kvoContext;
         engine.client = weakClient;
         BPTorrentTableViewController *vc = [[BPTorrentTableViewController alloc] initWithStyle:UITableViewStylePlain];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+        nav.navigationBar.barTintColor = [UIColor colorWithRed:0.885 green:0.000 blue:0.066 alpha:1.000];
+        nav.navigationBar.translucent = NO;
+        nav.navigationBar.barStyle = UIBarStyleBlackTranslucent; // => UIStatusBarStyleLightContent
         [self presentViewController:nav animated:YES completion:nil];
     } error:^(NSError *error) {
         DLog(@"connection error: %@", error);
