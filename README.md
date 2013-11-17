@@ -4,11 +4,23 @@
 
 A [Transmission](http://www.transmissionbt.com) client for iOS.
 
-Designed for a single purpose: quick management of BitTorrent transfers within your home network.  No network configuration is required, it will automatically connect to the first available Transmission instance.
+Designed for a single purpose: quick management of BitTorrent transfers within your home network.  No network configuration is required, it will automatically connect to the first available Transmission instance on the same network.
+
+- View current transfer stats.
+- Pause and resume transfers.
+- Swipe to remove transfers.
+- Tap cell to toggle display of transfer age.
 
 ![Transfer List](Screenshots/transfers.png)
 
 ## Usage
+
+### Prerequisites
+- To manage transfers, you must enable remote access to your Transmission desktop client:
+  - Transmission > Preferences > Remote
+  - Enable Remote Access: YES
+  - Display the web interface with Bonjour: YES
+  - Require authentication: Optional
 
 ### Building
 - Load submodules
@@ -16,13 +28,6 @@ Designed for a single purpose: quick management of BitTorrent transfers within y
         git submodule update --init --recursive
 
 - Build and run the project using Xcode.
-
-### Running
-- To enable remote access to your Transmission desktop client:
-  - Transmission > Preferences > Remote
-  - Enable Remote Access: YES
-  - Display the web interface with Bonjour: YES
-  - Require authentication: Optional
 
 ## Dependencies
 
