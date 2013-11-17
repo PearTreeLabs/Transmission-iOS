@@ -109,6 +109,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    BPTorrentCell *cell = (BPTorrentCell *)[tableView cellForRowAtIndexPath:indexPath];
+    cell.style = (cell.style == BPTorrentCellStyleStats) ? BPTorrentCellStyleAge : BPTorrentCellStyleStats;
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -190,10 +193,10 @@
                              withRowAnimation:UITableViewRowAnimationAutomatic];
             break;
 
-        case NSFetchedResultsChangeUpdate:
-            // As suggested by oleb: http://oleb.net/blog/2013/02/nsfetchedresultscontroller-documentation-bug/
-            [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-            break;
+        case NSFetchedResultsChangeUpdate: {
+            BPTorrentCell *cell = (BPTorrentCell *)[tableView cellForRowAtIndexPath:indexPath];
+            [cell updateForTorrent:anObject];
+        }   break;
 
         case NSFetchedResultsChangeMove:
             [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]

@@ -152,4 +152,8 @@
     return [self downloadRate] + [self uploadRate];
 }
 
+- (NSDate *) dateAdded {
+    return [NSDate dateWithTimeIntervalSince1970:[self.addedDate doubleValue]];
+}
+
 @end

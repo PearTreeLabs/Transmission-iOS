@@ -10,10 +10,16 @@
 #import "BPTorrent.h"
 #import "BPProgressView.h"
 
+typedef NS_ENUM(NSInteger, BPTorrentCellStyle) {
+    BPTorrentCellStyleStats,
+    BPTorrentCellStyleAge,
+};
+
 @protocol BPTorrentCellDelegate;
 
 @interface BPTorrentCell : UITableViewCell
 
+@property (nonatomic, assign) BPTorrentCellStyle style;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *subtitleLabel;
 @property (strong, nonatomic) IBOutlet UIButton *actionButton;

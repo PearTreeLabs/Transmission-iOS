@@ -5,6 +5,7 @@
 
 
 extern const struct BPTorrentAttributes {
+	__unsafe_unretained NSString *addedDate;
 	__unsafe_unretained NSString *desiredAvailable;
 	__unsafe_unretained NSString *error;
 	__unsafe_unretained NSString *errorString;
@@ -51,6 +52,7 @@ extern const struct BPTorrentFetchedProperties {
 
 
 
+
 @interface BPTorrentID : NSManagedObjectID {}
 @end
 
@@ -59,6 +61,20 @@ extern const struct BPTorrentFetchedProperties {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (BPTorrentID*)objectID;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* addedDate;
+
+
+
+@property int64_t addedDateValue;
+- (int64_t)addedDateValue;
+- (void)setAddedDateValue:(int64_t)value_;
+
+//- (BOOL)validateAddedDate:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -313,6 +329,15 @@ extern const struct BPTorrentFetchedProperties {
 @end
 
 @interface _BPTorrent (CoreDataGeneratedPrimitiveAccessors)
+
+
+- (NSNumber*)primitiveAddedDate;
+- (void)setPrimitiveAddedDate:(NSNumber*)value;
+
+- (int64_t)primitiveAddedDateValue;
+- (void)setPrimitiveAddedDateValue:(int64_t)value_;
+
+
 
 
 - (NSNumber*)primitiveDesiredAvailable;

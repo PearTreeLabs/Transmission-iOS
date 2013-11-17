@@ -35,5 +35,6 @@ typedef NS_ENUM(NSInteger, BPTorrentAction) {
 - (CGFloat) downloadRate;
 - (CGFloat) uploadRate;
 - (CGFloat) totalRate;
+- (NSDate *) dateAdded;
 
 @end

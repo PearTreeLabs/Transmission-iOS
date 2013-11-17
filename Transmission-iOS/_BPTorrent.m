@@ -4,6 +4,7 @@
 #import "_BPTorrent.h"
 
 const struct BPTorrentAttributes BPTorrentAttributes = {
+	.addedDate = @"addedDate",
 	.desiredAvailable = @"desiredAvailable",
 	.error = @"error",
 	.errorString = @"errorString",
@@ -56,6 +57,11 @@ const struct BPTorrentFetchedProperties BPTorrentFetchedProperties = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
+	if ([key isEqualToString:@"addedDateValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"addedDate"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 	if ([key isEqualToString:@"desiredAvailableValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"desiredAvailable"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -129,6 +135,32 @@ const struct BPTorrentFetchedProperties BPTorrentFetchedProperties = {
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic addedDate;
+
+
+
+- (int64_t)addedDateValue {
+	NSNumber *result = [self addedDate];
+	return [result longLongValue];
+}
+
+- (void)setAddedDateValue:(int64_t)value_ {
+	[self setAddedDate:[NSNumber numberWithLongLong:value_]];
+}
+
+- (int64_t)primitiveAddedDateValue {
+	NSNumber *result = [self primitiveAddedDate];
+	return [result longLongValue];
+}
+
+- (void)setPrimitiveAddedDateValue:(int64_t)value_ {
+	[self setPrimitiveAddedDate:[NSNumber numberWithLongLong:value_]];
+}
+
 
 
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F37" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13A603" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="BPTorrent" representedClassName="BPTorrent" syncable="YES">
+        <attribute name="addedDate" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="desiredAvailable" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="error" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="errorString" optional="YES" attributeType="String" syncable="YES"/>

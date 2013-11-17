@@ -8,20 +8,73 @@
 
 #import "BPTorrentCell.h"
 #import "UIColor+Progress.h"
+#import "TTTTimeIntervalFormatter.h"
+
+@interface BPTorrentCell ()
+
+@property (nonatomic, copy) NSString *statsText;
+@property (nonatomic, copy) NSString *ageText;
+
+@end
 
 @implementation BPTorrentCell
 
-- (void)awakeFromNib {
-    self.progressView.trackColor = [UIColor progressWhiteColor];
+#pragma mark - Shared
+
++ (TTTTimeIntervalFormatter *)addedDeltaFormatter {
+    static TTTTimeIntervalFormatter *formatter = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        formatter = [[TTTTimeIntervalFormatter alloc] init];
+    });
+    return formatter;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+#pragma mark - Properties
+
+- (void)setStyle:(BPTorrentCellStyle)style {
+    if (style == _style) {
+        return;
+    }
+
+    _style = style;
+
+    [self updateSubtitle];
 }
+
+#pragma mark - Lifecycle
+
+- (void)awakeFromNib {
+    self.progressView.trackColor = [UIColor progressWhiteColor];
+    self.style = BPTorrentCellStyleStats;
+}
+
+- (void)prepareForReuse {
+    [super prepareForReuse];
+
+    self.style = BPTorrentCellStyleStats;
+}
+
+#pragma mark - Actions
 
 - (IBAction)actionTapped:(id)sender {
     if ([self.delegate respondsToSelector:@selector(torrentCellDidTapActionButton:)]) {
         [self.delegate torrentCellDidTapActionButton:self];
+    }
+}
+
+#pragma mark - Content
+
+- (void)updateSubtitle {
+    switch (self.style) {
+        case BPTorrentCellStyleStats:
+            self.subtitleLabel.text = self.statsText;
+            break;
+        case BPTorrentCellStyleAge:
+            self.subtitleLabel.text = self.ageText;
+            break;
+        default:
+            break;
     }
 }
 
@@ -39,8 +92,15 @@
         if (torrent.downloadRate > 0) {
             [stats appendFormat:@"  ▼ %.2f KB/s", torrent.downloadRate];
         }
-        self.subtitleLabel.text = stats;
+        self.statsText = stats;
+
+        NSTimeInterval interval = [torrent.dateAdded timeIntervalSinceNow];
+        NSString *formattedAddedDelta = [[[self class] addedDeltaFormatter] stringForTimeInterval:interval];
+        self.ageText = [NSString stringWithFormat:@"Added %@", formattedAddedDelta];
+
         self.subtitleLabel.textColor = [UIColor lightGrayColor];
+
+        [self updateSubtitle];
     }
 
     self.progressView.progress = [torrent progressDone];
