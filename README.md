@@ -27,8 +27,12 @@ Designed for a single purpose: quick management of BitTorrent transfers within y
 ## Dependencies
 
 - AFNetworking
+- AFHTTPRequestOperationLogger
 - BPFoundation
 - MagicalRecord
+- PTLURLProtocol
+- SVProgressHUD
+- TTTFormatterKit
 
 ## License
 

@@ -19,3 +19,6 @@
 [submodule "3rdParty/PTLURLProtocol"]
 	path = 3rdParty/PTLURLProtocol
 	url = git@github.com:PearTreeLabs/PTLURLProtocol.git
+[submodule "3rdParty/FormatterKit"]
+	path = 3rdParty/FormatterKit
+	url = git@github.com:mattt/FormatterKit.git

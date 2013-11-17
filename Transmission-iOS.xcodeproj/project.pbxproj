@@ -104,6 +104,7 @@
 		D3E401F1181F5A950077E8DB /* Default-568@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E401EF181F5A950077E8DB /* Default-568@2x.png */; };
 		D3E401F3181F5B8D0077E8DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3E401F2181F5B8D0077E8DB /* Images.xcassets */; };
 		D3EC4B7B16E2C1DD006885F8 /* BPTorrentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EC4B7A16E2C1DD006885F8 /* BPTorrentCell.m */; };
+		D3FD04491839501E006B35B5 /* TTTTimeIntervalFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FD043F1839501E006B35B5 /* TTTTimeIntervalFormatter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -272,6 +273,8 @@
 		D3E401F2181F5B8D0077E8DB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Transmission/Images.xcassets; sourceTree = "<group>"; };
 		D3EC4B7916E2C1DD006885F8 /* BPTorrentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPTorrentCell.h; sourceTree = "<group>"; };
 		D3EC4B7A16E2C1DD006885F8 /* BPTorrentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPTorrentCell.m; sourceTree = "<group>"; };
+		D3FD043E1839501E006B35B5 /* TTTTimeIntervalFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTTimeIntervalFormatter.h; sourceTree = "<group>"; };
+		D3FD043F1839501E006B35B5 /* TTTTimeIntervalFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTTimeIntervalFormatter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -379,6 +382,7 @@
 				D34ACC3516DA560400607AD7 /* AFNetworking */,
 				D3854754178A2688006647C9 /* AFHTTPRequestOperationLogger */,
 				D3BFB94816DB1F3C0052FFA4 /* BPFoundation.xcodeproj */,
+				D3FD04331839501E006B35B5 /* FormatterKit */,
 				D360A84916EBEE0D001B9AF0 /* MagicalRecord */,
 				D3A49AD516FEA47E00633296 /* NSData-Base64 */,
 				D3D82977178A60DD00AE904A /* PTLURLProtocol */,
@@ -705,6 +709,16 @@
 			path = Resources/Default;
 			sourceTree = SOURCE_ROOT;
 		};
+		D3FD04331839501E006B35B5 /* FormatterKit */ = {
+			isa = PBXGroup;
+			children = (
+				D3FD043E1839501E006B35B5 /* TTTTimeIntervalFormatter.h */,
+				D3FD043F1839501E006B35B5 /* TTTTimeIntervalFormatter.m */,
+			);
+			name = FormatterKit;
+			path = 3rdParty/FormatterKit/FormatterKit;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -851,6 +865,7 @@
 				D360A88D16EBEE0D001B9AF0 /* NSManagedObject+MagicalDataImport.m in Sources */,
 				D360A88E16EBEE0D001B9AF0 /* NSManagedObject+MagicalFinders.m in Sources */,
 				D360A88F16EBEE0D001B9AF0 /* NSManagedObject+MagicalRecord.m in Sources */,
+				D3FD04491839501E006B35B5 /* TTTTimeIntervalFormatter.m in Sources */,
 				D360A89016EBEE0D001B9AF0 /* NSManagedObject+MagicalRequests.m in Sources */,
 				D360A89116EBEE0D001B9AF0 /* NSManagedObjectContext+MagicalObserving.m in Sources */,
 				D360A89216EBEE0D001B9AF0 /* NSManagedObjectContext+MagicalRecord.m in Sources */,
