@@ -21,14 +21,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		D312BEAF16E4318C00BB5CB8 /* PauseHover.png in Resources */ = {isa = PBXBuildFile; fileRef = D312BEA716E4318C00BB5CB8 /* PauseHover.png */; };
-		D312BEB016E4318C00BB5CB8 /* PauseHover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D312BEA816E4318C00BB5CB8 /* PauseHover@2x.png */; };
-		D312BEB116E4318C00BB5CB8 /* PauseOn.png in Resources */ = {isa = PBXBuildFile; fileRef = D312BEA916E4318C00BB5CB8 /* PauseOn.png */; };
-		D312BEB216E4318C00BB5CB8 /* PauseOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D312BEAA16E4318C00BB5CB8 /* PauseOn@2x.png */; };
-		D312BEB316E4318C00BB5CB8 /* ResumeHover.png in Resources */ = {isa = PBXBuildFile; fileRef = D312BEAB16E4318C00BB5CB8 /* ResumeHover.png */; };
-		D312BEB416E4318C00BB5CB8 /* ResumeHover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D312BEAC16E4318C00BB5CB8 /* ResumeHover@2x.png */; };
-		D312BEB516E4318C00BB5CB8 /* ResumeOn.png in Resources */ = {isa = PBXBuildFile; fileRef = D312BEAD16E4318C00BB5CB8 /* ResumeOn.png */; };
-		D312BEB616E4318C00BB5CB8 /* ResumeOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D312BEAE16E4318C00BB5CB8 /* ResumeOn@2x.png */; };
 		D3297B4F181F5CFC001C8BAD /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3297B4E181F5CFC001C8BAD /* Icon-60@2x.png */; };
 		D34ACC1816DA547C00607AD7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34ACC1716DA547C00607AD7 /* UIKit.framework */; };
 		D34ACC1A16DA547C00607AD7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34ACC1916DA547C00607AD7 /* Foundation.framework */; };
@@ -105,6 +97,14 @@
 		D3E401F3181F5B8D0077E8DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3E401F2181F5B8D0077E8DB /* Images.xcassets */; };
 		D3EC4B7B16E2C1DD006885F8 /* BPTorrentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EC4B7A16E2C1DD006885F8 /* BPTorrentCell.m */; };
 		D3FD04491839501E006B35B5 /* TTTTimeIntervalFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FD043F1839501E006B35B5 /* TTTTimeIntervalFormatter.m */; };
+		D3FD0467183962DA006B35B5 /* Pause.png in Resources */ = {isa = PBXBuildFile; fileRef = D3FD045F183962DA006B35B5 /* Pause.png */; };
+		D3FD0468183962DA006B35B5 /* Pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3FD0460183962DA006B35B5 /* Pause@2x.png */; };
+		D3FD0469183962DA006B35B5 /* PauseHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = D3FD0461183962DA006B35B5 /* PauseHighlight.png */; };
+		D3FD046A183962DA006B35B5 /* PauseHighlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3FD0462183962DA006B35B5 /* PauseHighlight@2x.png */; };
+		D3FD046B183962DA006B35B5 /* Resume.png in Resources */ = {isa = PBXBuildFile; fileRef = D3FD0463183962DA006B35B5 /* Resume.png */; };
+		D3FD046C183962DA006B35B5 /* Resume@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3FD0464183962DA006B35B5 /* Resume@2x.png */; };
+		D3FD046D183962DA006B35B5 /* ResumeHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = D3FD0465183962DA006B35B5 /* ResumeHighlight.png */; };
+		D3FD046E183962DA006B35B5 /* ResumeHighlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3FD0466183962DA006B35B5 /* ResumeHighlight@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,14 +132,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D312BEA716E4318C00BB5CB8 /* PauseHover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PauseHover.png; sourceTree = "<group>"; };
-		D312BEA816E4318C00BB5CB8 /* PauseHover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseHover@2x.png"; sourceTree = "<group>"; };
-		D312BEA916E4318C00BB5CB8 /* PauseOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PauseOn.png; sourceTree = "<group>"; };
-		D312BEAA16E4318C00BB5CB8 /* PauseOn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseOn@2x.png"; sourceTree = "<group>"; };
-		D312BEAB16E4318C00BB5CB8 /* ResumeHover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ResumeHover.png; sourceTree = "<group>"; };
-		D312BEAC16E4318C00BB5CB8 /* ResumeHover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ResumeHover@2x.png"; sourceTree = "<group>"; };
-		D312BEAD16E4318C00BB5CB8 /* ResumeOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ResumeOn.png; sourceTree = "<group>"; };
-		D312BEAE16E4318C00BB5CB8 /* ResumeOn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ResumeOn@2x.png"; sourceTree = "<group>"; };
 		D3297B4E181F5CFC001C8BAD /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
 		D34ACC1416DA547C00607AD7 /* Transmission.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transmission.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D34ACC1716DA547C00607AD7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -275,6 +267,14 @@
 		D3EC4B7A16E2C1DD006885F8 /* BPTorrentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPTorrentCell.m; sourceTree = "<group>"; };
 		D3FD043E1839501E006B35B5 /* TTTTimeIntervalFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTTimeIntervalFormatter.h; sourceTree = "<group>"; };
 		D3FD043F1839501E006B35B5 /* TTTTimeIntervalFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTTimeIntervalFormatter.m; sourceTree = "<group>"; };
+		D3FD045F183962DA006B35B5 /* Pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pause.png; sourceTree = "<group>"; };
+		D3FD0460183962DA006B35B5 /* Pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pause@2x.png"; sourceTree = "<group>"; };
+		D3FD0461183962DA006B35B5 /* PauseHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PauseHighlight.png; sourceTree = "<group>"; };
+		D3FD0462183962DA006B35B5 /* PauseHighlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseHighlight@2x.png"; sourceTree = "<group>"; };
+		D3FD0463183962DA006B35B5 /* Resume.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Resume.png; sourceTree = "<group>"; };
+		D3FD0464183962DA006B35B5 /* Resume@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Resume@2x.png"; sourceTree = "<group>"; };
+		D3FD0465183962DA006B35B5 /* ResumeHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ResumeHighlight.png; sourceTree = "<group>"; };
+		D3FD0466183962DA006B35B5 /* ResumeHighlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ResumeHighlight@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,21 +297,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D312BEA616E4318C00BB5CB8 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				D312BEA716E4318C00BB5CB8 /* PauseHover.png */,
-				D312BEA816E4318C00BB5CB8 /* PauseHover@2x.png */,
-				D312BEA916E4318C00BB5CB8 /* PauseOn.png */,
-				D312BEAA16E4318C00BB5CB8 /* PauseOn@2x.png */,
-				D312BEAB16E4318C00BB5CB8 /* ResumeHover.png */,
-				D312BEAC16E4318C00BB5CB8 /* ResumeHover@2x.png */,
-				D312BEAD16E4318C00BB5CB8 /* ResumeOn.png */,
-				D312BEAE16E4318C00BB5CB8 /* ResumeOn@2x.png */,
-			);
-			path = Images;
-			sourceTree = "<group>";
-		};
 		D34ACC0B16DA547B00607AD7 = {
 			isa = PBXGroup;
 			children = (
@@ -433,6 +418,7 @@
 		D360A83116EBE1B9001B9AF0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D3FD044C1839607F006B35B5 /* ActionButtons */,
 				D3D82965178A5FBA00AE904A /* Demo */,
 				D360A83216EBE1B9001B9AF0 /* Icon */,
 				D3E401ED181F5A950077E8DB /* Default */,
@@ -589,7 +575,6 @@
 			isa = PBXGroup;
 			children = (
 				D38698B016E2A01300EDCC43 /* libtransmission */,
-				D38698B216E2A01300EDCC43 /* macosx */,
 			);
 			name = transmission;
 			path = 3rdParty/transmission;
@@ -601,14 +586,6 @@
 				D38698B116E2A01300EDCC43 /* transmission.h */,
 			);
 			path = libtransmission;
-			sourceTree = "<group>";
-		};
-		D38698B216E2A01300EDCC43 /* macosx */ = {
-			isa = PBXGroup;
-			children = (
-				D312BEA616E4318C00BB5CB8 /* Images */,
-			);
-			path = macosx;
 			sourceTree = "<group>";
 		};
 		D38D328616E075F000E5496D /* Views */ = {
@@ -719,6 +696,21 @@
 			path = 3rdParty/FormatterKit/FormatterKit;
 			sourceTree = "<group>";
 		};
+		D3FD044C1839607F006B35B5 /* ActionButtons */ = {
+			isa = PBXGroup;
+			children = (
+				D3FD045F183962DA006B35B5 /* Pause.png */,
+				D3FD0460183962DA006B35B5 /* Pause@2x.png */,
+				D3FD0461183962DA006B35B5 /* PauseHighlight.png */,
+				D3FD0462183962DA006B35B5 /* PauseHighlight@2x.png */,
+				D3FD0463183962DA006B35B5 /* Resume.png */,
+				D3FD0464183962DA006B35B5 /* Resume@2x.png */,
+				D3FD0465183962DA006B35B5 /* ResumeHighlight.png */,
+				D3FD0466183962DA006B35B5 /* ResumeHighlight@2x.png */,
+			);
+			path = ActionButtons;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -791,21 +783,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				D34ACC2216DA547C00607AD7 /* InfoPlist.strings in Resources */,
+				D3FD0467183962DA006B35B5 /* Pause.png in Resources */,
 				D3E401F3181F5B8D0077E8DB /* Images.xcassets in Resources */,
+				D3FD046B183962DA006B35B5 /* Resume.png in Resources */,
 				D34C0A5F16E050C500AAFB93 /* BPConnectionViewController.xib in Resources */,
+				D3FD0468183962DA006B35B5 /* Pause@2x.png in Resources */,
+				D3FD0469183962DA006B35B5 /* PauseHighlight.png in Resources */,
 				D35955F916E4028600C91ACC /* BPTorrentCell.xib in Resources */,
-				D312BEAF16E4318C00BB5CB8 /* PauseHover.png in Resources */,
-				D312BEB016E4318C00BB5CB8 /* PauseHover@2x.png in Resources */,
-				D312BEB116E4318C00BB5CB8 /* PauseOn.png in Resources */,
-				D312BEB216E4318C00BB5CB8 /* PauseOn@2x.png in Resources */,
-				D312BEB316E4318C00BB5CB8 /* ResumeHover.png in Resources */,
-				D312BEB416E4318C00BB5CB8 /* ResumeHover@2x.png in Resources */,
 				D3E401F1181F5A950077E8DB /* Default-568@2x.png in Resources */,
-				D312BEB516E4318C00BB5CB8 /* ResumeOn.png in Resources */,
-				D312BEB616E4318C00BB5CB8 /* ResumeOn@2x.png in Resources */,
+				D3FD046A183962DA006B35B5 /* PauseHighlight@2x.png in Resources */,
 				D3297B4F181F5CFC001C8BAD /* Icon-60@2x.png in Resources */,
 				D360A84516EBE1B9001B9AF0 /* Icon.png in Resources */,
+				D3FD046D183962DA006B35B5 /* ResumeHighlight.png in Resources */,
 				D360A84616EBE1B9001B9AF0 /* Icon@2x.png in Resources */,
+				D3FD046E183962DA006B35B5 /* ResumeHighlight@2x.png in Resources */,
+				D3FD046C183962DA006B35B5 /* Resume@2x.png in Resources */,
 				D3A49B0A16FEA82F00633296 /* SVProgressHUD.bundle in Resources */,
 				D385475B178A2688006647C9 /* AFHTTPRequestOperationLogger.podspec in Resources */,
 				D385475C178A2688006647C9 /* LICENSE in Resources */,

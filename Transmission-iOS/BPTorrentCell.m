@@ -44,6 +44,12 @@
 
 #pragma mark - Lifecycle
 
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+    [super setHighlighted:highlighted animated:animated];
+
+    [self.actionButton setHighlighted:highlighted];
+}
+
 - (void)awakeFromNib {
     self.progressView.trackColor = [UIColor progressWhiteColor];
     self.style = BPTorrentCellStyleStats;
@@ -108,8 +114,8 @@
 
     NSString *controlImageBaseName = [self controlImageBaseNameForAction:[torrent availableAction]];
     if (![NSString bp_isNilOrEmpty:controlImageBaseName]) {
-        NSString *normalName = [NSString stringWithFormat:@"%@Hover", controlImageBaseName];
-        NSString *highlightedName = [NSString stringWithFormat:@"%@On", controlImageBaseName];
+        NSString *normalName = [NSString stringWithFormat:@"%@", controlImageBaseName];
+        NSString *highlightedName = [NSString stringWithFormat:@"%@Highlight", controlImageBaseName];
         [self.actionButton setImage:[UIImage imageNamed:normalName] forState:UIControlStateNormal];
         [self.actionButton setImage:[UIImage imageNamed:highlightedName] forState:UIControlStateHighlighted];
     }
