@@ -974,6 +974,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Transmission-iOS/Transmission-iOS-Prefix.pch";
 				INFOPLIST_FILE = "Transmission-iOS/Transmission-iOS-Info.plist";
@@ -983,6 +984,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "3rdParty/BPFoundation/BPFoundation 3rdParty/MagicalRecord/MagicalRecord";
 				WRAPPER_EXTENSION = app;
 			};
@@ -993,6 +995,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Transmission-iOS/Transmission-iOS-Prefix.pch";
 				INFOPLIST_FILE = "Transmission-iOS/Transmission-iOS-Info.plist";
@@ -1002,6 +1005,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "3rdParty/BPFoundation/BPFoundation 3rdParty/MagicalRecord/MagicalRecord";
 				WRAPPER_EXTENSION = app;
 			};
