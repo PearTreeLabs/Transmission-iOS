@@ -92,7 +92,6 @@
 		D3967B64186144F1003C840C /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3967B5C186144F0003C840C /* iTunesArtwork@2x.png */; };
 		D3967B67186146F4003C840C /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D3967B65186146F4003C840C /* Icon.png */; };
 		D3967B68186146F4003C840C /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3967B66186146F4003C840C /* Icon@2x.png */; };
-		D3A49AD916FEA47E00633296 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A49AD716FEA47E00633296 /* NSData+Base64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D3A49B0A16FEA82F00633296 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D3A49B0716FEA82F00633296 /* SVProgressHUD.bundle */; };
 		D3A49B0B16FEA82F00633296 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A49B0916FEA82F00633296 /* SVProgressHUD.m */; };
 		D3A49B0F16FEAC0D00633296 /* NSUserDefaults+Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A49B0E16FEAC0D00633296 /* NSUserDefaults+Settings.m */; };
@@ -262,8 +261,6 @@
 		D3967B5C186144F0003C840C /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		D3967B65186146F4003C840C /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		D3967B66186146F4003C840C /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		D3A49AD616FEA47E00633296 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
-		D3A49AD716FEA47E00633296 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		D3A49B0716FEA82F00633296 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		D3A49B0816FEA82F00633296 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		D3A49B0916FEA82F00633296 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
@@ -383,7 +380,6 @@
 				D3BFB94816DB1F3C0052FFA4 /* BPFoundation.xcodeproj */,
 				D3FD04331839501E006B35B5 /* FormatterKit */,
 				D360A84916EBEE0D001B9AF0 /* MagicalRecord */,
-				D3A49AD516FEA47E00633296 /* NSData-Base64 */,
 				D3D82977178A60DD00AE904A /* PTLURLProtocol */,
 				D3A49B0616FEA82F00633296 /* SVProgressHUD */,
 				D38698AF16E2A01300EDCC43 /* transmission */,
@@ -631,16 +627,6 @@
 				D36134B616ED36AB00AE6B6C /* BPTransmissionEngine.m */,
 			);
 			name = Clients;
-			sourceTree = "<group>";
-		};
-		D3A49AD516FEA47E00633296 /* NSData-Base64 */ = {
-			isa = PBXGroup;
-			children = (
-				D3A49AD616FEA47E00633296 /* NSData+Base64.h */,
-				D3A49AD716FEA47E00633296 /* NSData+Base64.m */,
-			);
-			name = "NSData-Base64";
-			path = "3rdParty/NSData-Base64";
 			sourceTree = "<group>";
 		};
 		D3A49B0616FEA82F00633296 /* SVProgressHUD */ = {
@@ -905,7 +891,6 @@
 				D36134B116ED352500AE6B6C /* _BPTorrent.m in Sources */,
 				D36134B416ED353200AE6B6C /* BPTorrent.m in Sources */,
 				D36134B716ED36AB00AE6B6C /* BPTransmissionEngine.m in Sources */,
-				D3A49AD916FEA47E00633296 /* NSData+Base64.m in Sources */,
 				D3A49B0B16FEA82F00633296 /* SVProgressHUD.m in Sources */,
 				D3A49B0F16FEAC0D00633296 /* NSUserDefaults+Settings.m in Sources */,
 				D385475A178A2688006647C9 /* AFHTTPRequestOperationLogger.m in Sources */,

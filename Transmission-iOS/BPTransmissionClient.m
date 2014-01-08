@@ -9,7 +9,6 @@
 #import "BPTransmissionClient.h"
 #import "AFHTTPRequestOperation.h"
 #import "AFJSONRequestOperation.h"
-#import "NSData+Base64.h"
 #import "AFNetworkActivityIndicatorManager.h"
 #import "AFHTTPRequestOperationLogger.h"
 
@@ -253,7 +252,7 @@ if (![status isEqualToString:@"success"]) { \
     BOOL pause = [NSUserDefaults standardUserDefaults].bp_pauseAddedTransfers;
     if (url.isFileURL) {
         NSData *data = [NSData dataWithContentsOfURL:url];
-        NSString *encodedData = [data base64EncodedString];
+        NSString *encodedData = [data base64EncodedStringWithOptions:kNilOptions];
         args = @{ @"metainfo" : encodedData,
                   @"paused" : @(pause)
                   };
