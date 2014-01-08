@@ -15,8 +15,6 @@
 
 #define RESOLVE_TIMEOUT 10
 
-extern NSString *AFNetworkingOperationFailingURLResponseErrorKey;
-
 static void *kvoContext = &kvoContext;
 
 @interface BPConnectionViewController () <NSNetServiceDelegate, UIAlertViewDelegate>
