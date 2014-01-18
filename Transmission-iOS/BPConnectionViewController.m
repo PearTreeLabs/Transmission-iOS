@@ -63,7 +63,8 @@ static void *kvoContext = &kvoContext;
 
         [self connectToResolvedService:service username:@"demo" password:@"demo"];
     } else {
-        [self identifyAvailableServices];
+//        [self identifyAvailableServices];
+        [self connectToHost:@"anubis.local" port:9091 username:nil password:nil];
     }
 
     [[BPTransmissionEngine sharedEngine] addObserver:self forKeyPath:@"client" options:0 context:kvoContext];
@@ -98,7 +99,11 @@ static void *kvoContext = &kvoContext;
 }
 
 - (void)connectToResolvedService:(NSNetService *)service username:(NSString *)username password:(NSString *)password {
-    BPTransmissionClient *client = [BPTransmissionClient clientForHost:service.hostName port:service.port];
+    [self connectToHost:service.hostName port:service.port username:username password:password];
+}
+
+- (void)connectToHost:(NSString *)hostName port:(NSUInteger)port username:(NSString *)username password:(NSString *)password {
+    BPTransmissionClient *client = [BPTransmissionClient clientForHost:hostName port:port];
     if (![NSUserDefaults standardUserDefaults].bp_demoMode) {
         [client setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
             if (status == AFNetworkReachabilityStatusNotReachable ||
@@ -128,7 +133,7 @@ static void *kvoContext = &kvoContext;
         }
 
         if (needsAuth) {
-            NSString *displayName = service.hostName;
+            NSString *displayName = hostName;
             if ([displayName hasSuffix:@"."]) {
                 displayName = [displayName stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"."]];
             }
