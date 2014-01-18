@@ -23,9 +23,9 @@ Designed for a single purpose: quick management of BitTorrent transfers within y
   - Require authentication: Optional
 
 ### Building
-- Load submodules
+- Load cocoapod dependencies
 
-        git submodule update --init --recursive
+        pod install
 
 - Build and run the project using Xcode.
 
