@@ -108,6 +108,7 @@ static void *kvoContext = &kvoContext;
         }];
     }
 
+    __weak typeof(self) weak_self = self;
     __weak BPTransmissionClient *weakClient = client;
     [client connectAsUser:username password:password completion:^{
         DLog(@"connected");
@@ -118,7 +119,8 @@ static void *kvoContext = &kvoContext;
         nav.navigationBar.barTintColor = [UIColor colorWithRed:0.885 green:0.000 blue:0.066 alpha:1.000];
         nav.navigationBar.translucent = NO;
         nav.navigationBar.barStyle = UIBarStyleBlackTranslucent; // => UIStatusBarStyleLightContent
-        [self presentViewController:nav animated:YES completion:nil];
+        [weak_self presentViewController:nav animated:YES completion:nil];
+        weak_self.currentService = nil;
     } error:^(NSError *error) {
         DLog(@"connection error: %@", error);
         BOOL needsAuth = NO;
@@ -134,14 +136,14 @@ static void *kvoContext = &kvoContext;
             }
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:displayName
                                                             message:nil
-                                                           delegate:self
+                                                           delegate:weak_self
                                                   cancelButtonTitle:@"Cancel"
                                                   otherButtonTitles:@"Login", nil];
             alert.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
             [alert show];
         } else {
-            self.currentService = nil;
-            [self setErrorStateWithText:NSLocalizedString(@"Connection Error", nil)];
+            weak_self.currentService = nil;
+            [weak_self setErrorStateWithText:NSLocalizedString(@"Connection Error", nil)];
         }
     }];
 }
@@ -189,7 +191,6 @@ static void *kvoContext = &kvoContext;
     DLog(@"resolved: %@", service);
     [self setSuccessStateWithText:NSLocalizedString(@"Transmission Received", nil)];
     [self connectToResolvedService:self.currentService username:nil password:nil];
-    self.currentService = nil;
 }
 
 - (void)netService:(NSNetService *)service didNotResolve:(NSDictionary *)errorDict {
