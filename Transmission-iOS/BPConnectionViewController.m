@@ -40,7 +40,6 @@ static void *kvoContext = &kvoContext;
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.spinner.hidesWhenStopped = YES;
     self.activityLabel.text = @"";
     self.retryButton.hidden = YES;
     
@@ -70,6 +69,16 @@ static void *kvoContext = &kvoContext;
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:[UIApplication sharedApplication]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:[UIApplication sharedApplication]];
+
+    NSArray *images = @[[UIImage imageNamed:@"send1"],
+                        [UIImage imageNamed:@"send2"],
+                        [UIImage imageNamed:@"send3"],
+                        [UIImage imageNamed:@"receive1"],
+                        [UIImage imageNamed:@"receive2"],
+                        [UIImage imageNamed:@"receive3"]];
+    self.activityImageView.animationImages = images;
+    self.activityImageView.animationDuration = 2;
+    self.activityImageView.animationRepeatCount = HUGE_VAL;
 }
 
 - (void)dealloc {
@@ -159,19 +168,19 @@ static void *kvoContext = &kvoContext;
 #pragma mark - UI State Management
 
 - (void)setRunningStateWithText:(NSString *)status {
-    [self.spinner startAnimating];
+    [self.activityImageView startAnimating];
     self.activityLabel.text = status;
     self.retryButton.hidden = YES;
 }
 
 - (void)setSuccessStateWithText:(NSString *)status {
-    [self.spinner stopAnimating];
+    [self.activityImageView stopAnimating];
     self.activityLabel.text = status;
     self.retryButton.hidden = YES;
 }
 
 - (void)setErrorStateWithText:(NSString *)status {
-    [self.spinner stopAnimating];
+    [self.activityImageView stopAnimating];
     self.activityLabel.text = status;
     self.retryButton.hidden = NO;
 }

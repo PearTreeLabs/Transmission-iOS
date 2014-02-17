@@ -10,9 +10,9 @@
 
 @interface BPConnectionViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (weak, nonatomic) IBOutlet UILabel *activityLabel;
 @property (weak, nonatomic) IBOutlet UIButton *retryButton;
+@property (weak, nonatomic) IBOutlet UIImageView *activityImageView;
 
 - (IBAction)retryTapped:(id)sender;
 @end
