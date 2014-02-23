@@ -42,7 +42,7 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dish.png" translatesAutoresizingMaskIntoConstraints="NO" id="Dp7-Y2-AeS" userLabel="Satellite Dish">
-                    <rect key="frame" x="92" y="86" width="200" height="194"/>
+                    <rect key="frame" x="96" y="86" width="200" height="194"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="200" id="Z2K-81-d43"/>
@@ -50,7 +50,7 @@
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bxv-Je-VQA" userLabel="Activity Indicator">
-                    <rect key="frame" x="92" y="86" width="200" height="194"/>
+                    <rect key="frame" x="96" y="86" width="200" height="194"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="200" id="gxS-va-hPO"/>
@@ -69,8 +69,8 @@
                 <constraint firstItem="Bxv-Je-VQA" firstAttribute="top" secondItem="Dp7-Y2-AeS" secondAttribute="top" id="8K4-Y0-YZB"/>
                 <constraint firstItem="7" firstAttribute="top" secondItem="Dp7-Y2-AeS" secondAttribute="bottom" id="FYn-Ap-hPF"/>
                 <constraint firstItem="Dp7-Y2-AeS" firstAttribute="top" secondItem="1" secondAttribute="top" constant="86" id="L2I-uV-fvq"/>
+                <constraint firstAttribute="centerX" secondItem="Bxv-Je-VQA" secondAttribute="centerX" constant="-36" id="O57-9e-hAv"/>
                 <constraint firstAttribute="centerX" secondItem="7" secondAttribute="centerX" id="xaT-fM-anb"/>
-                <constraint firstItem="Dp7-Y2-AeS" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="92" id="z66-zM-3Kq"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>

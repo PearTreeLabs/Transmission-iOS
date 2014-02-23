@@ -70,7 +70,6 @@
 		D3A49B0F16FEAC0D00633296 /* NSUserDefaults+Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A49B0E16FEAC0D00633296 /* NSUserDefaults+Settings.m */; };
 		D3D82967178A5FBA00AE904A /* get-torrent.json in Resources */ = {isa = PBXBuildFile; fileRef = D3D82966178A5FBA00AE904A /* get-torrent.json */; };
 		D3D82976178A5FDB00AE904A /* BPTransmissionTestProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D82975178A5FDB00AE904A /* BPTransmissionTestProtocol.m */; };
-		D3E401F1181F5A950077E8DB /* Default-568@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E401EF181F5A950077E8DB /* Default-568@2x.png */; };
 		D3E401F3181F5B8D0077E8DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3E401F2181F5B8D0077E8DB /* Images.xcassets */; };
 		D3EC4B7B16E2C1DD006885F8 /* BPTorrentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EC4B7A16E2C1DD006885F8 /* BPTorrentCell.m */; };
 		D3FD0467183962DA006B35B5 /* Pause.png in Resources */ = {isa = PBXBuildFile; fileRef = D3FD045F183962DA006B35B5 /* Pause.png */; };
@@ -160,7 +159,6 @@
 		D3D82966178A5FBA00AE904A /* get-torrent.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "get-torrent.json"; sourceTree = "<group>"; };
 		D3D82974178A5FDB00AE904A /* BPTransmissionTestProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPTransmissionTestProtocol.h; sourceTree = "<group>"; };
 		D3D82975178A5FDB00AE904A /* BPTransmissionTestProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPTransmissionTestProtocol.m; sourceTree = "<group>"; };
-		D3E401EF181F5A950077E8DB /* Default-568@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568@2x.png"; sourceTree = "<group>"; };
 		D3E401F2181F5B8D0077E8DB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Transmission/Images.xcassets; sourceTree = "<group>"; };
 		D3EC4B7916E2C1DD006885F8 /* BPTorrentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPTorrentCell.h; sourceTree = "<group>"; };
 		D3EC4B7A16E2C1DD006885F8 /* BPTorrentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPTorrentCell.m; sourceTree = "<group>"; };
@@ -286,7 +284,6 @@
 				D3FD044C1839607F006B35B5 /* ActionButtons */,
 				D3D82965178A5FBA00AE904A /* Demo */,
 				D360A83216EBE1B9001B9AF0 /* Icon */,
-				D3E401ED181F5A950077E8DB /* Default */,
 				D39E45C618B1B5B1002D57DD /* Satellite Dish */,
 			);
 			path = Resources;
@@ -417,15 +414,6 @@
 			name = Demo;
 			sourceTree = "<group>";
 		};
-		D3E401ED181F5A950077E8DB /* Default */ = {
-			isa = PBXGroup;
-			children = (
-				D3E401EF181F5A950077E8DB /* Default-568@2x.png */,
-			);
-			name = Default;
-			path = Resources/Default;
-			sourceTree = SOURCE_ROOT;
-		};
 		D3FD044C1839607F006B35B5 /* ActionButtons */ = {
 			isa = PBXGroup;
 			children = (
@@ -511,7 +499,6 @@
 				D3FD0469183962DA006B35B5 /* PauseHighlight.png in Resources */,
 				D35955F916E4028600C91ACC /* BPTorrentCell.xib in Resources */,
 				D3967B68186146F4003C840C /* Icon@2x.png in Resources */,
-				D3E401F1181F5A950077E8DB /* Default-568@2x.png in Resources */,
 				D39E45E318B1B712002D57DD /* send2.png in Resources */,
 				D39E45DA18B1B712002D57DD /* dish@2x.png in Resources */,
 				D39E45E118B1B712002D57DD /* send1.png in Resources */,
