@@ -110,8 +110,6 @@ static void *kvoContext = &kvoContext;
     NSError *error = nil;
     if (![[NSManagedObjectContext MR_contextForCurrentThread] save:&error]) {
         DLog(@"Update save error: %@", error);
-    } else {
-        DLog(@"Applied updates");
     }
 }
 

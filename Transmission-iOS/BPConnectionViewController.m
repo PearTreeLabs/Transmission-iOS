@@ -93,7 +93,6 @@ static void *kvoContext = &kvoContext;
     [self setRunningStateWithText:NSLocalizedString(@"Searching...", nil)];
     __weak BPBonjourBrowser *weakBrowser = self.browser;
     [self.browser searchForServicesOfType:kBPBonjourBrowserServiceTypeHTTP inDomain:kBPBonjourBrowserDomainLocal updateBlock:^(NSArray *services) {
-        DLog(@"services = %@", services);
         [services enumerateObjectsUsingBlock:^(NSNetService *service, NSUInteger idx, BOOL *stop) {
             if ([service.name hasPrefix:@"Transmission"]) {
                 *stop = YES;
@@ -120,7 +119,6 @@ static void *kvoContext = &kvoContext;
     __weak typeof(self) weak_self = self;
     __weak BPTransmissionClient *weakClient = client;
     [client connectAsUser:username password:password completion:^{
-        DLog(@"connected");
         BPTransmissionEngine *engine = [BPTransmissionEngine sharedEngine];
         engine.client = weakClient;
         BPTorrentTableViewController *vc = [[BPTorrentTableViewController alloc] initWithStyle:UITableViewStylePlain];
@@ -189,7 +187,6 @@ static void *kvoContext = &kvoContext;
 #pragma mark - NSNetServiceDelegate
 
 - (void)netServiceWillResolve:(NSNetService *)service {
-    DLog(@"will resolve: %@", service);
     [self setRunningStateWithText:NSLocalizedString(@"Incomming Transmission...", nil)];
 }
 
@@ -198,19 +195,17 @@ static void *kvoContext = &kvoContext;
         // Resolved, but no hostname. Wait for another resolution status update.
         return;
     }
-    DLog(@"resolved: %@", service);
     [self setSuccessStateWithText:NSLocalizedString(@"Transmission Received", nil)];
     [self connectToResolvedService:self.currentService username:nil password:nil];
 }
 
 - (void)netService:(NSNetService *)service didNotResolve:(NSDictionary *)errorDict {
-    DLog(@"unable to resolve: %@: %@", service, errorDict);
+    DLog(@"Unable to resolve: %@: %@", service, errorDict);
     self.currentService = nil;
     [self setErrorStateWithText:NSLocalizedString(@"Resolve Error", nil)];
 }
 
 - (void)netServiceDidStop:(NSNetService *)service {
-    DLog(@"resolution did stop: %@", service);
     [self handleDisconnect];
 }
 
@@ -224,8 +219,6 @@ static void *kvoContext = &kvoContext;
 
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (buttonIndex != alertView.cancelButtonIndex) {
-        DLog(@"login again");
-
         NSString *username = [alertView textFieldAtIndex:0].text;
         NSString *password = [alertView textFieldAtIndex:1].text;
 

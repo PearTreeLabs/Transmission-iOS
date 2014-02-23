@@ -94,9 +94,7 @@
     }
 
     BPTorrent *torrent = [self.fetchedResults objectAtIndexPath:indexPath];
-    [[BPTransmissionEngine sharedEngine] removeTorrent:torrent deleteData:NO completion:^{
-        DLog(@"removed: %@", torrent);
-    } error:^(NSError *error) {
+    [[BPTransmissionEngine sharedEngine] removeTorrent:torrent deleteData:NO completion:nil error:^(NSError *error) {
         [self displayError:error];
     }];
 }
@@ -126,16 +124,12 @@
     BPTorrentAction action = [torrent availableAction];
     switch (action) {
         case BPTorrentActionPause: {
-            [[BPTransmissionEngine sharedEngine] pauseTorrent:torrent completion:^{
-                DLog(@"paused: %@", torrent);
-            } error:^(NSError *error) {
+            [[BPTransmissionEngine sharedEngine] pauseTorrent:torrent completion:nil error:^(NSError *error) {
                 [self displayError:error];
             }];
         }   break;
         case BPTorrentActionResume: {
-            [[BPTransmissionEngine sharedEngine] resumeTorrent:torrent completion:^{
-                DLog(@"resumed: %@", torrent);
-            } error:^(NSError *error) {
+            [[BPTransmissionEngine sharedEngine] resumeTorrent:torrent completion:nil error:^(NSError *error) {
                 [self displayError:error];
             }];
         }   break;
