@@ -128,6 +128,7 @@ static void *kvoContext = &kvoContext;
         nav.navigationBar.barTintColor = [UIColor colorWithRed:0.885 green:0.000 blue:0.066 alpha:1.000];
         nav.navigationBar.translucent = NO;
         nav.navigationBar.barStyle = UIBarStyleBlackTranslucent; // => UIStatusBarStyleLightContent
+        nav.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         [weak_self presentViewController:nav animated:YES completion:nil];
         weak_self.currentService = nil;
     } error:^(NSError *error) {
