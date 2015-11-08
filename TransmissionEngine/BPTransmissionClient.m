@@ -11,6 +11,8 @@
 #import "AFJSONRequestOperation.h"
 #import "AFNetworkActivityIndicatorManager.h"
 #import "AFHTTPRequestOperationLogger.h"
+#import "CoreData+MagicalRecord.h"
+#import "NSUserDefaults+Settings.h"
 
 NSString * const kBPTransmissionClientErrorDomain = @"BPTransmissionClientErrorDomain";
 NSString * const kBPTransmissionSessionIdHeader = @"X-Transmission-Session-Id";

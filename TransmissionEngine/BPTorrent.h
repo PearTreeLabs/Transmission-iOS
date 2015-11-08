@@ -1,3 +1,4 @@
+#import <CoreGraphics/CoreGraphics.h>
 #import "_BPTorrent.h"
 
 typedef NS_ENUM(NSInteger, BPTorrentAction) {

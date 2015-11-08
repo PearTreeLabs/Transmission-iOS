@@ -1,4 +1,5 @@
 #import "BPTorrent.h"
+#import "CoreData+MagicalRecord.h"
 #import "transmission.h"
 
 @implementation BPTorrent

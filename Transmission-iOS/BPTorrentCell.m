@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Brian Partridge. All rights reserved.
 //
 
+#import "BPFoundation.h"
 #import "BPTorrentCell.h"
 #import "UIColor+Progress.h"
 #import "TTTTimeIntervalFormatter.h"

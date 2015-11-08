@@ -48,7 +48,7 @@
         NSError *error = nil;
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:request.HTTPBody options:0 error:&error];
         if (json == nil) {
-            DLog(@"Error parsing request: %@", error);
+            NSLog(@"Error parsing request: %@", error);
             return nil;
         }
 
@@ -58,7 +58,7 @@
             NSString *path = [[NSBundle mainBundle] pathForResource:@"get-torrent" ofType:@"json"];
             NSData *torrentData = [NSData dataWithContentsOfFile:path options:0 error:&error];
             if (torrentData == nil) {
-                DLog(@"Error loading torrent data: %@", error);
+                NSLog(@"Error loading torrent data: %@", error);
                 return nil;
             }
             data = torrentData;

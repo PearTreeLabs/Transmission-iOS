@@ -21,6 +21,17 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		4AD89A01D1004498E8D02F44 /* libPods-TransmissionEngine-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 048350FD1628C91B98B8D5DF /* libPods-TransmissionEngine-iOS.a */; };
+		77507CD508417982DD0ADB66 /* libPods-Transmission-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAD7DEF9CE3B1616A4D48111 /* libPods-Transmission-iOS.a */; };
+		BD107A2C1BEFD96400758E02 /* _BPTorrent.m in Sources */ = {isa = PBXBuildFile; fileRef = BD107A271BEFD96400758E02 /* _BPTorrent.m */; };
+		BD107A2D1BEFD96400758E02 /* BPTorrent.m in Sources */ = {isa = PBXBuildFile; fileRef = BD107A291BEFD96400758E02 /* BPTorrent.m */; };
+		BD107A2E1BEFD96400758E02 /* TransmissionEngine.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BD107A2A1BEFD96400758E02 /* TransmissionEngine.xcdatamodeld */; };
+		BD4E5BDC1BEFD3F900AFFA32 /* NSUserDefaults+Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4E5BDB1BEFD3F900AFFA32 /* NSUserDefaults+Settings.m */; };
+		BD650CCC1BEFD16900C64285 /* TransmissionEngine_iOS.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BD650CCB1BEFD16900C64285 /* TransmissionEngine_iOS.h */; };
+		BD650CCE1BEFD16900C64285 /* TransmissionEngine_iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = BD650CCD1BEFD16900C64285 /* TransmissionEngine_iOS.m */; };
+		BD650CDE1BEFD21800C64285 /* BPTransmissionClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BD650CDB1BEFD21800C64285 /* BPTransmissionClient.m */; };
+		BD650CDF1BEFD21800C64285 /* BPTransmissionEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = BD650CDD1BEFD21800C64285 /* BPTransmissionEngine.m */; };
+		BD83DBEE1BEFD5C2001BDC9E /* libTransmissionEngine-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD650CC91BEFD16900C64285 /* libTransmissionEngine-iOS.a */; };
 		D34ACC1816DA547C00607AD7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34ACC1716DA547C00607AD7 /* UIKit.framework */; };
 		D34ACC1A16DA547C00607AD7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34ACC1916DA547C00607AD7 /* Foundation.framework */; };
 		D34ACC1C16DA547C00607AD7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34ACC1B16DA547C00607AD7 /* CoreGraphics.framework */; };
@@ -30,7 +41,6 @@
 		D34ACC5316DA561300607AD7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34ACC5216DA561300607AD7 /* MobileCoreServices.framework */; };
 		D34ACC5516DA561800607AD7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34ACC5416DA561800607AD7 /* Security.framework */; };
 		D34ACC5716DA561D00607AD7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34ACC5616DA561D00607AD7 /* SystemConfiguration.framework */; };
-		D34ACC5A16DA566000607AD7 /* BPTransmissionClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D34ACC5916DA566000607AD7 /* BPTransmissionClient.m */; };
 		D34ACC5D16DA5F8E00607AD7 /* BPTorrentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34ACC5C16DA5F8E00607AD7 /* BPTorrentTableViewController.m */; };
 		D34C0A5E16E050C500AAFB93 /* BPConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34C0A5C16E050C500AAFB93 /* BPConnectionViewController.m */; };
 		D34C0A5F16E050C500AAFB93 /* BPConnectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D34C0A5D16E050C500AAFB93 /* BPConnectionViewController.xib */; };
@@ -39,10 +49,6 @@
 		D35955FC16E40D0C00C91ACC /* UIColor+Progress.m in Sources */ = {isa = PBXBuildFile; fileRef = D35955FB16E40D0C00C91ACC /* UIColor+Progress.m */; };
 		D35955FF16E40E3C00C91ACC /* BPProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D35955FE16E40E3C00C91ACC /* BPProgressView.m */; };
 		D360A8A016EBEE20001B9AF0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D360A89F16EBEE20001B9AF0 /* CoreData.framework */; };
-		D36134AE16ED350300AE6B6C /* Transmission-iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D36134AC16ED350300AE6B6C /* Transmission-iOS.xcdatamodeld */; };
-		D36134B116ED352500AE6B6C /* _BPTorrent.m in Sources */ = {isa = PBXBuildFile; fileRef = D36134B016ED352500AE6B6C /* _BPTorrent.m */; };
-		D36134B416ED353200AE6B6C /* BPTorrent.m in Sources */ = {isa = PBXBuildFile; fileRef = D36134B316ED353200AE6B6C /* BPTorrent.m */; };
-		D36134B716ED36AB00AE6B6C /* BPTransmissionEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = D36134B616ED36AB00AE6B6C /* BPTransmissionEngine.m */; };
 		D3967B5D186144F0003C840C /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = D3967B55186144F0003C840C /* Icon-76.png */; };
 		D3967B5E186144F1003C840C /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3967B56186144F0003C840C /* Icon-76@2x.png */; };
 		D3967B5F186144F1003C840C /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = D3967B57186144F0003C840C /* Icon-Small-50.png */; };
@@ -80,26 +86,64 @@
 		D3FD046C183962DA006B35B5 /* Resume@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3FD0464183962DA006B35B5 /* Resume@2x.png */; };
 		D3FD046D183962DA006B35B5 /* ResumeHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = D3FD0465183962DA006B35B5 /* ResumeHighlight.png */; };
 		D3FD046E183962DA006B35B5 /* ResumeHighlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3FD0466183962DA006B35B5 /* ResumeHighlight@2x.png */; };
-		E8101E51524242CAAE402C3E /* libPods-Transmission.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8C114D7660495CB8114342 /* libPods-Transmission.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D360A8AA16EBEEAF001B9AF0 /* PBXContainerItemProxy */ = {
+		BD107A2F1BEFD99C00758E02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D34ACC0C16DA547B00607AD7 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = D360A8A216EBEE59001B9AF0;
 			remoteInfo = Mogenerator;
 		};
+		BD83DBEC1BEFD5B6001BDC9E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D34ACC0C16DA547B00607AD7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BD650CC81BEFD16900C64285;
+			remoteInfo = "TransmissionEngine-iOS";
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		BD650CC71BEFD16900C64285 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				BD650CCC1BEFD16900C64285 /* TransmissionEngine_iOS.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		048350FD1628C91B98B8D5DF /* libPods-TransmissionEngine-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TransmissionEngine-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		690BCA0DFF1BEE95F5123583 /* Pods-Transmission-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transmission-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Transmission-iOS/Pods-Transmission-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		7997C347F98091EF07E8CE56 /* Pods-TransmissionEngine-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransmissionEngine-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TransmissionEngine-iOS/Pods-TransmissionEngine-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B9A593547DAACF5A0091BFED /* Pods-Transmission.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transmission.release.xcconfig"; path = "Pods/Target Support Files/Pods-Transmission/Pods-Transmission.release.xcconfig"; sourceTree = "<group>"; };
-		D34ACC1416DA547C00607AD7 /* Transmission.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transmission.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD107A261BEFD96400758E02 /* _BPTorrent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _BPTorrent.h; path = TransmissionEngine/_BPTorrent.h; sourceTree = SOURCE_ROOT; };
+		BD107A271BEFD96400758E02 /* _BPTorrent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _BPTorrent.m; path = TransmissionEngine/_BPTorrent.m; sourceTree = SOURCE_ROOT; };
+		BD107A281BEFD96400758E02 /* BPTorrent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BPTorrent.h; path = TransmissionEngine/BPTorrent.h; sourceTree = SOURCE_ROOT; };
+		BD107A291BEFD96400758E02 /* BPTorrent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPTorrent.m; path = TransmissionEngine/BPTorrent.m; sourceTree = SOURCE_ROOT; };
+		BD107A2B1BEFD96400758E02 /* TransmissionEngine.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TransmissionEngine.xcdatamodel; sourceTree = "<group>"; };
+		BD4E5BDA1BEFD3F900AFFA32 /* NSUserDefaults+Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSUserDefaults+Settings.h"; path = "TransmissionEngine/NSUserDefaults+Settings.h"; sourceTree = SOURCE_ROOT; };
+		BD4E5BDB1BEFD3F900AFFA32 /* NSUserDefaults+Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSUserDefaults+Settings.m"; path = "TransmissionEngine/NSUserDefaults+Settings.m"; sourceTree = SOURCE_ROOT; };
+		BD650CC91BEFD16900C64285 /* libTransmissionEngine-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libTransmissionEngine-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD650CCB1BEFD16900C64285 /* TransmissionEngine_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransmissionEngine_iOS.h; sourceTree = "<group>"; };
+		BD650CCD1BEFD16900C64285 /* TransmissionEngine_iOS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransmissionEngine_iOS.m; sourceTree = "<group>"; };
+		BD650CDA1BEFD21800C64285 /* BPTransmissionClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BPTransmissionClient.h; path = TransmissionEngine/BPTransmissionClient.h; sourceTree = SOURCE_ROOT; };
+		BD650CDB1BEFD21800C64285 /* BPTransmissionClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPTransmissionClient.m; path = TransmissionEngine/BPTransmissionClient.m; sourceTree = SOURCE_ROOT; };
+		BD650CDC1BEFD21800C64285 /* BPTransmissionEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BPTransmissionEngine.h; path = TransmissionEngine/BPTransmissionEngine.h; sourceTree = SOURCE_ROOT; };
+		BD650CDD1BEFD21800C64285 /* BPTransmissionEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BPTransmissionEngine.m; path = TransmissionEngine/BPTransmissionEngine.m; sourceTree = SOURCE_ROOT; };
+		BDA97C581BEFDB7800C010E3 /* libPods-TransmissionEngine-iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-TransmissionEngine-iOS.a"; path = "Pods/../build/Debug-iphoneos/libPods-TransmissionEngine-iOS.a"; sourceTree = "<group>"; };
+		CF34A9B046D9DD8AA67B0494 /* Pods-Transmission-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transmission-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Transmission-iOS/Pods-Transmission-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		D34ACC1416DA547C00607AD7 /* Transmission-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Transmission-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D34ACC1716DA547C00607AD7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D34ACC1916DA547C00607AD7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D34ACC1B16DA547C00607AD7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		D34ACC1F16DA547C00607AD7 /* Transmission-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Transmission-iOS-Info.plist"; sourceTree = "<group>"; };
+		D34ACC1F16DA547C00607AD7 /* Transmission-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Transmission-Info.plist"; sourceTree = "<group>"; };
 		D34ACC2116DA547C00607AD7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D34ACC2316DA547C00607AD7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D34ACC2516DA547C00607AD7 /* Transmission-iOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Transmission-iOS-Prefix.pch"; sourceTree = "<group>"; };
@@ -108,8 +152,6 @@
 		D34ACC5216DA561300607AD7 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D34ACC5416DA561800607AD7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		D34ACC5616DA561D00607AD7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		D34ACC5816DA566000607AD7 /* BPTransmissionClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPTransmissionClient.h; sourceTree = "<group>"; };
-		D34ACC5916DA566000607AD7 /* BPTransmissionClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPTransmissionClient.m; sourceTree = "<group>"; };
 		D34ACC5B16DA5F8E00607AD7 /* BPTorrentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPTorrentTableViewController.h; sourceTree = "<group>"; };
 		D34ACC5C16DA5F8E00607AD7 /* BPTorrentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPTorrentTableViewController.m; sourceTree = "<group>"; };
 		D34C0A5B16E050C500AAFB93 /* BPConnectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPConnectionViewController.h; sourceTree = "<group>"; };
@@ -122,13 +164,6 @@
 		D35955FD16E40E3C00C91ACC /* BPProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPProgressView.h; sourceTree = "<group>"; };
 		D35955FE16E40E3C00C91ACC /* BPProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPProgressView.m; sourceTree = "<group>"; };
 		D360A89F16EBEE20001B9AF0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		D36134AD16ED350300AE6B6C /* Transmission-iOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Transmission-iOS.xcdatamodel"; sourceTree = "<group>"; };
-		D36134AF16ED352500AE6B6C /* _BPTorrent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _BPTorrent.h; sourceTree = "<group>"; };
-		D36134B016ED352500AE6B6C /* _BPTorrent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _BPTorrent.m; sourceTree = "<group>"; };
-		D36134B216ED353200AE6B6C /* BPTorrent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPTorrent.h; sourceTree = "<group>"; };
-		D36134B316ED353200AE6B6C /* BPTorrent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPTorrent.m; sourceTree = "<group>"; };
-		D36134B516ED36AB00AE6B6C /* BPTransmissionEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPTransmissionEngine.h; sourceTree = "<group>"; };
-		D36134B616ED36AB00AE6B6C /* BPTransmissionEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPTransmissionEngine.m; sourceTree = "<group>"; };
 		D38698B116E2A01300EDCC43 /* transmission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = transmission.h; sourceTree = "<group>"; };
 		D3967B55186144F0003C840C /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76.png"; sourceTree = "<group>"; };
 		D3967B56186144F0003C840C /* Icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76@2x.png"; sourceTree = "<group>"; };
@@ -170,15 +205,26 @@
 		D3FD0464183962DA006B35B5 /* Resume@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Resume@2x.png"; sourceTree = "<group>"; };
 		D3FD0465183962DA006B35B5 /* ResumeHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ResumeHighlight.png; sourceTree = "<group>"; };
 		D3FD0466183962DA006B35B5 /* ResumeHighlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ResumeHighlight@2x.png"; sourceTree = "<group>"; };
+		DAD7DEF9CE3B1616A4D48111 /* libPods-Transmission-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Transmission-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF3653B45C1752E00EDACC61 /* Pods-Transmission.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transmission.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Transmission/Pods-Transmission.debug.xcconfig"; sourceTree = "<group>"; };
+		F548FED4B471AC6E7CECD2E2 /* Pods-TransmissionEngine-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransmissionEngine-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-TransmissionEngine-iOS/Pods-TransmissionEngine-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		FD8C114D7660495CB8114342 /* libPods-Transmission.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Transmission.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BD650CC61BEFD16900C64285 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AD89A01D1004498E8D02F44 /* libPods-TransmissionEngine-iOS.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D34ACC1116DA547B00607AD7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD83DBEE1BEFD5C2001BDC9E /* libTransmissionEngine-iOS.a in Frameworks */,
 				D360A8A016EBEE20001B9AF0 /* CoreData.framework in Frameworks */,
 				D34C0A6116E061FB00AAFB93 /* QuartzCore.framework in Frameworks */,
 				D34ACC5716DA561D00607AD7 /* SystemConfiguration.framework in Frameworks */,
@@ -187,7 +233,7 @@
 				D34ACC1816DA547C00607AD7 /* UIKit.framework in Frameworks */,
 				D34ACC1A16DA547C00607AD7 /* Foundation.framework in Frameworks */,
 				D34ACC1C16DA547C00607AD7 /* CoreGraphics.framework in Frameworks */,
-				E8101E51524242CAAE402C3E /* libPods-Transmission.a in Frameworks */,
+				77507CD508417982DD0ADB66 /* libPods-Transmission-iOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,8 +245,53 @@
 			children = (
 				EF3653B45C1752E00EDACC61 /* Pods-Transmission.debug.xcconfig */,
 				B9A593547DAACF5A0091BFED /* Pods-Transmission.release.xcconfig */,
+				7997C347F98091EF07E8CE56 /* Pods-TransmissionEngine-iOS.debug.xcconfig */,
+				F548FED4B471AC6E7CECD2E2 /* Pods-TransmissionEngine-iOS.release.xcconfig */,
+				CF34A9B046D9DD8AA67B0494 /* Pods-Transmission-iOS.debug.xcconfig */,
+				690BCA0DFF1BEE95F5123583 /* Pods-Transmission-iOS.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		BD107A241BEFD94D00758E02 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BD107A251BEFD95400758E02 /* Generated */,
+				BD107A281BEFD96400758E02 /* BPTorrent.h */,
+				BD107A291BEFD96400758E02 /* BPTorrent.m */,
+				BD107A2A1BEFD96400758E02 /* TransmissionEngine.xcdatamodeld */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		BD107A251BEFD95400758E02 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				BD107A261BEFD96400758E02 /* _BPTorrent.h */,
+				BD107A271BEFD96400758E02 /* _BPTorrent.m */,
+			);
+			name = Generated;
+			sourceTree = "<group>";
+		};
+		BD4E5BD91BEFD3ED00AFFA32 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				BD4E5BDA1BEFD3F900AFFA32 /* NSUserDefaults+Settings.h */,
+				BD4E5BDB1BEFD3F900AFFA32 /* NSUserDefaults+Settings.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		BD650CCA1BEFD16900C64285 /* TransmissionEngine-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				BD107A241BEFD94D00758E02 /* Model */,
+				BD4E5BD91BEFD3ED00AFFA32 /* Categories */,
+				D38D328716E0760300E5496D /* Clients */,
+				BD650CCB1BEFD16900C64285 /* TransmissionEngine_iOS.h */,
+				BD650CCD1BEFD16900C64285 /* TransmissionEngine_iOS.m */,
+			);
+			path = "TransmissionEngine-iOS";
 			sourceTree = "<group>";
 		};
 		D34ACC0B16DA547B00607AD7 = {
@@ -209,6 +300,7 @@
 				D3E401F2181F5B8D0077E8DB /* Images.xcassets */,
 				D34ACC3416DA548B00607AD7 /* 3rdParty */,
 				D34ACC1D16DA547C00607AD7 /* Transmission-iOS */,
+				BD650CCA1BEFD16900C64285 /* TransmissionEngine-iOS */,
 				D34ACC1616DA547C00607AD7 /* Frameworks */,
 				D34ACC1516DA547C00607AD7 /* Products */,
 				74F4B26A9EA15E3B6BB8A1D8 /* Pods */,
@@ -218,7 +310,8 @@
 		D34ACC1516DA547C00607AD7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D34ACC1416DA547C00607AD7 /* Transmission.app */,
+				D34ACC1416DA547C00607AD7 /* Transmission-iOS.app */,
+				BD650CC91BEFD16900C64285 /* libTransmissionEngine-iOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -226,6 +319,7 @@
 		D34ACC1616DA547C00607AD7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BDA97C581BEFDB7800C010E3 /* libPods-TransmissionEngine-iOS.a */,
 				D360A89F16EBEE20001B9AF0 /* CoreData.framework */,
 				D34C0A6016E061FB00AAFB93 /* QuartzCore.framework */,
 				D34ACC5616DA561D00607AD7 /* SystemConfiguration.framework */,
@@ -235,6 +329,8 @@
 				D34ACC1916DA547C00607AD7 /* Foundation.framework */,
 				D34ACC1B16DA547C00607AD7 /* CoreGraphics.framework */,
 				FD8C114D7660495CB8114342 /* libPods-Transmission.a */,
+				DAD7DEF9CE3B1616A4D48111 /* libPods-Transmission-iOS.a */,
+				048350FD1628C91B98B8D5DF /* libPods-TransmissionEngine-iOS.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -244,10 +340,8 @@
 			children = (
 				D3D82968178A5FC100AE904A /* Demo */,
 				D3A49B0C16FEABFE00633296 /* Categories */,
-				D38D328716E0760300E5496D /* Clients */,
 				D34C0A5A16E050A200AAFB93 /* Controllers */,
 				D38D328616E075F000E5496D /* Views */,
-				D360A8AC16EBEFD0001B9AF0 /* Model */,
 				D34ACC2616DA547C00607AD7 /* BPAppDelegate.h */,
 				D34ACC2716DA547C00607AD7 /* BPAppDelegate.m */,
 				D34ACC1E16DA547C00607AD7 /* Supporting Files */,
@@ -261,7 +355,7 @@
 		D34ACC1E16DA547C00607AD7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D34ACC1F16DA547C00607AD7 /* Transmission-iOS-Info.plist */,
+				D34ACC1F16DA547C00607AD7 /* Transmission-Info.plist */,
 				D34ACC2016DA547C00607AD7 /* InfoPlist.strings */,
 				D34ACC2316DA547C00607AD7 /* main.m */,
 				D34ACC2516DA547C00607AD7 /* Transmission-iOS-Prefix.pch */,
@@ -316,26 +410,6 @@
 			path = Icon;
 			sourceTree = "<group>";
 		};
-		D360A8AC16EBEFD0001B9AF0 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				D360A8AD16EBEFD9001B9AF0 /* Generated */,
-				D36134B216ED353200AE6B6C /* BPTorrent.h */,
-				D36134B316ED353200AE6B6C /* BPTorrent.m */,
-				D36134AC16ED350300AE6B6C /* Transmission-iOS.xcdatamodeld */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		D360A8AD16EBEFD9001B9AF0 /* Generated */ = {
-			isa = PBXGroup;
-			children = (
-				D36134AF16ED352500AE6B6C /* _BPTorrent.h */,
-				D36134B016ED352500AE6B6C /* _BPTorrent.m */,
-			);
-			name = Generated;
-			sourceTree = "<group>";
-		};
 		D38698AF16E2A01300EDCC43 /* transmission */ = {
 			isa = PBXGroup;
 			children = (
@@ -369,12 +443,13 @@
 		D38D328716E0760300E5496D /* Clients */ = {
 			isa = PBXGroup;
 			children = (
-				D34ACC5816DA566000607AD7 /* BPTransmissionClient.h */,
-				D34ACC5916DA566000607AD7 /* BPTransmissionClient.m */,
-				D36134B516ED36AB00AE6B6C /* BPTransmissionEngine.h */,
-				D36134B616ED36AB00AE6B6C /* BPTransmissionEngine.m */,
+				BD650CDA1BEFD21800C64285 /* BPTransmissionClient.h */,
+				BD650CDB1BEFD21800C64285 /* BPTransmissionClient.m */,
+				BD650CDC1BEFD21800C64285 /* BPTransmissionEngine.h */,
+				BD650CDD1BEFD21800C64285 /* BPTransmissionEngine.m */,
 			);
 			name = Clients;
+			path = "../Transmission-iOS";
 			sourceTree = "<group>";
 		};
 		D39E45C618B1B5B1002D57DD /* Satellite Dish */ = {
@@ -442,25 +517,45 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D34ACC1316DA547B00607AD7 /* Transmission */ = {
+		BD650CC81BEFD16900C64285 /* TransmissionEngine-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D34ACC3116DA547C00607AD7 /* Build configuration list for PBXNativeTarget "Transmission" */;
+			buildConfigurationList = BD650CD11BEFD16900C64285 /* Build configuration list for PBXNativeTarget "TransmissionEngine-iOS" */;
 			buildPhases = (
-				8C5F13DC4B874EBA981BE963 /* Check Pods Manifest.lock */,
-				D34ACC1016DA547B00607AD7 /* Sources */,
-				D34ACC1116DA547B00607AD7 /* Frameworks */,
-				D34ACC1216DA547B00607AD7 /* Resources */,
-				AE2452E5545E459F999852D4 /* Copy Pods Resources */,
-				DC7271A9138B3B095F2E9A94 /* Embed Pods Frameworks */,
+				0D0A07FAEB933F7D9F30B2FB /* Check Pods Manifest.lock */,
+				BD650CC51BEFD16900C64285 /* Sources */,
+				BD650CC61BEFD16900C64285 /* Frameworks */,
+				BD650CC71BEFD16900C64285 /* CopyFiles */,
+				55FDE72670DAE8D4DC5C08D4 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D360A8AB16EBEEAF001B9AF0 /* PBXTargetDependency */,
+				BD107A301BEFD99C00758E02 /* PBXTargetDependency */,
 			);
-			name = Transmission;
+			name = "TransmissionEngine-iOS";
+			productName = "TransmissionEngine-iOS";
+			productReference = BD650CC91BEFD16900C64285 /* libTransmissionEngine-iOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D34ACC1316DA547B00607AD7 /* Transmission-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D34ACC3116DA547C00607AD7 /* Build configuration list for PBXNativeTarget "Transmission-iOS" */;
+			buildPhases = (
+				E5D6829F8F142C91D877C89F /* Check Pods Manifest.lock */,
+				D34ACC1016DA547B00607AD7 /* Sources */,
+				D34ACC1116DA547B00607AD7 /* Frameworks */,
+				D34ACC1216DA547B00607AD7 /* Resources */,
+				808D5A189F042AD939BB3EAE /* Embed Pods Frameworks */,
+				FA76CF66ECE0EF007449A137 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BD83DBED1BEFD5B6001BDC9E /* PBXTargetDependency */,
+			);
+			name = "Transmission-iOS";
 			productName = "Transmission-iOS";
-			productReference = D34ACC1416DA547C00607AD7 /* Transmission.app */;
+			productReference = D34ACC1416DA547C00607AD7 /* Transmission-iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -472,8 +567,13 @@
 				CLASSPREFIX = BP;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Brian Partridge";
+				TargetAttributes = {
+					BD650CC81BEFD16900C64285 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+				};
 			};
-			buildConfigurationList = D34ACC0F16DA547B00607AD7 /* Build configuration list for PBXProject "Transmission-iOS" */;
+			buildConfigurationList = D34ACC0F16DA547B00607AD7 /* Build configuration list for PBXProject "Transmission" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -485,8 +585,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D34ACC1316DA547B00607AD7 /* Transmission */,
+				D34ACC1316DA547B00607AD7 /* Transmission-iOS */,
 				D360A8A216EBEE59001B9AF0 /* Mogenerator */,
+				BD650CC81BEFD16900C64285 /* TransmissionEngine-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -539,7 +640,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		8C5F13DC4B874EBA981BE963 /* Check Pods Manifest.lock */ = {
+		0D0A07FAEB933F7D9F30B2FB /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -554,7 +655,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		AE2452E5545E459F999852D4 /* Copy Pods Resources */ = {
+		55FDE72670DAE8D4DC5C08D4 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -566,7 +667,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Transmission/Pods-Transmission-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TransmissionEngine-iOS/Pods-TransmissionEngine-iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		808D5A189F042AD939BB3EAE /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Transmission-iOS/Pods-Transmission-iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D360A8A616EBEE60001B9AF0 /* ShellScript */ = {
@@ -580,42 +696,66 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "PROJECT_NAME=\"Transmission-iOS\"\ncd $PROJECT_NAME\n/usr/local/bin/mogenerator -m $PROJECT_NAME.xcdatamodeld/$PROJECT_NAME.xcdatamodel --template-var arc=true";
+			shellScript = "PROJECT_NAME=\"TransmissionEngine\"\ncd $PROJECT_NAME\n/usr/local/bin/mogenerator -m $PROJECT_NAME.xcdatamodeld/$PROJECT_NAME.xcdatamodel --template-var arc=true";
 		};
-		DC7271A9138B3B095F2E9A94 /* Embed Pods Frameworks */ = {
+		E5D6829F8F142C91D877C89F /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Transmission/Pods-Transmission-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FA76CF66ECE0EF007449A137 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Transmission-iOS/Pods-Transmission-iOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BD650CC51BEFD16900C64285 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD4E5BDC1BEFD3F900AFFA32 /* NSUserDefaults+Settings.m in Sources */,
+				BD650CDE1BEFD21800C64285 /* BPTransmissionClient.m in Sources */,
+				BD107A2D1BEFD96400758E02 /* BPTorrent.m in Sources */,
+				BD107A2C1BEFD96400758E02 /* _BPTorrent.m in Sources */,
+				BD650CDF1BEFD21800C64285 /* BPTransmissionEngine.m in Sources */,
+				BD650CCE1BEFD16900C64285 /* TransmissionEngine_iOS.m in Sources */,
+				BD107A2E1BEFD96400758E02 /* TransmissionEngine.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D34ACC1016DA547B00607AD7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D34ACC2416DA547C00607AD7 /* main.m in Sources */,
 				D34ACC2816DA547C00607AD7 /* BPAppDelegate.m in Sources */,
-				D34ACC5A16DA566000607AD7 /* BPTransmissionClient.m in Sources */,
 				D34ACC5D16DA5F8E00607AD7 /* BPTorrentTableViewController.m in Sources */,
 				D34C0A5E16E050C500AAFB93 /* BPConnectionViewController.m in Sources */,
 				D3EC4B7B16E2C1DD006885F8 /* BPTorrentCell.m in Sources */,
 				D35955FC16E40D0C00C91ACC /* UIColor+Progress.m in Sources */,
 				D35955FF16E40E3C00C91ACC /* BPProgressView.m in Sources */,
-				D36134AE16ED350300AE6B6C /* Transmission-iOS.xcdatamodeld in Sources */,
-				D36134B116ED352500AE6B6C /* _BPTorrent.m in Sources */,
-				D36134B416ED353200AE6B6C /* BPTorrent.m in Sources */,
-				D36134B716ED36AB00AE6B6C /* BPTransmissionEngine.m in Sources */,
 				D3A49B0F16FEAC0D00633296 /* NSUserDefaults+Settings.m in Sources */,
 				D3D82976178A5FDB00AE904A /* BPTransmissionTestProtocol.m in Sources */,
 			);
@@ -624,10 +764,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D360A8AB16EBEEAF001B9AF0 /* PBXTargetDependency */ = {
+		BD107A301BEFD99C00758E02 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D360A8A216EBEE59001B9AF0 /* Mogenerator */;
-			targetProxy = D360A8AA16EBEEAF001B9AF0 /* PBXContainerItemProxy */;
+			targetProxy = BD107A2F1BEFD99C00758E02 /* PBXContainerItemProxy */;
+		};
+		BD83DBED1BEFD5B6001BDC9E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BD650CC81BEFD16900C64285 /* TransmissionEngine-iOS */;
+			targetProxy = BD83DBEC1BEFD5B6001BDC9E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -643,6 +788,55 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		BD650CCF1BEFD16900C64285 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7997C347F98091EF07E8CE56 /* Pods-TransmissionEngine-iOS.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		BD650CD01BEFD16900C64285 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F548FED4B471AC6E7CECD2E2 /* Pods-TransmissionEngine-iOS.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		D34ACC2F16DA547C00607AD7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -668,7 +862,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -692,7 +886,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -701,15 +895,19 @@
 		};
 		D34ACC3216DA547C00607AD7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EF3653B45C1752E00EDACC61 /* Pods-Transmission.debug.xcconfig */;
+			baseConfigurationReference = CF34A9B046D9DD8AA67B0494 /* Pods-Transmission-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Transmission-iOS/Transmission-iOS-Prefix.pch";
-				INFOPLIST_FILE = "Transmission-iOS/Transmission-iOS-Info.plist";
+				INFOPLIST_FILE = "Transmission-iOS/Transmission-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "3rdParty/BPFoundation/BPFoundation 3rdParty/MagicalRecord/MagicalRecord";
@@ -719,15 +917,19 @@
 		};
 		D34ACC3316DA547C00607AD7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B9A593547DAACF5A0091BFED /* Pods-Transmission.release.xcconfig */;
+			baseConfigurationReference = 690BCA0DFF1BEE95F5123583 /* Pods-Transmission-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Transmission-iOS/Transmission-iOS-Prefix.pch";
-				INFOPLIST_FILE = "Transmission-iOS/Transmission-iOS-Info.plist";
+				INFOPLIST_FILE = "Transmission-iOS/Transmission-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "3rdParty/BPFoundation/BPFoundation 3rdParty/MagicalRecord/MagicalRecord";
@@ -752,7 +954,16 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D34ACC0F16DA547B00607AD7 /* Build configuration list for PBXProject "Transmission-iOS" */ = {
+		BD650CD11BEFD16900C64285 /* Build configuration list for PBXNativeTarget "TransmissionEngine-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD650CCF1BEFD16900C64285 /* Debug */,
+				BD650CD01BEFD16900C64285 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D34ACC0F16DA547B00607AD7 /* Build configuration list for PBXProject "Transmission" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D34ACC2F16DA547C00607AD7 /* Debug */,
@@ -761,7 +972,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D34ACC3116DA547C00607AD7 /* Build configuration list for PBXNativeTarget "Transmission" */ = {
+		D34ACC3116DA547C00607AD7 /* Build configuration list for PBXNativeTarget "Transmission-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D34ACC3216DA547C00607AD7 /* Debug */,
@@ -782,13 +993,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		D36134AC16ED350300AE6B6C /* Transmission-iOS.xcdatamodeld */ = {
+		BD107A2A1BEFD96400758E02 /* TransmissionEngine.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				D36134AD16ED350300AE6B6C /* Transmission-iOS.xcdatamodel */,
+				BD107A2B1BEFD96400758E02 /* TransmissionEngine.xcdatamodel */,
 			);
-			currentVersion = D36134AD16ED350300AE6B6C /* Transmission-iOS.xcdatamodel */;
-			path = "Transmission-iOS.xcdatamodeld";
+			currentVersion = BD107A2B1BEFD96400758E02 /* TransmissionEngine.xcdatamodel */;
+			name = TransmissionEngine.xcdatamodeld;
+			path = ../TransmissionEngine/TransmissionEngine.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

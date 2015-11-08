@@ -32,11 +32,12 @@
     [self.tableView registerNib:nib forCellReuseIdentifier:@"TorrentCell"];
 
 
-    self.fetchedResults = [BPTorrent MR_fetchAllGroupedBy:nil
-                                            withPredicate:[NSPredicate predicateWithFormat:@"%K == %@", BPTorrentAttributes.isPendingDeletion, @NO]
-                                                 sortedBy:BPTorrentAttributes.sortName
-                                                ascending:YES
-                                                 delegate:self];
+    self.fetchedResults = nil;
+//    [BPTorrent MR_fetchAllGroupedBy:nil
+//                                            withPredicate:[NSPredicate predicateWithFormat:@"%K == %@", BPTorrentAttributes.isPendingDeletion, @NO]
+//                                                 sortedBy:BPTorrentAttributes.sortName
+//                                                ascending:YES
+//                                                 delegate:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

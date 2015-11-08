@@ -7,6 +7,7 @@
 //
 
 #import "BPTransmissionEngine.h"
+#import "CoreData+MagicalRecord.h"
 #import "SVProgressHUD.h"
 
 static void *kvoContext = &kvoContext;
@@ -86,7 +87,7 @@ static void *kvoContext = &kvoContext;
                                                               userInfo:nil
                                                                repeats:NO];
     } error:^(NSError *error) {
-        DLog(@"Update error: %@", error);
+        NSLog(@"Update error: %@", error);
         if ([error.domain isEqualToString:NSURLErrorDomain]) {
             weakSelf.client = nil;
         }
@@ -109,7 +110,7 @@ static void *kvoContext = &kvoContext;
     }
     NSError *error = nil;
     if (![[NSManagedObjectContext MR_contextForCurrentThread] save:&error]) {
-        DLog(@"Update save error: %@", error);
+        NSLog(@"Update save error: %@", error);
     }
 }
 
@@ -180,7 +181,7 @@ static void *kvoContext = &kvoContext;
         [self.client addTorrentFromURL:url completion:^{
             [SVProgressHUD showSuccessWithStatus:@"Added Torrent"];
         } error:^(NSError *error) {
-            DLog(@"Error adding torrent: %@", error);
+            NSLog(@"Error adding torrent: %@", error);
             [SVProgressHUD showErrorWithStatus:error.localizedDescription];
         }];
 
@@ -189,7 +190,7 @@ static void *kvoContext = &kvoContext;
         if (url.isFileURL) {
             NSError *error = nil;
             if (![[NSFileManager defaultManager] removeItemAtURL:url error:&error]) {
-                DLog(@"Error removing torrent file: %@", error);
+                NSLog(@"Error removing torrent file: %@", error);
             }
         }
     }

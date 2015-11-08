@@ -130,7 +130,7 @@ static void *kvoContext = &kvoContext;
         [weak_self presentViewController:nav animated:YES completion:nil];
         weak_self.currentService = nil;
     } error:^(NSError *error) {
-        DLog(@"connection error: %@", error);
+        NSLog(@"connection error: %@", error);
         BOOL needsAuth = NO;
         id response = [error.userInfo objectForKey:AFNetworkingOperationFailingURLResponseErrorKey];
         if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
@@ -200,7 +200,7 @@ static void *kvoContext = &kvoContext;
 }
 
 - (void)netService:(NSNetService *)service didNotResolve:(NSDictionary *)errorDict {
-    DLog(@"Unable to resolve: %@: %@", service, errorDict);
+    NSLog(@"Unable to resolve: %@: %@", service, errorDict);
     self.currentService = nil;
     [self setErrorStateWithText:NSLocalizedString(@"Resolve Error", nil)];
 }
