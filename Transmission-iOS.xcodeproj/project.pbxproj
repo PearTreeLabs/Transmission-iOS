@@ -94,7 +94,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0FE3318B12C44F83A5DBE1E9 /* Pods-Transmission.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transmission.xcconfig"; path = "Pods/Pods-Transmission.xcconfig"; sourceTree = "<group>"; };
+		B9A593547DAACF5A0091BFED /* Pods-Transmission.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transmission.release.xcconfig"; path = "Pods/Target Support Files/Pods-Transmission/Pods-Transmission.release.xcconfig"; sourceTree = "<group>"; };
 		D34ACC1416DA547C00607AD7 /* Transmission.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transmission.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D34ACC1716DA547C00607AD7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D34ACC1916DA547C00607AD7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -170,6 +170,7 @@
 		D3FD0464183962DA006B35B5 /* Resume@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Resume@2x.png"; sourceTree = "<group>"; };
 		D3FD0465183962DA006B35B5 /* ResumeHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ResumeHighlight.png; sourceTree = "<group>"; };
 		D3FD0466183962DA006B35B5 /* ResumeHighlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ResumeHighlight@2x.png"; sourceTree = "<group>"; };
+		EF3653B45C1752E00EDACC61 /* Pods-Transmission.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transmission.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Transmission/Pods-Transmission.debug.xcconfig"; sourceTree = "<group>"; };
 		FD8C114D7660495CB8114342 /* libPods-Transmission.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Transmission.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -193,6 +194,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		74F4B26A9EA15E3B6BB8A1D8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EF3653B45C1752E00EDACC61 /* Pods-Transmission.debug.xcconfig */,
+				B9A593547DAACF5A0091BFED /* Pods-Transmission.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D34ACC0B16DA547B00607AD7 = {
 			isa = PBXGroup;
 			children = (
@@ -201,7 +211,7 @@
 				D34ACC1D16DA547C00607AD7 /* Transmission-iOS */,
 				D34ACC1616DA547C00607AD7 /* Frameworks */,
 				D34ACC1516DA547C00607AD7 /* Products */,
-				0FE3318B12C44F83A5DBE1E9 /* Pods-Transmission.xcconfig */,
+				74F4B26A9EA15E3B6BB8A1D8 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -441,6 +451,7 @@
 				D34ACC1116DA547B00607AD7 /* Frameworks */,
 				D34ACC1216DA547B00607AD7 /* Resources */,
 				AE2452E5545E459F999852D4 /* Copy Pods Resources */,
+				DC7271A9138B3B095F2E9A94 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -555,7 +566,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-Transmission-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Transmission/Pods-Transmission-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D360A8A616EBEE60001B9AF0 /* ShellScript */ = {
@@ -570,6 +581,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "PROJECT_NAME=\"Transmission-iOS\"\ncd $PROJECT_NAME\n/usr/local/bin/mogenerator -m $PROJECT_NAME.xcdatamodeld/$PROJECT_NAME.xcdatamodel --template-var arc=true";
+		};
+		DC7271A9138B3B095F2E9A94 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Transmission/Pods-Transmission-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -675,7 +701,7 @@
 		};
 		D34ACC3216DA547C00607AD7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0FE3318B12C44F83A5DBE1E9 /* Pods-Transmission.xcconfig */;
+			baseConfigurationReference = EF3653B45C1752E00EDACC61 /* Pods-Transmission.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -693,7 +719,7 @@
 		};
 		D34ACC3316DA547C00607AD7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0FE3318B12C44F83A5DBE1E9 /* Pods-Transmission.xcconfig */;
+			baseConfigurationReference = B9A593547DAACF5A0091BFED /* Pods-Transmission.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
