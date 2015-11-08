@@ -3,7 +3,6 @@
 
 #import <CoreData/CoreData.h>
 
-
 extern const struct BPTorrentAttributes {
 	__unsafe_unretained NSString *addedDate;
 	__unsafe_unretained NSString *desiredAvailable;
@@ -26,33 +25,6 @@ extern const struct BPTorrentAttributes {
 	__unsafe_unretained NSString *uploadRatio;
 } BPTorrentAttributes;
 
-extern const struct BPTorrentRelationships {
-} BPTorrentRelationships;
-
-extern const struct BPTorrentFetchedProperties {
-} BPTorrentFetchedProperties;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @interface BPTorrentID : NSManagedObjectID {}
 @end
 
@@ -60,276 +32,150 @@ extern const struct BPTorrentFetchedProperties {
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
-- (BPTorrentID*)objectID;
-
-
-
-
+@property (nonatomic, readonly, strong) BPTorrentID* objectID;
 
 @property (nonatomic, strong) NSNumber* addedDate;
 
-
-
-@property int64_t addedDateValue;
+@property (atomic) int64_t addedDateValue;
 - (int64_t)addedDateValue;
 - (void)setAddedDateValue:(int64_t)value_;
 
 //- (BOOL)validateAddedDate:(id*)value_ error:(NSError**)error_;
 
-
-
-
-
 @property (nonatomic, strong) NSNumber* desiredAvailable;
 
-
-
-@property float desiredAvailableValue;
+@property (atomic) float desiredAvailableValue;
 - (float)desiredAvailableValue;
 - (void)setDesiredAvailableValue:(float)value_;
 
 //- (BOOL)validateDesiredAvailable:(id*)value_ error:(NSError**)error_;
 
-
-
-
-
 @property (nonatomic, strong) NSNumber* error;
 
-
-
-@property int32_t errorValue;
+@property (atomic) int32_t errorValue;
 - (int32_t)errorValue;
 - (void)setErrorValue:(int32_t)value_;
 
 //- (BOOL)validateError:(id*)value_ error:(NSError**)error_;
 
-
-
-
-
 @property (nonatomic, strong) NSString* errorString;
-
-
 
 //- (BOOL)validateErrorString:(id*)value_ error:(NSError**)error_;
 
-
-
-
-
 @property (nonatomic, strong) NSString* hashString;
-
-
 
 //- (BOOL)validateHashString:(id*)value_ error:(NSError**)error_;
 
-
-
-
-
 @property (nonatomic, strong) NSNumber* id;
 
-
-
-@property int32_t idValue;
+@property (atomic) int32_t idValue;
 - (int32_t)idValue;
 - (void)setIdValue:(int32_t)value_;
 
 //- (BOOL)validateId:(id*)value_ error:(NSError**)error_;
 
-
-
-
-
 @property (nonatomic, strong) NSNumber* isFinished;
 
-
-
-@property BOOL isFinishedValue;
+@property (atomic) BOOL isFinishedValue;
 - (BOOL)isFinishedValue;
 - (void)setIsFinishedValue:(BOOL)value_;
 
 //- (BOOL)validateIsFinished:(id*)value_ error:(NSError**)error_;
 
-
-
-
-
 @property (nonatomic, strong) NSNumber* isPendingDeletion;
 
-
-
-@property BOOL isPendingDeletionValue;
+@property (atomic) BOOL isPendingDeletionValue;
 - (BOOL)isPendingDeletionValue;
 - (void)setIsPendingDeletionValue:(BOOL)value_;
 
 //- (BOOL)validateIsPendingDeletion:(id*)value_ error:(NSError**)error_;
 
-
-
-
-
 @property (nonatomic, strong) NSNumber* leftUntilDone;
 
-
-
-@property int64_t leftUntilDoneValue;
+@property (atomic) int64_t leftUntilDoneValue;
 - (int64_t)leftUntilDoneValue;
 - (void)setLeftUntilDoneValue:(int64_t)value_;
 
 //- (BOOL)validateLeftUntilDone:(id*)value_ error:(NSError**)error_;
 
-
-
-
-
 @property (nonatomic, strong) NSNumber* magenetLink;
 
-
-
-@property int32_t magenetLinkValue;
+@property (atomic) int32_t magenetLinkValue;
 - (int32_t)magenetLinkValue;
 - (void)setMagenetLinkValue:(int32_t)value_;
 
 //- (BOOL)validateMagenetLink:(id*)value_ error:(NSError**)error_;
 
-
-
-
-
 @property (nonatomic, strong) NSString* name;
-
-
 
 //- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
 
-
-
-
-
 @property (nonatomic, strong) NSNumber* percentDone;
 
-
-
-@property float percentDoneValue;
+@property (atomic) float percentDoneValue;
 - (float)percentDoneValue;
 - (void)setPercentDoneValue:(float)value_;
 
 //- (BOOL)validatePercentDone:(id*)value_ error:(NSError**)error_;
 
-
-
-
-
 @property (nonatomic, strong) NSNumber* rateDownload;
 
-
-
-@property float rateDownloadValue;
+@property (atomic) float rateDownloadValue;
 - (float)rateDownloadValue;
 - (void)setRateDownloadValue:(float)value_;
 
 //- (BOOL)validateRateDownload:(id*)value_ error:(NSError**)error_;
 
-
-
-
-
 @property (nonatomic, strong) NSNumber* rateUpload;
 
-
-
-@property float rateUploadValue;
+@property (atomic) float rateUploadValue;
 - (float)rateUploadValue;
 - (void)setRateUploadValue:(float)value_;
 
 //- (BOOL)validateRateUpload:(id*)value_ error:(NSError**)error_;
 
-
-
-
-
 @property (nonatomic, strong) NSNumber* recheckProgress;
 
-
-
-@property float recheckProgressValue;
+@property (atomic) float recheckProgressValue;
 - (float)recheckProgressValue;
 - (void)setRecheckProgressValue:(float)value_;
 
 //- (BOOL)validateRecheckProgress:(id*)value_ error:(NSError**)error_;
 
-
-
-
-
 @property (nonatomic, strong) NSString* sortName;
-
-
 
 //- (BOOL)validateSortName:(id*)value_ error:(NSError**)error_;
 
-
-
-
-
 @property (nonatomic, strong) NSNumber* status;
 
-
-
-@property int32_t statusValue;
+@property (atomic) int32_t statusValue;
 - (int32_t)statusValue;
 - (void)setStatusValue:(int32_t)value_;
 
 //- (BOOL)validateStatus:(id*)value_ error:(NSError**)error_;
 
-
-
-
-
 @property (nonatomic, strong) NSNumber* totalSize;
 
-
-
-@property int64_t totalSizeValue;
+@property (atomic) int64_t totalSizeValue;
 - (int64_t)totalSizeValue;
 - (void)setTotalSizeValue:(int64_t)value_;
 
 //- (BOOL)validateTotalSize:(id*)value_ error:(NSError**)error_;
 
-
-
-
-
 @property (nonatomic, strong) NSNumber* uploadRatio;
 
-
-
-@property float uploadRatioValue;
+@property (atomic) float uploadRatioValue;
 - (float)uploadRatioValue;
 - (void)setUploadRatioValue:(float)value_;
 
 //- (BOOL)validateUploadRatio:(id*)value_ error:(NSError**)error_;
 
-
-
-
-
 + (NSArray*)fetchAllVisibleTorrents:(NSManagedObjectContext*)moc_ ;
 + (NSArray*)fetchAllVisibleTorrents:(NSManagedObjectContext*)moc_ error:(NSError**)error_;
-
-
-
-
-@end
-
-@interface _BPTorrent (CoreDataGeneratedAccessors)
 
 @end
 
 @interface _BPTorrent (CoreDataGeneratedPrimitiveAccessors)
-
 
 - (NSNumber*)primitiveAddedDate;
 - (void)setPrimitiveAddedDate:(NSNumber*)value;
@@ -337,17 +183,11 @@ extern const struct BPTorrentFetchedProperties {
 - (int64_t)primitiveAddedDateValue;
 - (void)setPrimitiveAddedDateValue:(int64_t)value_;
 
-
-
-
 - (NSNumber*)primitiveDesiredAvailable;
 - (void)setPrimitiveDesiredAvailable:(NSNumber*)value;
 
 - (float)primitiveDesiredAvailableValue;
 - (void)setPrimitiveDesiredAvailableValue:(float)value_;
-
-
-
 
 - (NSNumber*)primitiveError;
 - (void)setPrimitiveError:(NSNumber*)value;
@@ -355,20 +195,11 @@ extern const struct BPTorrentFetchedProperties {
 - (int32_t)primitiveErrorValue;
 - (void)setPrimitiveErrorValue:(int32_t)value_;
 
-
-
-
 - (NSString*)primitiveErrorString;
 - (void)setPrimitiveErrorString:(NSString*)value;
 
-
-
-
 - (NSString*)primitiveHashString;
 - (void)setPrimitiveHashString:(NSString*)value;
-
-
-
 
 - (NSNumber*)primitiveId;
 - (void)setPrimitiveId:(NSNumber*)value;
@@ -376,17 +207,11 @@ extern const struct BPTorrentFetchedProperties {
 - (int32_t)primitiveIdValue;
 - (void)setPrimitiveIdValue:(int32_t)value_;
 
-
-
-
 - (NSNumber*)primitiveIsFinished;
 - (void)setPrimitiveIsFinished:(NSNumber*)value;
 
 - (BOOL)primitiveIsFinishedValue;
 - (void)setPrimitiveIsFinishedValue:(BOOL)value_;
-
-
-
 
 - (NSNumber*)primitiveIsPendingDeletion;
 - (void)setPrimitiveIsPendingDeletion:(NSNumber*)value;
@@ -394,17 +219,11 @@ extern const struct BPTorrentFetchedProperties {
 - (BOOL)primitiveIsPendingDeletionValue;
 - (void)setPrimitiveIsPendingDeletionValue:(BOOL)value_;
 
-
-
-
 - (NSNumber*)primitiveLeftUntilDone;
 - (void)setPrimitiveLeftUntilDone:(NSNumber*)value;
 
 - (int64_t)primitiveLeftUntilDoneValue;
 - (void)setPrimitiveLeftUntilDoneValue:(int64_t)value_;
-
-
-
 
 - (NSNumber*)primitiveMagenetLink;
 - (void)setPrimitiveMagenetLink:(NSNumber*)value;
@@ -412,14 +231,8 @@ extern const struct BPTorrentFetchedProperties {
 - (int32_t)primitiveMagenetLinkValue;
 - (void)setPrimitiveMagenetLinkValue:(int32_t)value_;
 
-
-
-
 - (NSString*)primitiveName;
 - (void)setPrimitiveName:(NSString*)value;
-
-
-
 
 - (NSNumber*)primitivePercentDone;
 - (void)setPrimitivePercentDone:(NSNumber*)value;
@@ -427,17 +240,11 @@ extern const struct BPTorrentFetchedProperties {
 - (float)primitivePercentDoneValue;
 - (void)setPrimitivePercentDoneValue:(float)value_;
 
-
-
-
 - (NSNumber*)primitiveRateDownload;
 - (void)setPrimitiveRateDownload:(NSNumber*)value;
 
 - (float)primitiveRateDownloadValue;
 - (void)setPrimitiveRateDownloadValue:(float)value_;
-
-
-
 
 - (NSNumber*)primitiveRateUpload;
 - (void)setPrimitiveRateUpload:(NSNumber*)value;
@@ -445,23 +252,14 @@ extern const struct BPTorrentFetchedProperties {
 - (float)primitiveRateUploadValue;
 - (void)setPrimitiveRateUploadValue:(float)value_;
 
-
-
-
 - (NSNumber*)primitiveRecheckProgress;
 - (void)setPrimitiveRecheckProgress:(NSNumber*)value;
 
 - (float)primitiveRecheckProgressValue;
 - (void)setPrimitiveRecheckProgressValue:(float)value_;
 
-
-
-
 - (NSString*)primitiveSortName;
 - (void)setPrimitiveSortName:(NSString*)value;
-
-
-
 
 - (NSNumber*)primitiveStatus;
 - (void)setPrimitiveStatus:(NSNumber*)value;
@@ -469,25 +267,16 @@ extern const struct BPTorrentFetchedProperties {
 - (int32_t)primitiveStatusValue;
 - (void)setPrimitiveStatusValue:(int32_t)value_;
 
-
-
-
 - (NSNumber*)primitiveTotalSize;
 - (void)setPrimitiveTotalSize:(NSNumber*)value;
 
 - (int64_t)primitiveTotalSizeValue;
 - (void)setPrimitiveTotalSizeValue:(int64_t)value_;
 
-
-
-
 - (NSNumber*)primitiveUploadRatio;
 - (void)setPrimitiveUploadRatio:(NSNumber*)value;
 
 - (float)primitiveUploadRatioValue;
 - (void)setPrimitiveUploadRatioValue:(float)value_;
-
-
-
 
 @end

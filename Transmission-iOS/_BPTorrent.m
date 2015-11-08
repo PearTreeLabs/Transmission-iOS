@@ -25,12 +25,6 @@ const struct BPTorrentAttributes BPTorrentAttributes = {
 	.uploadRatio = @"uploadRatio",
 };
 
-const struct BPTorrentRelationships BPTorrentRelationships = {
-};
-
-const struct BPTorrentFetchedProperties BPTorrentFetchedProperties = {
-};
-
 @implementation BPTorrentID
 @end
 
@@ -56,7 +50,7 @@ const struct BPTorrentFetchedProperties BPTorrentFetchedProperties = {
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
+
 	if ([key isEqualToString:@"addedDateValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"addedDate"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -136,12 +130,7 @@ const struct BPTorrentFetchedProperties BPTorrentFetchedProperties = {
 	return keyPaths;
 }
 
-
-
-
 @dynamic addedDate;
-
-
 
 - (int64_t)addedDateValue {
 	NSNumber *result = [self addedDate];
@@ -161,13 +150,7 @@ const struct BPTorrentFetchedProperties BPTorrentFetchedProperties = {
 	[self setPrimitiveAddedDate:[NSNumber numberWithLongLong:value_]];
 }
 
-
-
-
-
 @dynamic desiredAvailable;
-
-
 
 - (float)desiredAvailableValue {
 	NSNumber *result = [self desiredAvailable];
@@ -187,13 +170,7 @@ const struct BPTorrentFetchedProperties BPTorrentFetchedProperties = {
 	[self setPrimitiveDesiredAvailable:[NSNumber numberWithFloat:value_]];
 }
 
-
-
-
-
 @dynamic error;
-
-
 
 - (int32_t)errorValue {
 	NSNumber *result = [self error];
@@ -213,27 +190,11 @@ const struct BPTorrentFetchedProperties BPTorrentFetchedProperties = {
 	[self setPrimitiveError:[NSNumber numberWithInt:value_]];
 }
 
-
-
-
-
 @dynamic errorString;
-
-
-
-
-
 
 @dynamic hashString;
 
-
-
-
-
-
 @dynamic id;
-
-
 
 - (int32_t)idValue {
 	NSNumber *result = [self id];
@@ -253,13 +214,7 @@ const struct BPTorrentFetchedProperties BPTorrentFetchedProperties = {
 	[self setPrimitiveId:[NSNumber numberWithInt:value_]];
 }
 
-
-
-
-
 @dynamic isFinished;
-
-
 
 - (BOOL)isFinishedValue {
 	NSNumber *result = [self isFinished];
@@ -279,13 +234,7 @@ const struct BPTorrentFetchedProperties BPTorrentFetchedProperties = {
 	[self setPrimitiveIsFinished:[NSNumber numberWithBool:value_]];
 }
 
-
-
-
-
 @dynamic isPendingDeletion;
-
-
 
 - (BOOL)isPendingDeletionValue {
 	NSNumber *result = [self isPendingDeletion];
@@ -305,13 +254,7 @@ const struct BPTorrentFetchedProperties BPTorrentFetchedProperties = {
 	[self setPrimitiveIsPendingDeletion:[NSNumber numberWithBool:value_]];
 }
 
-
-
-
-
 @dynamic leftUntilDone;
-
-
 
 - (int64_t)leftUntilDoneValue {
 	NSNumber *result = [self leftUntilDone];
@@ -331,13 +274,7 @@ const struct BPTorrentFetchedProperties BPTorrentFetchedProperties = {
 	[self setPrimitiveLeftUntilDone:[NSNumber numberWithLongLong:value_]];
 }
 
-
-
-
-
 @dynamic magenetLink;
-
-
 
 - (int32_t)magenetLinkValue {
 	NSNumber *result = [self magenetLink];
@@ -357,20 +294,9 @@ const struct BPTorrentFetchedProperties BPTorrentFetchedProperties = {
 	[self setPrimitiveMagenetLink:[NSNumber numberWithInt:value_]];
 }
 
-
-
-
-
 @dynamic name;
 
-
-
-
-
-
 @dynamic percentDone;
-
-
 
 - (float)percentDoneValue {
 	NSNumber *result = [self percentDone];
@@ -390,13 +316,7 @@ const struct BPTorrentFetchedProperties BPTorrentFetchedProperties = {
 	[self setPrimitivePercentDone:[NSNumber numberWithFloat:value_]];
 }
 
-
-
-
-
 @dynamic rateDownload;
-
-
 
 - (float)rateDownloadValue {
 	NSNumber *result = [self rateDownload];
@@ -416,13 +336,7 @@ const struct BPTorrentFetchedProperties BPTorrentFetchedProperties = {
 	[self setPrimitiveRateDownload:[NSNumber numberWithFloat:value_]];
 }
 
-
-
-
-
 @dynamic rateUpload;
-
-
 
 - (float)rateUploadValue {
 	NSNumber *result = [self rateUpload];
@@ -442,13 +356,7 @@ const struct BPTorrentFetchedProperties BPTorrentFetchedProperties = {
 	[self setPrimitiveRateUpload:[NSNumber numberWithFloat:value_]];
 }
 
-
-
-
-
 @dynamic recheckProgress;
-
-
 
 - (float)recheckProgressValue {
 	NSNumber *result = [self recheckProgress];
@@ -468,20 +376,9 @@ const struct BPTorrentFetchedProperties BPTorrentFetchedProperties = {
 	[self setPrimitiveRecheckProgress:[NSNumber numberWithFloat:value_]];
 }
 
-
-
-
-
 @dynamic sortName;
 
-
-
-
-
-
 @dynamic status;
-
-
 
 - (int32_t)statusValue {
 	NSNumber *result = [self status];
@@ -501,13 +398,7 @@ const struct BPTorrentFetchedProperties BPTorrentFetchedProperties = {
 	[self setPrimitiveStatus:[NSNumber numberWithInt:value_]];
 }
 
-
-
-
-
 @dynamic totalSize;
-
-
 
 - (int64_t)totalSizeValue {
 	NSNumber *result = [self totalSize];
@@ -527,13 +418,7 @@ const struct BPTorrentFetchedProperties BPTorrentFetchedProperties = {
 	[self setPrimitiveTotalSize:[NSNumber numberWithLongLong:value_]];
 }
 
-
-
-
-
 @dynamic uploadRatio;
-
-
 
 - (float)uploadRatioValue {
 	NSNumber *result = [self uploadRatio];
@@ -553,15 +438,6 @@ const struct BPTorrentFetchedProperties BPTorrentFetchedProperties = {
 	[self setPrimitiveUploadRatio:[NSNumber numberWithFloat:value_]];
 }
 
-
-
-
-
-
-
-
-
-
 + (NSArray*)fetchAllVisibleTorrents:(NSManagedObjectContext*)moc_ {
 	NSError *error = nil;
 	NSArray *result = [self fetchAllVisibleTorrents:moc_ error:&error];
@@ -579,9 +455,9 @@ const struct BPTorrentFetchedProperties BPTorrentFetchedProperties = {
 	NSError *error = nil;
 
 	NSManagedObjectModel *model = [[moc_ persistentStoreCoordinator] managedObjectModel];
-	
+
 	NSDictionary *substitutionVariables = [NSDictionary dictionary];
-	
+
 	NSFetchRequest *fetchRequest = [model fetchRequestFromTemplateWithName:@"AllVisibleTorrents"
 													 substitutionVariables:substitutionVariables];
 	NSAssert(fetchRequest, @"Can't find fetch request named \"AllVisibleTorrents\".");
@@ -591,6 +467,5 @@ const struct BPTorrentFetchedProperties BPTorrentFetchedProperties = {
 	return result;
 }
 
-
-
 @end
+
